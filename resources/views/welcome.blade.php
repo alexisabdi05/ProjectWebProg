@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Welcome Back to Laravel</title>
+        <title>Welcome Laravel</title>
 
 
         <!-- Fonts -->
