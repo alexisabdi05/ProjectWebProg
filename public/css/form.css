@@ -1,0 +1,13 @@
+form {
+    padding: 12px 31px;
+    margin-bottom: 50px;
+}
+
+input {
+    border-radius: 30px;
+    text-indent: 50px;
+}
+
+input:focus {
+    outline: none;
+}

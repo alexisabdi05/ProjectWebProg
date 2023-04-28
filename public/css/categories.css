@@ -1,0 +1,144 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+
+body {
+    background-color: #f4f9fc;
+    background-image: url("../Asset/Frame 4.png");
+    background-repeat: no-repeat;
+    background-position-y: 200px;
+    background-size: cover;
+}
+
+p,
+h1,
+h2,h3,h4,h5 {
+    font-family: "Roboto";
+    font-style: normal;
+}
+
+p {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 59px;
+    color: #000000;
+    text-align: center;
+}
+
+ul > li > h2 {
+    margin-top: 4px;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 29px;
+    color: #918e8f;
+}
+
+ul > li > h1 {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    color: #000000;
+}
+
+.box {
+    margin-top: 89.51px;
+    position: absolute;
+    z-index: -1;
+    width: 293px;
+    height: 211px;
+    background-color: rgba(255, 255, 255, 0.68);
+    border-radius: 25px;
+}
+
+.cate {
+    margin: 0px 265.5px;
+    margin-top: 5px;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 65px;
+}
+
+ul > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 293px;
+    height: 307.44px;
+}
+
+.course {
+    margin-top: 82px;
+    margin-bottom: 34px;
+}
+
+.layout > li {
+    width: 457px;
+    height: 611px;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+
+.layout{
+    margin: 0px 160.5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 64px;
+}
+
+.cour > div {
+    border-radius: 20px 20px 0px 0px;
+    width: 457px;
+    height: 306px;
+    background-image: url("../Asset/courseBg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.layout > li > h3 {
+
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    color: #000000;
+    margin-top: 31px;
+    margin-bottom: 22px;
+    margin-right: 26px;
+    margin-left: 26px;
+}
+
+.layout > li > h4 {
+
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 29px;
+    color: #494949;
+    margin-left: 26px;
+    margin-right: 26px;
+    margin-bottom: 22px;
+}
+
+.layout > li > h5 {
+
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 29px;
+    color: #ffffff;
+    background: #0d6efd;
+    border-radius: 12px;
+    padding: 9.5px 19.5px;
+    width: 180px;
+    height: 48px;
+    margin-left: 26px;
+}
+
+.courses{
+    margin-bottom: 100px;
+}
