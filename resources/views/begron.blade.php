@@ -15,6 +15,6 @@
     @include('layout/navbar')
   </div>
 
-  {{-- bla --}}
+  {{-- bla bla--}}
 </body>
 </html>
