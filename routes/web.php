@@ -36,3 +36,8 @@ Route::get('/colorpaletteoutput', function () {
     return view('coloroutput');
 });
 
+Route::get('/colorpalette', function () {
+    return view('color');
+});
+
+

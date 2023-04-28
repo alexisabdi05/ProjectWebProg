@@ -15,7 +15,7 @@
             <div class="left w-2/4">
                 <h1 class="text-2xl font-bold text-black">DRAG & DROP</h1>
                 <p class="mt-2 text-lg font-bold text-black">Drag and drop your photos, and watch the magic happen<p>
-                    <img src="img/drag&grop.png" class="w-3/4" alt="">
+                    <img src="img/drag&grop.png" class="" alt="">
             </div>
             <img src="img/imgcolorexample.png" class="cont" alt="">
         </div>
@@ -27,7 +27,7 @@
             <p class="text-lg">"Color is a universal language that speaks to all people."</p>
             <p class="text-base mt-2">-John Hench</p>
         </div>
-    <div class="gradient-circle ellipse-1"></div>
+        <div class="gradient-circle ellipse-1"></div>
     <div class="gradient-circle ellipse-2"></div>
     <div class="gradient-circle ellipse-4"></div>
     <div class="gradient-circle ellipse-3"></div>
