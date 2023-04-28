@@ -23,10 +23,8 @@
             <img src="img/imgcoloroutput.png" class="" alt="">
         </div>
         <h1 class="ml-20 text-2xl font-bold text-black">You Want More?</h1>
-        <div class="input mb-10 mt-5 mx-20 rounded-3xl flex justify-center items-center flex-col">
-            <img src="img/pict.png" class="w-28" alt="">
-            <p class="text-base">Upload your image here</p>
-        </div>
+        <a href="/colorpaletteoutput" class="input my-10 mx-20 rounded-3xl flex justify-center items-center flex-col hover:bg-slate-200 active:bg-slate-300"><img src="img/pict.png" class="w-28" alt="">
+            <p class="text-base">Upload your image here</p></a>
 
         <div class="qoutes flex justify-center items-center flex-col">
             <p class="text-lg">"Color is a universal language that speaks to all people."</p>
@@ -37,5 +35,6 @@
     <div class="gradient-circle ellipse-4"></div>
     <div class="gradient-circle ellipse-3"></div>
     <div class="gradient-circle ellipse-5"></div>
+    @include('layout/footer')
 </body>
 </html>

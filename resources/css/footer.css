@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.footer {
+    background: linear-gradient(96.57deg, #767bde 20.06%, #f78c98 81.5%);
+    height: 20rem;
+}
+
+.footerdown {
+    background: linear-gradient(96.57deg, #767bde 20.06%, #f78c98 81.5%);
+}
+
+.down {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    height: 2rem;
+}
+
+.down p {
+    margin: auto;
+}
+
+.kol {
+    /* border: 1px solid black; */
+}
+
+.kol img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
