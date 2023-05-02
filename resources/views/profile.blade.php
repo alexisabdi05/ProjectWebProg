@@ -26,5 +26,6 @@
     <img src="{{ asset('img/profile.png') }}" class="img-profile">
     </div>
   </div>
+  @include('layout/footer')
 </body>
 </html>

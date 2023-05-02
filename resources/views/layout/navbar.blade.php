@@ -5,13 +5,13 @@
         <div class="flex items-center">
           <div class="hidden sm:block sm:ml-8">
             <div class="flex">
-              <a href="#" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Home</a>
+              <a href="/home" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Home</a>
               <a href="#" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">About Us</a>
               <a href="#" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Course</a>
-              <a href="#" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Color Palette</a>
+              <a href="/colorpalette" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Color Palette</a>
             </div>
           </div>
-          <a href="#" class="ml-3 inline-flex items-center justify-center flex-1 px-10 py-1 border border-transparent text-lg font-bold rounded-full text-white bg-gradient-to-r from-indigo-500 to-pink-500 hover:text-white shadow-md" style="background: linear-gradient(138.13deg, #7479DC 20.2%, #F58A96 76.37%); box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.35); border-radius: 38px;">
+          <a href="/signin" class="ml-3 inline-flex items-center justify-center flex-1 px-10 py-1 border border-transparent text-lg font-bold rounded-full text-white bg-gradient-to-r from-indigo-500 to-pink-500 hover:text-white shadow-md" style="background: linear-gradient(138.13deg, #7479DC 20.2%, #F58A96 76.37%); box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.35); border-radius: 38px;">
             Sign In
           </a>
           <div class="block sm:hidden">
