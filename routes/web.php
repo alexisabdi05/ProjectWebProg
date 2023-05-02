@@ -16,9 +16,20 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('home');
+    return view('categories');
 });
 
+Route::get('/courses', function () {
+    return view('courses');
+});
+
+Route::get('/ps', function () {
+    return view('photoshop');
+});
+
+Route::get('/home', function () {
+    return view('home');
+});
 
 Route::get('/signin', function () {
     return view('signin');
