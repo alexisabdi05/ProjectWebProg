@@ -11,22 +11,24 @@ body {
     z-index: -1;
 }
 
-.left {
+/* SECTION1 */
+
+.left1 {
     /* background-color: aqua; */
     width: 50%;
     margin-top: 3.4vw;
     padding-top: 12vw;
     padding-left: 5vw;
-    padding-bottom: 12.5vw;
+    padding-bottom: 10.5vw;
 }
 
-.left h6{
+.left1 h6{
     color: #858585;
     opacity: 88;
     font-size: 2.2vw;
 }
 
-.left h4 {
+.left1 h4 {
     font-size: 3.9vw;
 }
 
@@ -56,7 +58,7 @@ body {
     align-items: center;
 }
 
-.right {
+.right1 {
     width: 50%;
     /* background-color: red; */
     align-items: center;
@@ -64,6 +66,62 @@ body {
     padding-bottom: 5.3vw;
 }
 
-.right img {
+.right1 img {
     width: 45vw;
+}
+
+/* SECTION 2 */
+
+.section2 {
+    justify-content: center;
+    margin-bottom: 50vw;
+    text-align: center;
+}
+
+.section2 h1 {
+    font-size: 2.6vw;
+    font-weight: 700;
+    margin-top: 5vw;
+    /* background-color: aqua; */
+
+}
+
+.course {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* background-color: aquamarine; */
+}
+
+.course_full {
+    /* background-color: aquamarine; */
+    width: 15vw;
+    justify-content: center;
+    margin: 0 2vw 1.8vw 2vw;
+}
+
+.course_full img {
+    position: absolute;
+    width: 10vw;
+    margin: 0 2.5vw 0 2.5vw;
+    /* background-color: aqua; */
+}
+
+.course_text {
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.801);
+    margin-top: 5vw;
+    padding: 5vw 1.5vw 2vw 1.5vw;
+    border-radius: 1vw;
+}
+
+.course_text h6 {
+    font-size: 1.4vw;
+    font-weight: 700;
+}
+
+.course_text p {
+    font-size: 1.2vw;
+    font-weight: 700;
+    color: #918E8F;
 }
