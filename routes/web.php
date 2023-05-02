@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('categories');
 });
@@ -24,3 +26,17 @@ Route::get('/courses', function () {
 Route::get('/ps', function () {
     return view('photoshop');
 });
+
+
+Route::get('/signin', function () {
+    return view('signin');
+});
+
+Route::get('/signup', function () {
+    return view('signup');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
