@@ -25,7 +25,7 @@
         </div>
       <div class="flex gap-1 mb-4">
             <p class="text-gray-400 text-xl font-medium">Already have an account? </p>
-            <a class="text-gray-400 text-xl underline decoration-indigo-500 font-bold"href="#">Sign in</a>
+            <a class="text-gray-400 text-xl underline decoration-indigo-500 font-bold"href="/signin">Sign in</a>
       </div>
       <div class="mt-2">
         <button class="bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 text-neutral-500 font-bold text-xl py-2 px-12 rounded-xl focus:outline-none focus:shadow-outline mx-auto shadow-md" type="button" style="background-image: linear-gradient(180deg, #EF909B 0%, rgb(255, 226, 234) 100%);">
