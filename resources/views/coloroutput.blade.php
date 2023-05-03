@@ -21,6 +21,13 @@
         <div class="output my-10 mx-20 rounded-3xl flex justify-center items-center flex-col">
             <h1 class="font-bold text-black mb-4">YOUR IMAGE:</h1>
             <img src="img/imgcoloroutput.png" class="" alt="">
+            <div class="boxes">
+                <div class="box" style="background-color: #E28633"></div>
+                <div class="box" style="background-color: #783E16"></div>
+                <div class="box" style="background-color: #457A88"></div>
+                <div class="box" style="background-color: #114E63"></div>
+                <div class="box" style="background-color: #172D38"></div>
+            </div>
         </div>
         <h1 class="ml-20 text-4xl font-bold text-black">You Want More?</h1>
         <a href="/colorpaletteoutput" class="input rounded-3xl flex justify-center items-center flex-col hover:bg-slate-200 active:bg-slate-300"><img src="img/pict.png" class="w-28" alt="">
