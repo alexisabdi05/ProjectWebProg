@@ -62,7 +62,7 @@ body {
 
 .navbar-container {
     height: 8vh;
-    margin-bottom: 13vh;
+    margin-bottom: 10vw;
 }
 
 .top {
@@ -72,13 +72,25 @@ body {
     /* border: 1px solid black; */
 }
 
+.left {
+    margin-left: 2vw;
+}
+
 .cont {
-    height: 25rem;
-    margin-left: 7vw;
+    height: 30vw;
+    margin-left: 9vw;
 }
 
 .left img {
-    width: 27rem;
+    width: 30vw;
+}
+
+.left h1 {
+    font-size: 5vw;
+}
+
+.left p {
+    font-size: 2.2vw;
 }
 
 .input {
@@ -88,19 +100,36 @@ body {
         rgba(242, 242, 242, 0) 100%
     );
     border: 0.125rem dashed rgba(133, 133, 133, 0.88);
-    height: 25rem;
+    height: 30vw;
+    margin: 3vw 4vw;
     color: rgba(0, 0, 0, 0.49);
+}
+
+.input img {
+    width: 9vw;
+}
+
+.input p {
+    font-size: 1.8vw;
 }
 
 .qoutes {
     color: #858585;
 }
 
+.qoutes p {
+    font-size: 2vw;
+}
+
 .output {
     background: white;
-    height: 30rem;
+    height: 35vw;
 }
 
 .output img {
-    width: 30rem;
+    width: 33vw;
+}
+
+.output h1 {
+    font-size: 2vw;
 }
