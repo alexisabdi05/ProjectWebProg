@@ -4,7 +4,7 @@
         <div class="kol flex flex-col  text-white">
             <h2 class="text-2xl mb-2 font-semibold">ColorVerse</h2>
             <a href="#" class="text-base mb-1 hover:text-gray-900 " >About Us</a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 " >Course</a>
+            <a href="/courses" class="text-base mb-1 hover:text-gray-900 " >Course</a>
             <a href="/colorpalette" class="text-base mb-1 hover:text-gray-900 " >Color Palette</a>
         </div>
         <div class="kol flex flex-col  text-white">
