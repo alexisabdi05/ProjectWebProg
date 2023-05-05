@@ -76,3 +76,11 @@ body {
     left: 52.5vh;
 }
 
+.continue{
+    position: relative;
+    z-index: 1;
+    margin-top: 2vw;
+    @apply container mx-auto w-11/12 flex flex-col gap-7 md:flex-row;
+
+}
+
