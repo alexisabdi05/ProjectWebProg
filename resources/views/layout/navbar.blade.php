@@ -5,9 +5,9 @@
         <div class="flex items-center">
           <div class="hidden sm:block sm:ml-8">
             <div class="flex">
-              <a href="#" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Home</a>
+              <a href="/home" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Home</a>
               <a href="#" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">About Us</a>
-              <a href="#" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Course</a>
+              <a href="/courses" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Course</a>
               <a href="/colorpalette" class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Color Palette</a>
             </div>
           </div>
