@@ -4,7 +4,6 @@
 
 .footer {
     background: linear-gradient(96.57deg, #767bde 20.06%, #f78c98 81.5%);
-    height: 20rem;
 }
 
 .footerdown {
@@ -22,10 +21,16 @@
 }
 
 .kol {
-    /* border: 1px solid black; */
 }
 
 .kol img {
     width: 1.5rem;
     height: 1.5rem;
+}
+
+@media screen and (max-width: 840px) {
+    .kol {
+        margin-left: 2vw;
+        margin-bottom: 3vw;
+    }
 }
