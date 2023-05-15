@@ -8,6 +8,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * test
      */
     public function up(): void
     {
@@ -30,3 +31,5 @@ return new class extends Migration
         Schema::dropIfExists('course_detail');
     }
 };
+
+
