@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('course', function (Blueprint $table) {
-            $table->string('CourseID')->unique()->autoincrement();
-            $table->string('CategoryID')->unique();
+            $table->increments('CourseID');
+            $table->integer('CategoryID');
             // $table->foreign('CategoryID')->references('CategoryID')->on('category');
             $table->string('CourseName');
             $table->text('CourseDesc');

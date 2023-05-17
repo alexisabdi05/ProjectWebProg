@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+    public $table = "course";
     public function Category()
     {
         return $this->belongsTo(Category::class);
