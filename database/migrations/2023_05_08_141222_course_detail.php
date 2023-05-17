@@ -9,6 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      * test
+     * test lg
      */
     public function up(): void
     {
