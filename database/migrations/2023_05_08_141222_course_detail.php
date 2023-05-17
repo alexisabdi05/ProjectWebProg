@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('course_detail', function (Blueprint $table) {
-            $table->string('CourseID')->unique();
+            $table->string('CourseID');
             // $table->foreign('CourseID')->references('CourseID')->on('course');
             $table->string('CourseDetailTitle');
             $table->text('CourseDetailDesc');
