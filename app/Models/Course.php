@@ -11,6 +11,11 @@ class Course extends Model
     public $table = "course";
     public function Category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'CategoryID', 'CategoryID');
+    }
+
+    public function CourseDetail()
+    {
+        return $this->HasOne(CourseDetail::class,'CourseID', 'CourseID');
     }
 }

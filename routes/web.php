@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\categoryController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\courseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
