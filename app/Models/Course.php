@@ -16,6 +16,6 @@ class Course extends Model
 
     public function CourseDetail()
     {
-        return $this->HasOne(CourseDetail::class,'CourseID', 'CourseID');
+        return $this->hasMany(CourseDetail::class,'CourseID', 'CourseID');
     }
 }
