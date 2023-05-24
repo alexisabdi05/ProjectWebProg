@@ -1298,8 +1298,7 @@ class CourseDetailSeeder extends Seeder
                 'CourseID' => 6,
                 'CourseDetailTitle' => 'Adobe Illustrator CC Tutorial Flat Design of a Shoe',
                 'CourseDetailDesc' => "In this Adobe Illustrator CC tutorial we will learn to create a Flat Shoe  Design for Beginners. If you don't understand any part of the video tutorial, please let me know in the comments section, with timing of that particular part of illustrator cc video tutorial , I will be more than obliged to respond, if I can. The Color Palates are included at the end of the video. And if you also have any other Question, about Adobe Illustrator CC, or any other Software's that I have tutorials for, on my Channel,  I will try to solve that problem of yours if I can.",
-                'CourseDetailDesc' => "https://www.youtube.com/watch?v=MbyDe-iIzR4&list=PLrdZb8zHBvYR3RVcte76JYTqdzVMriplD&index=6",
-                'CourseDetailVideo' => '',
+                'CourseDetailVideo' => 'https://www.youtube.com/watch?v=MbyDe-iIzR4&list=PLrdZb8zHBvYR3RVcte76JYTqdzVMriplD&index=6',
                 'CourseStatus' => 0,
                 'day' => 5
             ]
