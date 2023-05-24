@@ -37,7 +37,7 @@ class CourseSeeder extends Seeder
             [
                 'CategoryID' => 1,
                 'CourseName' => 'Photoshop Effect Tutorials',
-                'CourseDesc' => "Lorem~",
+                'CourseDesc' => "The Photoshop course video is a comprehensive tutorial series designed to teach beginners and intermediate users how to effectively use Adobe Photoshop, a powerful software for image editing and manipulation. The video covers various essential topics, including navigating the Photoshop interface, understanding layers and selections, applying adjustments and filters, working with text and shapes, and utilizing advanced techniques like retouching and compositing.",
                 'CourseIMG' => '-',
                 'author' => 'Photoshop Tutorials'
             ]
@@ -57,7 +57,7 @@ class CourseSeeder extends Seeder
             [
                 'CategoryID' => 2,
                 'CourseName' => 'Adobe Illustrator Tutorials',
-                'CourseDesc' => "Lorem~ ",
+                'CourseDesc' => "The Adobe Illustrator course video is a comprehensive tutorial series designed to teach beginners and intermediate users how to effectively utilize Adobe Illustrator, a powerful vector graphics software. The video provides a step-by-step guide to mastering the essential tools and features of Illustrator, enabling users to create stunning illustrations, logos, icons, and other vector-based artwork.",
                 'CourseIMG' => '-',
                 'author' => 'tutvid'
             ]
@@ -66,7 +66,7 @@ class CourseSeeder extends Seeder
             [
                 'CategoryID' => 2,
                 'CourseName' => 'Adobe Illustrator CC Flat Illustration Tutorial',
-                'CourseDesc' => "Lorem~ ",
+                'CourseDesc' => "Whether you are a graphic designer, illustrator, or someone interested in graphic arts, the Adobe Illustrator course video is an invaluable resource. It equips learners with the necessary skills and knowledge to confidently navigate Illustrator and unlock their potential in creating visually captivating and professional-grade vector-based artwork.",
                 'CourseIMG' => '-',
                 'author' => 'How to Graphic Design'
             ]
