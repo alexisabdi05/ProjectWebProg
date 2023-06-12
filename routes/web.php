@@ -1,7 +1,7 @@
 <?php
-
+use App\Http\Controllers\categoryController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\courseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +50,5 @@ Route::get('/colorpaletteoutput', function () {
 Route::get('/colorpalette', function () {
     return view('color');
 });
+
+Route::get('/test',[courseController::class,'index'] );
