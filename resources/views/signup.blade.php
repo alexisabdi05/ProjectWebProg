@@ -32,6 +32,10 @@
             Sign Up
           </button>
       </div>
+      <div class="mt-10 first-letter:qoutes flex justify-center items-center flex-col text-slate-600">
+        <p class="">"Color is a universal language that speaks to all people."</p>
+        <p class=" mt-2">-John Hench</p>
+      </div>
       <div class="my-8">
         <img src="{{ asset('img/signupp.png') }}" class="img-signup">
       </div>

@@ -64,3 +64,5 @@
     </li>
 </div>
 </ul>
+
+@include('layout/footer')
