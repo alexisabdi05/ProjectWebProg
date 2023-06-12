@@ -76,3 +76,31 @@ body {
     left: 52.5vh;
 }
 
+.continue{
+    position: relative;
+    z-index: 1;
+    margin-top: 2vw;
+    @apply container mx-auto w-11/12 flex flex-col gap-7 md:flex-row;
+
+}
+
+.continue .logo{
+    position: relative;
+    width: 9.5vw;
+    margin-top: -0.7vw;
+    margin-bottom:-0.5vw;
+    margin-left: -1.1vw;
+}
+
+.courses{
+    position: relative;
+    z-index: 1;
+    margin-top: 2vw;
+    @apply container mx-auto w-11/12 flex flex-col gap-7 md:flex-row;
+}
+
+.courses .logo{
+    position: relative;
+    width: 7vw;
+    margin-left: -1vw;
+}
