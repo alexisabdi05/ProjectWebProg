@@ -11,6 +11,6 @@ class CourseDetail extends Model
     use HasFactory;
     public function Course()
     {
-        return $this->belongsTo(Course::class,'CourseID', 'CourseID');
+        return $this->belongsTo(Course::class);
     }
 }

@@ -8,14 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
-    public $table = "course";
     public function Category()
     {
-        return $this->belongsTo(Category::class, 'CategoryID', 'CategoryID');
+        return $this->belongsTo(Category::class);
     }
 
     public function CourseDetail()
     {
-        return $this->hasMany(CourseDetail::class,'CourseID', 'CourseID');
+        return $this->hasMany(CourseDetail::class);
     }
 }
