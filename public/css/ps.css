@@ -4,6 +4,11 @@ body{
     max-width: 125vw;
 }
 
+.navbar-container{
+    height: 8vh;
+    font-family: 'Poppins';
+}
+
 p,h1,h2,h3,h4,h5,button, time{
     font-family: "Roboto";
     font-style: normal;

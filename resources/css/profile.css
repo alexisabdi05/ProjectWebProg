@@ -58,6 +58,7 @@ body {
 .navbar-container{
     height: 8vh;
     margin-bottom: 13vh;
+    font-family: 'Poppins';
 }
 
 .rectangle{

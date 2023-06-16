@@ -11,6 +11,11 @@ body {
     z-index: -1;
 }
 
+.navbar-container{
+    height: 8vh;
+    font-family: 'Poppins';
+}
+
 /* SECTION1 */
 
 .left1 {
