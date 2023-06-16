@@ -16,7 +16,7 @@ use App\Http\Controllers\courseController;
 
 
 Route::get('/', function () {
-    return view('categories');
+    return view('home');
 });
 
 Route::get('/courses', function () {
@@ -27,8 +27,8 @@ Route::get('/ps', function () {
     return view('photoshop');
 });
 
-Route::get('/home', function () {
-    return view('home');
+Route::get('/categories', function () {
+    return view('categories');
 });
 
 Route::get('/signin', function () {

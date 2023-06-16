@@ -14,6 +14,7 @@ body {
 .backgroundlgn {
     margin-top: -8vw;
     @apply max-h-full;
+    position: relative;
 }
 
 .gradient-circle {
@@ -67,22 +68,36 @@ body {
     margin-bottom: 13vh;
 }
 
-.backgroundlgn {
-    @apply h-full;
-}
-
 .login-box{
     @apply flex justify-center place-items-center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 90%;
+    max-width: 700px;
 }
 
 .form-lgn{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 55px 6px rgba(0, 0, 0, 0.6);
     border-radius: 34px;
-    margin-top: -55vw;
     @apply flex-col bg-white py-2 px-16 justify-center;
 }
 
 .inputbox{
     box-shadow: 0px 4px 10px rgba(133, 133, 133, 0.5);
     @apply flex items-center h-10 px-3 w-64 bg-gray-100 mb-6 shadow-gray-400 rounded-full focus:outline-none focus:ring-2 placeholder:font-bold placeholder-gray-400;
+}
+
+@media (max-width: 768px) {
+    .login-box {
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        width: 40%;
+    }
 }
