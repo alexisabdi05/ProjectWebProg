@@ -60,6 +60,39 @@
           </button>
     </div>
   </div>
+  <div class="courses">
+    <div class="w-full bg-white shadow-lg rounded-2xl flex flex-row justify-center items-center">
+        <img src="img/home_photoshop.png" class="logo">
+        <h4 class=" ml-24  text-3xl font-extrabold self-center">Be A Pro With Canva</h4>
+        <p class=" ml-32 text-2xl font-medium self-center">by</p>
+        <p class="ml-2 text-2xl self-center font-medium"> Stefan William</p>
+        <button class="text-black font-bold text-2xl py-2 px-16 self-center rounded-xl ml-36" type="button" style="border: 2px solid #0C0B0B; border-radius: 8px;">
+            View Course
+          </button>
+    </div>
+  </div>
+  <div class="courses">
+    <div class="w-full bg-white shadow-lg rounded-2xl flex flex-row justify-center items-center">
+        <img src="img/home_illustrator.png" class="logo">
+        <h4 class=" ml-24  text-3xl font-extrabold self-center">Be A Pro With Canva</h4>
+        <p class=" ml-32 text-2xl font-medium self-center">by</p>
+        <p class="ml-2 text-2xl self-center font-medium"> Stefan William</p>
+        <button class="text-black font-bold text-2xl py-2 px-16 self-center rounded-xl ml-36" type="button" style="border: 2px solid #0C0B0B; border-radius: 8px;">
+            View Course
+          </button>
+    </div>
+  </div>
+  <div class="courses">
+    <div class="w-full bg-white shadow-lg rounded-2xl flex flex-row justify-center items-center">
+        <img src="img/home_graphic.png" class="logo">
+        <h4 class=" ml-24  text-3xl font-extrabold self-center">Be A Pro With Canva</h4>
+        <p class=" ml-32 text-2xl font-medium self-center">by</p>
+        <p class="ml-2 text-2xl self-center font-medium"> Stefan William</p>
+        <button class="text-black font-bold text-2xl py-2 px-16 self-center rounded-xl ml-36" type="button" style="border: 2px solid #0C0B0B; border-radius: 8px;">
+            View Course
+          </button>
+    </div>
+  </div>
   @include('layout/footer')
 </body>
 </html>
