@@ -4,6 +4,7 @@
 @section('content')
 @include('include.form')
 
+
 <p class="course">Adobe Photoshop</p>
 
 <ul class="courses">
@@ -64,3 +65,5 @@
     </li>
 </div>
 </ul>
+
+@include('layout/footer')
