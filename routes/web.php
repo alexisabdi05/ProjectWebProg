@@ -27,6 +27,7 @@ Route::get('/signup', function () {
 });
 
 Route::post('/MakeUser', [userController::class, 'make']);
+Route::post('/validateSignIn', [userController::class, 'validate']);
 
 
 Route::get('/', function () {
@@ -36,6 +37,11 @@ Route::get('/', function () {
 
 Route::get('/{id}', function ($id) {
     $user = User::find($id);
+    return view('home',  compact('user'));
+});
+
+Route::get('/{username}', function ($username) {
+    $user = Admin::where('username', '=', $request->username)->get();
     return view('home',  compact('user'));
 });
 
