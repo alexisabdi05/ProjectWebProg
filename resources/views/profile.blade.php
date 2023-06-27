@@ -18,48 +18,61 @@
   <div class="navbar-container">
     @include('layout/navbar')
   </div>
-  <div class="rectangle">
-    <div class="w-70 md:w-3/4 h-64 bg-white shadow-lg rounded-2xl flex flex-col justify-center items-start">
-        <h1 class="text-6xl font-extrabold ml-12">Hello Manda!</h1>
-        <p class="text-lg ml-12">It's good to see you again.</p>
+
+  <div class="flex">
+    <div class="bg-white shadow-lg rounded-lg p-10 ml-5 z-50 w-1/3" style="background: linear-gradient(125deg, #F5C2C9, #B2B8EF);">
+        <div class="flex items-center">
+            <div class="w-32 h-32 rounded-full bg-white shadow-lg"></div>
+            <h1 class="ml-9 text-3xl font-medium text-white leading-8">Hello, <br> Amanda!</h1>
+        </div>
+
+        <div class="mt-6 flex">
+            <div class="bg-white rounded-lg p-2 py-4 shadow-md mr-8 w-1/2">
+                <div class="flex flex-col items-center">
+                    <h2 class="text-3xl font-bold content-center text-gray-600">4</h2>
+                    <p class="text-md text-center font-medium leading-4 content-center text-gray-400">Courses<br>On-Going</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg p-2 py-4 shadow-md w-1/2">
+                <div class="flex flex-col items-center">
+                    <h2 class="text-3xl font-bold content-center text-gray-600 ">8</h2>
+                    <p class="text-md text-center font-medium leading-4 content-center text-gray-400">Courses<br>Completed</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10">
+            <h2 class="text-2xl font-medium text-white mb-3">Achievement</h2>
+            <div class="mt-2">
+                <div class="mb-4">
+                    <span class="text-md text-white">Watch 10 Days Canva Course</span>
+                    <div class="bg-gray-200 rounded-full h-2 mt-1">
+                        <div class="bg-blue-500 rounded-full h-full" style="width: 50%;"></div> <!-- Adjust width based on progress percentage -->
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <span class="text-md text-white">Watch 10 Days Canva Course</span>
+                    <div class="bg-gray-200 rounded-full h-2 mt-1">
+                        <div class="bg-blue-500 rounded-full h-full" style="width: 75%;"></div> <!-- Adjust width based on progress percentage -->
+                    </div>
+                </div>
+                <div>
+                    <span class="text-md text-white">Watch 10 Days Canva Course</span>
+                    <div class="bg-gray-200 rounded-full h-2 mt-1">
+                        <div class="bg-blue-500 rounded-full h-full" style="width: 25%;"></div> <!-- Adjust width based on progress percentage -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="w-15 md:w-1/5 h-64 bg-white shadow-lg rounded-xl ml-3 flex flex-col justify-center content-center items-center">
-        <h1 class="text-6xl font-extrabold content-center">3</h1>
-        <p class="mt-3 text-lg text-center leading-snug content-center">Courses<br>Completed</p>
+    <div class="mt-3 ml-8 z-50">
+        <h1 class="text-xl font-semibold mb-3 text-gray-600 "> On-going course</h1>
     </div>
-    <div class="w-15 md:w-1/5 h-64 bg-white shadow-lg rounded-xl flex flex-col justify-center content-center items-center">
-        <h1 class="text-6xl font-extrabold content-center">5</h1>
-        <p class="mt-3 text-lg text-center leading-snug content-center">Courses<br>In Progress</p>
+    <div class="grid grid-cols-4 gap-4">
+
     </div>
-  </div>
-  <div>
-    <img src="{{ asset('img/profile.png') }}" class="img-profile">
-    </div>
-  </div>
-  <div class="continue">
-    <div class="w-full bg-white shadow-lg rounded-2xl flex flex-row justify-center">
-        <img src="img/home_photoshop.png" class="logo">
-        <h4 class=" ml-5 text-4xl font-extrabold self-center">Adobe Photoshop <br> Essentials</h4>
-        <p class=" ml-16 text-lg font-extrabold self-center">- </p>
-        <p class="ml-4 text-2xl self-center font-medium"> By Herman Ps Channel</p>
-        <p class="ml-24 text-3xl self-center font-medium"> 83%</p>
-        <button class="text-white font-bold text-3xl py-4 px-16 self-center rounded-2xl focus:outline-none focus:shadow-outline ml-24" type="button" style="background-image: linear-gradient(180deg, #7479DC 0%, #C6C6C6 100%); box-shadow: 0px 0px 7px #000000;">
-            Continue
-          </button>
-    </div>
-  </div>
-  <h4 class=" ml-20 mt-20 text-4xl font-extrabold self-center">Courses</h4>
-  <div class="courses">
-    <div class="w-full bg-white shadow-lg rounded-2xl flex flex-row justify-center items-center">
-        <img src="img/home_canva.png" class="logo">
-        <h4 class=" ml-24  text-3xl font-extrabold self-center">Be A Pro With Canva</h4>
-        <p class=" ml-32 text-2xl font-medium self-center">by</p>
-        <p class="ml-2 text-2xl self-center font-medium"> Stefan William</p>
-        <button class="text-black font-bold text-2xl py-2 px-16 self-center rounded-xl ml-36" type="button" style="border: 2px solid #0C0B0B; border-radius: 8px;">
-            View Course
-          </button>
-    </div>
-  </div>
-  @include('layout/footer')
+</div>
+
 </body>
 </html>
