@@ -1,10 +1,13 @@
 <?php
 use App\Models\User;
+use App\Models\Admin;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\courseController;
 use App\Http\Controllers\categoryController;
+use App\Http\Controllers\ColorPaletteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +18,10 @@ use App\Http\Controllers\categoryController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Route::fallback(function () {
+//     return '';
+// });
 
 Route::get('/signin', function () {
     $user = NULL;
@@ -30,20 +37,20 @@ Route::post('/MakeUser', [userController::class, 'make']);
 Route::post('/validateSignIn', [userController::class, 'validate']);
 
 
-Route::get('/', function () {
+Route::get('/home', function () {
     $user = NULL;
     return view('home', compact('user'));
 });
 
-Route::get('/{id}', function ($id) {
+Route::get('/home/{id}', function ($id) {
     $user = User::find($id);
     return view('home',  compact('user'));
 });
 
-Route::get('/{username}', function ($username) {
-    $user = Admin::where('username', '=', $request->username)->get();
-    return view('home',  compact('user'));
-});
+// Route::get('/{username}', function ($username) {
+//     $user = Admin::where('username', '=', $request->username)->get();
+//     return view('home',  compact('user'));
+// });
 
 
 Route::get('/courses', function () {
@@ -64,12 +71,13 @@ Route::get('/profile/{id}', function ($id) {
 });
 
 Route::get('/colorpaletteoutput', function () {
-    return view('coloroutput');
+    $colorPalette = NULL;
+    return view('coloroutput', compact('colorPalette'));
 });
 
-Route::get('/colorpalette', function () {
-    return view('color');
-});
+// Route::get('/colorpalette', function () {
+//     return view('color');
+// });
 
 Route::get('/courses/{id}', function ($id) {
     $user = User::find($id);
@@ -93,7 +101,33 @@ Route::get('/colorpaletteoutput/{id}', function ($id) {
 
 Route::get('/colorpalette/{id}', function ($id) {
     $user = User::find($id);
-    return view('color',  compact('user'));
+    $output = NULL;
+    return view('color',  compact('user', 'output'));
 });
 
-Route::get('/test',[courseController::class,'index'] );
+// Route::post('/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
+
+
+Route::post('/outputcolorgenerate', function (Request $request) {
+    $output = $request->all();
+    return redirect('/color');
+});
+
+Route::get('/test', function () {
+    $colorPalette = NULL;
+    return view('test', compact('colorPalette'));
+});
+
+// Route::fallback(function () {
+//     // Mengembalikan respons kosong tanpa output apapun
+//     return '';
+// });
+
+// routes/web.php
+
+Route::get('/', function () {
+    return view('test');
+});
+
+Route::post('/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
+

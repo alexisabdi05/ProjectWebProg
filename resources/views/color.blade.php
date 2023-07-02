@@ -19,13 +19,17 @@
             /* height: 90%; */
             /* margin-top: -3vw; */
         }
+
+        .highlight {
+            border: 0.2vw dashed #6e7bdb;
+        }
     </style>
 </head>
 
 <body>
-    <div class="navbar-container">
+    {{-- <div class="navbar-container">
         @include('layout/navbar')
-    </div>
+    </div> --}}
     <div class="backgroundColor flex flex-col justify-center text-center">
         <div class="top w-full px-16 flex flex-row items-center">
             <div class="left w-2/4">
@@ -38,25 +42,39 @@
         <div class="hasil hidden mt-4 flex flex-col justify-center align-center" id="showOutput">
             <h1 class="font-bold mb-2">Your Image</h1>
             <div class="output rounded-3xl flex justify-center items-center flex-col">
-                <img src="/img/imgcoloroutput.png" class="" alt="">
+                <div id="preview2" class="preview2 hidden">
+                    <img id="previewImage2" class="imDrag" src="" alt="Preview">
+                </div>
                 <div class="boxes">
-                    <div class="box" style="background-color: #E28633"></div>
-                    <div class="box" style="background-color: #783E16"></div>
-                    <div class="box" style="background-color: #457A88"></div>
-                    <div class="box" style="background-color: #114E63"></div>
-                    <div class="box" style="background-color: #172D38"></div>
+                    <div class="box" style="background-color: $output[0]"></div>
+                    <div class="box" style="background-color: $output[1]"></div>
+                    <div class="box" style="background-color: $output[2]"></div>
+                    <div class="box" style="background-color: $output[3]"></div>
+                    <div class="box" style="background-color: $output[4]"></div>
                 </div>
             </div>
             <h1 class="font-bold">You want more?</h1>
         </div>
-        <div class="con-input">
-            <a href="#"
-                class="input rounded-3xl flex justify-center items-center flex-col hover:bg-slate-200 active:bg-slate-300">
-                <img src="/img/pict.png" class="w-28" alt="">
-                <p class="">Upload your image here</p>
-            </a>
-        </div>
-        <button class="generate" id="generateBut">Generate</button>
+        <form class="con-input" method="POST" action="/generate-color-palette">
+            @csrf
+            <div class="flex items-center justify-center items-center">
+                <label for="file"
+                    class="input rounded-3xl flex justify-center items-center flex-col hover:bg-slate-200 active:bg-slate-300"
+                    id='dropArea'>
+                    <div id="preview" class="preview hidden">
+                        <img id="previewImage" class="imDrag" src="" alt="Preview">
+                    </div>
+                    <div class=" flex flex-col items-center justify-center pt-5 pb-6" id="elementUpload">
+                        <img src="/img/pict.png" class="w-28" alt="">
+                        <p class="">Upload your image here</p>
+                    </div>
+                    <input id="file" type="file" class="hidden" />
+                    {{-- <img src="" alt=""> --}}
+                    <p id="error-message" class="text-red-500 mt-2 hidden"></p>
+                </label>
+            </div>
+            <button class="generate hidden" id="generateBut" type="submit">Generate</button>
+        </form>
         <div class="qoutes flex justify-center items-center flex-col">
             <p class="font-bold">"Color is a universal language that speaks to all people."</p>
             <p class=" mt-2">-John Hench</p>
@@ -67,12 +85,83 @@
     @include('layout/footer')
 
     <script>
-        const generateBut = document.getElementById('generateBut');
-        const showOutput = document.getElementById('showOutput');
+        const dropArea = document.getElementById('dropArea');
+        const preview = document.getElementById('preview');
+        const previewImage = document.getElementById('previewImage');
+        const preview2 = document.getElementById('preview2');
+        const previewImage2 = document.getElementById('previewImage2');
+        const elementUpload = document.getElementById("elementUpload");
+        const generate = document.getElementById("generateBut");
+        const fileInput = document.getElementById('file');
+        const errorMessage = document.getElementById('error-message');
+        const hasil = document.getElementById('showOutput');
 
-        generateBut.addEventListener('click', function() {
-            showOutput.classList.toggle('hidden');
+        generate.addEventListener('click', function() {
+            // event.preventDefault();
+            // const file = event.dataTransfer.files;
+            // const reader = new FileReader();
+            previewImage2.src = previewImage.src;
+            hasil.classList.remove('hidden');
+            preview2.classList.remove('hidden');
+            preview.classList.add('hidden');
+            elementUpload.classList.remove('hidden');
+            reader.readAsDataURL(file);
         });
+        // Highlight drop area when dragging file over it
+        dropArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropArea.classList.add('highlight');
+        });
+
+        // Remove highlight when dragging file leaves drop area
+        dropArea.addEventListener('dragleave', (event) => {
+            event.preventDefault();
+            dropArea.classList.remove('highlight');
+        });
+
+        // Handle dropped file
+        dropArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropArea.classList.add('highlight');
+
+            const file = event.dataTransfer.files;
+
+            handleFileUpload(file[0]);
+        });
+
+
+        dropArea.addEventListener('change', (event) => {
+            const selectedFile = event.target.files;
+            dropArea.classList.add('highlight');
+            handleFileUpload(selectedFile[0]);
+        });
+
+        function handleFileUpload(file) {
+            if (file) {
+                const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+                if (validImageTypes.includes(file.type)) {
+                    const reader = new FileReader();
+                    reader.onload = function() {
+                        previewImage.src = reader.result;
+                        preview.classList.remove('hidden');
+                        elementUpload.classList.add('hidden');
+                        errorMessage.classList.add('hidden');
+                        generate.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    previewImage.src = '';
+                    preview.classList.add('hidden');
+                    errorMessage.innerText = 'Please upload a valid image file (JPEG, PNG, or GIF).';
+                    errorMessage.classList.remove('hidden');
+                }
+            } else {
+                previewImage.src = '';
+                preview.classList.add('hidden');
+                errorMessage.innerText = 'No file selected.';
+                errorMessage.classList.remove('hidden');
+            }
+        };
     </script>
 </body>
 

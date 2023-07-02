@@ -14,7 +14,7 @@ class userController extends Controller
         $user->email = $request->email;
         $user->username = $request->username;
         $user->password = $request->password;
-        $user->valAdmin= 0;
+        $user->valAdmin= FALSE;
         $user->save();
         return redirect( $user->id);
     }

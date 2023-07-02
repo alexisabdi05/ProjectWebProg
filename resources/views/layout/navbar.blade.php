@@ -9,7 +9,7 @@
             <div class="hidden sm:block sm:ml-10">
                 <div class="flex space-x-3">
                     <?php if($user == NULL) : ?>
-                    <a href="/"
+                    <a href="/home/{{ $user->id }}"
                         class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Home</a>
                     <a href="/categories"
                         class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Course</a>
