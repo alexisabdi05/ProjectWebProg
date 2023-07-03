@@ -158,7 +158,7 @@ class CourseSeeder extends Seeder
         Course::create(
             [
                 'category_id' => 5,
-                'CourseName' => 'Minimalist Logo Design Course // Logo Design Course',
+                'CourseName' => 'Minimalist Logo Design Course',
                 'CourseDesc' => "Welcome to the Minimalist Logo Design! In this comprehensive and practical course, you will learn the art of creating captivating and impactful logos with a minimalist approach. Whether you're a beginner looking to enter the world of logo design or an experienced designer aiming to refine your skills, this course is designed to help you unlock your creative potential and create visually stunning logos that make a lasting impression.",
                 'CourseIMG' => '-',
                 'author' => 'Zain Graphic'

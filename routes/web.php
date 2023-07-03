@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\courseController;
+use App\Http\Controllers\courseDetailController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\ColorPaletteController;
 /*
@@ -61,9 +62,10 @@ Route::get('/ps', function () {
     return view('photoshop');
 });
 
-Route::get('/categories', function () {
-    return view('categories');
-});
+Route::get('/categories', [categoryController::class, 'index']);
+Route::get('/categories/{id}', [courseController::class, 'index']);
+Route::get('/course', [courseController::class, 'show']);
+Route::get('/courses/{id}', [courseDetailController::class, 'index']);
 
 Route::get('/profile/{id}', function ($id) {
     $user = User::find($id);

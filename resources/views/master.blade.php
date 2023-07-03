@@ -13,6 +13,7 @@
     <div class="navbar-container">
         @include('layout/navbar')
     </div>
-@yield('content')
+    @yield('content')
+    @include('layout/footer')
 </body>
 </html>
