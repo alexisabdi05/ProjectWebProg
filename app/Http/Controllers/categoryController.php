@@ -15,4 +15,12 @@ class categoryController extends Controller
         // $courses = $courses[rand(1,$len)-1];
         return view('categories', compact('categories', 'courses'));
     }
+
+    public function open(){
+        $user = NULL;
+        $categories = Category::all();
+        $courses = Course::all();
+        $courses = $courses->shuffle();
+        return view('categories', compact('categories', 'courses', 'user'));
+    }
 }
