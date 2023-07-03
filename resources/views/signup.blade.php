@@ -28,7 +28,7 @@
             <h1 class="flex py-3 my-3 text-5xl text-indigo-500 font-bold justify-center">Sign Up</h1>
             <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6"
                 required>
-            {{-- <input class="inputbox" type="text" id="fname" name="username"> --}}
+            {{-- <input class="inputbox" type="text" id="fname" name="username">
             <input class="inputbox" type="email" id="email" placeholder="Email" name="email" required>
             <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8"
                 required>

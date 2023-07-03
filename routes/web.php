@@ -2,8 +2,8 @@
 use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\courseController;
 use App\Http\Controllers\courseDetailController;
@@ -53,7 +53,6 @@ Route::get('/home/{id}', function ($id) {
 //     return view('home',  compact('user'));
 // });
 
-
 Route::get('/courses', function () {
     return view('courses');
 });
@@ -62,10 +61,10 @@ Route::get('/ps', function () {
     return view('photoshop');
 });
 
-Route::get('/categories', [categoryController::class, 'index']);
-Route::get('/categories/{id}', [courseController::class, 'index']);
-Route::get('/course', [courseController::class, 'show']);
-Route::get('/courses/{id}', [courseDetailController::class, 'index']);
+Route::get('{user}/categories', [categoryController::class, 'index']);
+Route::get('{user}/categories/{id}', [courseController::class, 'index']);
+Route::get('{user}/course', [courseController::class, 'show']);
+Route::get('{user}/courses/{id}', [courseDetailController::class, 'index']);
 
 Route::get('/profile/{id}', function ($id) {
     $user = User::find($id);

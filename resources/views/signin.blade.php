@@ -15,7 +15,7 @@
     <div class="gradient-circle ellipse-2"></div>
     <div class="gradient-circle ellipse-4"></div>
     <div class="gradient-circle ellipse-3"></div>
-    {{-- <div class="gradient-circle ellipse-5"></div> --}}
+    {{-- <div class="gradient-circle ellipse-5"></div>
     <div class="navbar-container">
         @include('layout/navbar')
     </div>
