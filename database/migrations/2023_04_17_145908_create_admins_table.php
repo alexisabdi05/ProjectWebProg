@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('enrollment', function (Blueprint $table) {
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('course_id')->references('id')->on('courses');
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-
-            $table->Boolean('status')->default(FALSE);
+            $table->string('username');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('enrollment');
+        Schema::dropIfExists('admins');
     }
 };

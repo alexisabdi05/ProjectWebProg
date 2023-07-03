@@ -6,7 +6,15 @@ module.exports = {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            margin: {
+                '128': '33.25rem',
+                '41': '10.25rem',
+              },
+            fontSize: {
+                '4.5xl': '2.5rem',
+            },
+        },
     },
     plugins: [],
 };

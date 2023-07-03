@@ -29,38 +29,36 @@ body {
     left: -8%;
     top: 4%;
     background: linear-gradient(270.64deg, #BFBCEB 13.73%, #dcb9e7 92.26%);
-    filter: blur(130px);
+    filter: blur(3vw);
     z-index: -1;
 }
 
 .ellipse-2 {
     left: 70%;
-    top: 15%;
+    top: 35%;
     background: #FFDACA;
-    filter: blur(130px);
+    filter: blur(3vw);
 }
 
 .ellipse-3 {
     left: 40%;
     top: 15%;
     background: linear-gradient(109.91deg, #A9C5E7 10.17%, #F2CBEC 88.19%);
-    filter: blur(130px);
+    filter: blur(3vw);
 }
 
 .ellipse-4 {
     left: -15%;
     top: 55%;
     background: #FFDACA;
-    filter: blur(130px);
+    filter: blur(3vw);
 }
 
 .ellipse-5 {
-    width: 30vw;
-    height: 40vh;
-    left: 45%;
-    top: 110%;
-    background: linear-gradient(96.78deg, #F9DBCD -4.94%, #C4C3E9 86.78%);
-    filter: blur(5vw);
+    left: 40%;
+    top: 70%;
+    background: linear-gradient(96.78deg, #A9C5E7 -4.94%, #FFDACA 86.78%);
+    filter: blur(3vw);
 }
 
 .navbar-container{
@@ -75,19 +73,19 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    width: 90%;
+    width: 80%;
     max-width: 400px;
 }
 
 .form-lgn{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 55px 6px rgba(0, 0, 0, 0.6);
     border-radius: 34px;
-    @apply flex-col bg-white py-2 px-16 justify-center;
+    @apply flex-col bg-white px-10 justify-center;
 }
 
 .inputbox{
     box-shadow: 0px 4px 10px rgba(133, 133, 133, 0.5);
-    @apply flex items-center h-10 px-3 w-64 bg-gray-100 mb-6 shadow-gray-400 rounded-full focus:outline-none focus:ring-2 placeholder:font-bold placeholder-gray-400;
+    @apply flex items-center h-9 px-3 w-60 bg-gray-100 mb-6 shadow-gray-400 rounded-full focus:outline-none focus:ring-2 placeholder:font-bold text-sm placeholder-gray-400;
 }
 
 @media (max-width: 768px) {

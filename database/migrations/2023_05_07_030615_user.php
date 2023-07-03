@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('username');
-            $table->boolean('valAdmin')->default(false);
+            $table->Boolean('valAdmin')->default(FALSE);
             $table->timestamps();
         });
     }
