@@ -10,9 +10,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    {{-- <div class="navbar-container">
         @include('layout/navbar')
-    </div> --}}
     @yield('content')
     @include('layout/footer')
 </body>

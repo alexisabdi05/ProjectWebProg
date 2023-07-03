@@ -2,17 +2,17 @@
     <div class="max-w-screen flex flex-wrap items-center justify-between ml-10 p-2">
         <div class="flex items-center">
             <a href="/" class="flex items-center">
-                <img src="{{ asset('img/cvlogoo.png') }}" class="h-9" alt="Logo">
+                <img src="{{ asset('/img/cvlogoo.png') }}" class="h-9" alt="Logo">
             </a>
         </div>
         <div class="flex items-center">
             <div class="hidden sm:block sm:ml-10">
                 <div class="flex space-x-3">
-                    <a href="{{ $user->id }}/home/"
+                    <a href="/{{ $user->id }}/home/"
                         class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Home</a>
-                    <a href="{{ $user->id }}/categories/"
+                    <a href="/{{ $user->id }}/categories/"
                         class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Course</a>
-                    <a href="{{ $user->id }}/colorpalette/"
+                    <a href="/{{ $user->id }}/colorpalette/"
                         class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Color
                         Palette</a>
                 </div>

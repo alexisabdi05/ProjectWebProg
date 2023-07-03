@@ -9,12 +9,13 @@
                 <img src="/img/course-cover.png" alt="">
                 <div class="txt">
                     {{$course->CourseName}}
-                    {{-- {{$category->CategoryName}} Tutorial --}}
+                    {{$category[0]->CategoryName}} Tutorial
                     {{$course->CourseDesc}}
                 </div>
             </div>
             <div class="course-detail">
                 @foreach ($courseDetail as $cd)
+                <input type="checkbox">
                 Day {{$cd->day}}
                 <br>
                 {{$cd->CourseDetailTitle}}

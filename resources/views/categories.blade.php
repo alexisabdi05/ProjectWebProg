@@ -9,11 +9,11 @@
             categories.</p>
             <div class="categories">
                 @foreach ($categories as $category)
-                <a href="{{ $user->id }}/categories/{{ $category ->id}}">
+                <a href="/{{ $user->id }}/categories/{{ $category ->id}}">
                     <div class="category-list flex flex-col" style="
                         background-color:{{ $category->Color }}">
                         <div class="flex justify-center">
-                            <img class="w-fit" src="{{ $category ->CategoryIMG}}" alt="">
+                            <img class="w-fit" src="/{{ $category ->CategoryIMG}}" alt="">
                         </div>
                         <div class="flex h-full w-full justify-center">
                             <h1 class="cat-title self-center">{{ $category->CategoryName }}</h1>
@@ -35,10 +35,10 @@
 
     <div class="courses">
     @for ($i = 0; $i < 16; $i++)
-    <a href="{{ $user[$i]->id }}/courses/{{ $courses[$i]->id }}">
+    <a href="/{{ $user->id }}/courses/{{ $courses[$i]->id }}">
         <div class="course-list">
             <div  class="flex justify-center">
-                <img src="img/course-cover.png" alt="">
+                <img src="/img/course-cover.png" alt="">
             </div>
             {{-- <img src=" {{ $courses[$i]->CourseIMG }}" alt=""> --}}
             <div class="course-txt">

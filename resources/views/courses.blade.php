@@ -1,3 +1,4 @@
+
 @extends('master')
 @section('Title','Courses')
 @section('Style','/css/courses.css')
@@ -13,7 +14,7 @@
 
 <div class="courses">
 @foreach ($courses as $course )
-<a href="{{ $user->id }}/courses/{{ $course ->id}}">
+<a href="/{{ $user->id }}/courses/{{ $course ->id}}">
     <div class="course-list">
         <div  class="flex justify-center">
             <img src="/img/course-cover.png" alt="">

@@ -57,7 +57,7 @@
         </div>
         <form class="con-input" method="POST" action="/generate-color-palette">
             @csrf
-            <div class="flex items-center justify-center items-center">
+            <div class="flex items-center justify-center">
                 <label for="file"
                     class="input rounded-3xl flex justify-center items-center flex-col hover:bg-slate-200 active:bg-slate-300"
                     id='dropArea'>

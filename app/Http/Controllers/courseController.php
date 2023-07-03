@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class courseController extends Controller
 {
     
-    public function index($id, $user){
+    public function index($user, $id){
         $user = User::find($user);
         $courses = Category::find($id)->Course;
         $category = Category::find($id);
