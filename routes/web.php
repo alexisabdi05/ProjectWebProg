@@ -51,4 +51,8 @@ Route::get('/colorpalette', function () {
     return view('color');
 });
 
+Route::get('/achievement', function () {
+    return view('achievement');
+});
+
 Route::get('/test',[courseController::class,'index'] );

@@ -48,12 +48,19 @@ body {
 }
 
 .ellipse-5 {
-    width: 30vw;
-    height: 40vh;
     left: 45%;
-    top: 110%;
+    top: 105%;
+    z-index: -1;
     background: linear-gradient(96.78deg, #F9DBCD -4.94%, #C4C3E9 86.78%);
-    filter: blur(5vw);
+    filter: blur(4vw);
+}
+
+.ellipse-6 {
+    left: -2%;
+    top: 90%;
+    z-index: -1;
+    background: linear-gradient(96.78deg, #F9DBCD -4.94%, #C4C3E9 86.78%);
+    filter: blur(4vw);
 }
 
 .navbar-container{
