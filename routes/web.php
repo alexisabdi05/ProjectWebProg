@@ -38,69 +38,73 @@ Route::post('/MakeUser', [userController::class, 'make']);
 Route::post('/validateSignIn', [userController::class, 'validate']);
 
 
-Route::get('/home', function () {
-    $user = NULL;
-    return view('home', compact('user'));
-});
+// Route::get('/home', function () {
+//     $user = NULL;
+//     return view('home', compact('user'));
+// });
 
-Route::get('/home/{id}', function ($id) {
+Route::get('{id}/home/', function ($id) {
     $user = User::find($id);
     return view('home',  compact('user'));
-});
+})->name('home');
 
 // Route::get('/{username}', function ($username) {
 //     $user = Admin::where('username', '=', $request->username)->get();
 //     return view('home',  compact('user'));
 // });
 
+
 Route::get('/courses', function () {
     return view('courses');
 });
 
-Route::get('/ps', function () {
-    return view('photoshop');
-});
+
+// Route::get('/ps', function () {
+//     return view('photoshop');
+// });
+
 
 Route::get('{user}/categories', [categoryController::class, 'index']);
 Route::get('{user}/categories/{id}', [courseController::class, 'index']);
 Route::get('{user}/course', [courseController::class, 'show']);
 Route::get('{user}/courses/{id}', [courseDetailController::class, 'index']);
 
-Route::get('/profile/{id}', function ($id) {
+
+Route::get('{id}/profile/', function ($id) {
     $user = User::find($id);
     return view('profile',  compact('user'));
 });
 
-Route::get('/colorpaletteoutput', function () {
-    $colorPalette = NULL;
-    return view('coloroutput', compact('colorPalette'));
-});
+// Route::get('/colorpaletteoutput', function () {
+//     $colorPalette = NULL;
+//     return view('coloroutput', compact('colorPalette'));
+// });
 
 // Route::get('/colorpalette', function () {
 //     return view('color');
 // });
 
-Route::get('/courses/{id}', function ($id) {
-    $user = User::find($id);
-    return view('courses',  compact('user'));
-});
+// Route::get('/courses/', function ($id) {
+//     $user = User::find($id);
+//     return view('courses',  compact('user'));
+// });
 
-Route::get('/ps/{id}', function ($id) {
-    $user = User::find($id);
-    return view('photoshop',  compact('user'));
-});
+// Route::get('/ps/', function ($id) {
+//     $user = User::find($id);
+//     return view('photoshop',  compact('user'));
+// });
 
-Route::get('/categories/{id}', function ($id) {
-    $user = User::find($id);
-    return view('categories',  compact('user'));
-});
+// Route::get('/categories/', function ($id) {
+//     $user = User::find($id);
+//     return view('categories',  compact('user'));
+// });
 
-Route::get('/colorpaletteoutput/{id}', function ($id) {
+Route::get('{id}/colorpaletteoutput/', function ($id) {
     $user = User::find($id);
     return view('coloroputput',  compact('user'));
 });
 
-Route::get('/colorpalette/{id}', function ($id) {
+Route::get('{id}/colorpalette/', function ($id) {
     $user = User::find($id);
     $output = NULL;
     return view('color',  compact('user', 'output'));
@@ -134,6 +138,6 @@ Route::get('/', function () {
 Route::post('/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
 
 
-Route::get('/achievement', function () {
-    return view('achievement');
-});
+// Route::get('/achievement', function () {
+//     return view('achievement');
+// });

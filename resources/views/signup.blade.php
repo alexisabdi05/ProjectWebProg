@@ -10,7 +10,7 @@
 </head>
 
 <body>
-{{--
+    {{--
     <div class="gradient-circle ellipse-1"></div>
     <div class="gradient-circle ellipse-2"></div>
     <div class="gradient-circle ellipse-4"></div>
@@ -67,55 +67,60 @@
         });
     </script>
 --}}
-  <div class="gradient-circle ellipse-1"></div>
-  <div class="gradient-circle ellipse-2"></div>
-  <div class="gradient-circle ellipse-4"></div>
-  <div class="gradient-circle ellipse-3"></div>
-  <div class="gradient-circle ellipse-5"></div>
-  <div class="navbar-container">
-    @include('layout/navbar')
-  </div>
-  <div class="backgroundlgn">
-    <img src="{{ asset('img/bglogin.png') }}" class="bg-cover bg-center">
-  </div>
+    <div class="gradient-circle ellipse-1"></div>
+    <div class="gradient-circle ellipse-2"></div>
+    <div class="gradient-circle ellipse-4"></div>
+    <div class="gradient-circle ellipse-3"></div>
+    <div class="gradient-circle ellipse-5"></div>
+    <div class="navbar-container">
+        {{-- @include('layout/navbar') --}}
+    </div>
+    <div class="backgroundlgn">
+        <img src="{{ asset('img/bglogin.png') }}" class="bg-cover bg-center">
+    </div>
 
-  <div class="login-box">
-    <form class="form-lgn" action="">
-      <h1 class="flex py-3 my-3 text-4.5xl text-indigo-500 font-bold justify-center">Sign Up</h1>
-      <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6" required>
-      <input class="inputbox" type="email" id="email" placeholder="E-mail" name="email" required>
-      <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8" required>
-      <div class="flex mt-5 justify-center text-sm">
-        <p class="text-gray-400 font-medium">Already have an account? </p>
-        <a class="text-gray-500 mx-1 underline decoration-indigo-500 font-bold hover:text-indigo-500" href="/signin">Sign in</a>
-      </div>
-      <div class="flex justify-center py-5">
-        <button class="flex items-center justify-center h-8 w-44 bg-indigo-500 rounded-full font-bold text-sm text-white hover:bg-indigo-600">Create Account</button>
-      </div>
-    </form>
-  </div>
+    <div class="login-box">
+        <form class="form-lgn" action="/MakeUser" method="POST">
+            @csrf
+            <h1 class="flex py-3 my-3 text-4.5xl text-indigo-500 font-bold justify-center">Sign Up</h1>
+            <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6"
+                required>
+            <input class="inputbox" type="email" id="email" placeholder="E-mail" name="email" required>
+            <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8"
+                required>
+            <div class="flex mt-5 justify-center text-sm">
+                <p class="text-gray-400 font-medium">Already have an account? </p>
+                <a class="text-gray-500 mx-1 underline decoration-indigo-500 font-bold hover:text-indigo-500"
+                    href="/signin">Sign in</a>
+            </div>
+            <div class="flex justify-center py-5">
+                <button
+                    class="flex items-center justify-center h-8 w-44 bg-indigo-500 rounded-full font-bold text-sm text-white hover:bg-indigo-600">Create
+                    Account</button>
+            </div>
+        </form>
+    </div>
 
-  <script>
-    var form = document.querySelector('form');
-    form.addEventListener('submit', function(event) {
-      var passwordInput = document.getElementById('password');
-      var usernameInput = document.getElementById('username');
+    <script>
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            var passwordInput = document.getElementById('password');
+            var usernameInput = document.getElementById('username');
 
-      var password = passwordInput.value;
-      var username = usernameInput.value;
+            var password = passwordInput.value;
+            var username = usernameInput.value;
 
-      if (password.length < 8) {
-        event.preventDefault();
-        alert('Password must be at least 8 characters long.');
-      }
+            if (password.length < 8) {
+                event.preventDefault();
+                alert('Password must be at least 8 characters long.');
+            }
 
-      if (username.length < 6) {
-        event.preventDefault();
-        alert('Username must be at least 6 characters long.');
-      }
-    });
-
-  </script>
+            if (username.length < 6) {
+                event.preventDefault();
+                alert('Username must be at least 6 characters long.');
+            }
+        });
+    </script>
 </body>
 
 </html>
