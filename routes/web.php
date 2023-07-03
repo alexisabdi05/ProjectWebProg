@@ -68,6 +68,7 @@ Route::get('{user}/categories', [categoryController::class, 'index']);
 Route::get('{user}/categories/{id}', [courseController::class, 'index']);
 Route::get('{user}/course', [courseController::class, 'show']);
 Route::get('{user}/courses/{id}', [courseDetailController::class, 'index']);
+Route::post('/update-checkbox', [courseDetailController::class,'updateCheckbox']);
 
 
 Route::get('{id}/profile/', function ($id) {

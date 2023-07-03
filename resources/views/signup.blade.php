@@ -33,7 +33,7 @@
             <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8"
                 required>
             <div class="flex mt-5 justify-center text-s">
-                <p class="text-gray-400 font-medium">Already have an account? </p>
+                <p class="text-gray-400 font-medium">Alreuserady have an account? </p>
                 <a class="text-gray-500 mx-1 underline decoration-indigo-500 font-bold hover:text-indigo-500"
                     href="/signin">Sign in</a>
             </div>

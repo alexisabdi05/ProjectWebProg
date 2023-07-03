@@ -17,4 +17,19 @@ class courseDetailController extends Controller
         $category = Category::where('id', $course->category_id)->get();
         return view('coursedetail', compact('course','courseDetail','category', 'user'));
     }
+
+    public function updateCheckbox(Request $request)
+    {
+
+        $recordId = $request->input('recordId');
+        $isChecked = $request->input('isChecked');
+
+        // Update the corresponding record in the database
+        $courseDetail = CourseDetail::find($recordId);
+        $courseDetail-> CourseStatus = $isChecked;
+        $courseDetail->save();
+
+        // Return a response indicating success
+        return response()->json(['status' => 'success']);
+    }
 }
