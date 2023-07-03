@@ -1,11 +1,11 @@
 @vite('resources/css/footer.css')
-<div class="footer mt-12 tracking-wide font-semibold">
+<div class="footer tracking-wide font-semibold">
     <div class="up px-14 py-10 flex flex-row justify-around flex-wrap">
         <div class="kol flex flex-col  text-white">
             <h2 class="text-2xl mb-2 font-semibold">ColorVerse</h2>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 " >About Us</a>
-            <a href="/courses" class="text-base mb-1 hover:text-gray-900 " >Course</a>
-            <a href="/colorpalette" class="text-base mb-1 hover:text-gray-900 " >Color Palette</a>
+            <a href="#" class="text-base mb-1 hover:text-gray-900 ">About Us</a>
+            <a href="/courses" class="text-base mb-1 hover:text-gray-900 ">Course</a>
+            <a href="/colorpalette" class="text-base mb-1 hover:text-gray-900 ">Color Palette</a>
         </div>
         <div class="kol flex flex-col  text-white">
             <h2 class="text-2xl mb-2 font-semibold">Course</h2>

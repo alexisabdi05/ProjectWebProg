@@ -1,12 +1,72 @@
 <!doctype html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
-  @vite('resources/css/signin.css')
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    @vite('resources/css/signin.css')
 </head>
+
 <body>
+{{--
+    <div class="gradient-circle ellipse-1"></div>
+    <div class="gradient-circle ellipse-2"></div>
+    <div class="gradient-circle ellipse-4"></div>
+    <div class="gradient-circle ellipse-3"></div>
+    {{-- <div class="gradient-circle ellipse-5"></div> --}}
+    <div class="navbar-container">
+        @include('layout/navbar')
+    </div>
+    <div class="backgroundlgn">
+        <img src="{{ asset('img/bglogin.png') }}" class="bg-cover bg-center">
+    </div>
+    <div class="login-box">
+        <form class="form-lgn" method="POST" action="/validateSignIn">
+            @csrf
+            <h1 class="flex py-3 my-3 text-5xl text-indigo-500 font-bold justify-center">Sign In</h1>
+            <h3 class="text-gray-400 font-bold">Identification as</h3>
+            <ul
+                class="items-center w-full text-sm font-medium text-gray-900 bg-white sm:flex dark:bg-gray-700 dark:text-white mt-2 mb-5">
+                <li class="w-full sm:border-b-0  ">
+                    <div class="flex items-center pl-3">
+                        <input id="horizontal-list-radio-license" type="radio" name="identify" value="User"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-700  dark:bg-gray-600 dark:border-gray-500 mx-2">
+                        <label for="horizontal-list-radio-license" class="text-gray-400 font-medium">User
+                        </label>
+                    </div>
+                </li>
+                <li class="w-full border-b border-gray-200 sm:border-b-0  dark:border-gray-600">
+                    <div class="flex items-center pl-3">
+                        <input id="horizontal-list-radio-id" type="radio" name="identify" value="Admin"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-700  dark:bg-gray-600 dark:border-gray-500 mx-2">
+                        <label for="horizontal-list-radio-id" class="text-gray-400 font-medium">Admin</label>
+                    </div>
+                </li>
+            </ul>
+            <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6"
+                value="{{ old('username') }}" required>
+            @error('username')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+            <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8"
+                value="{{ old('password') }}" required>
+            @error('password')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+            <div class="flex mt-5 justify-center text-s">
+                <p class="text-gray-400 font-medium">Don't have account? </p>
+                <a class="text-gray-500 mx-1 underline decoration-indigo-500 font-bold hover:text-indigo-500"
+                    href="/signup">Sign Up</a>
+            </div>
+            <div class="flex justify-center py-7">
+                <button
+                    class="flex items-center justify-center h-9 w-48 bg-indigo-500 rounded-full font-bold text-sm text-white hover:bg-indigo-600">Login</button>
+            </div>
+        </form>
+    </div>
+--}}
   <div class="gradient-circle ellipse-1"></div>
   <div class="gradient-circle ellipse-2"></div>
   <div class="gradient-circle ellipse-4"></div>
@@ -33,37 +93,38 @@
     </form>
   </div>
 
-  <script>
-    var form = document.querySelector('form');
-    form.addEventListener('submit', function(event) {
-      var emailInput = document.getElementById('email');
-      var passwordInput = document.getElementById('password');
-      var usernameInput = document.getElementById('username');
+    <script>
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            var emailInput = document.getElementById('email');
+            var passwordInput = document.getElementById('password');
+            var usernameInput = document.getElementById('username');
 
-      var email = emailInput.value;
-      var password = passwordInput.value;
-      var username = usernameInput.value;
+            var email = emailInput.value;
+            var password = passwordInput.value;
+            var username = usernameInput.value;
 
-      if (!validateEmail(email)) {
-        event.preventDefault();
-        alert('Please enter a valid email address.');
-      }
+            if (!validateEmail(email)) {
+                event.preventDefault();
+                alert('Please enter a valid email address.');
+            }
 
-      if (password.length < 8) {
-        event.preventDefault();
-        alert('Password must be at least 8 characters long.');
-      }
+            if (password.length < 8) {
+                event.preventDefault();
+                alert('Password must be at least 8 characters long.');
+            }
 
-      if (username.length < 6) {
-        event.preventDefault();
-        alert('Username must be at least 6 characters long.');
-      }
-    });
+            if (username.length < 6) {
+                event.preventDefault();
+                alert('Username must be at least 6 characters long.');
+            }
+        });
 
-    function validateEmail(email) {
-      var re = /\S+@\S+\.\S+/;
-      return re.test(email);
-    }
-  </script>
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+    </script>
 </body>
+
 </html>
