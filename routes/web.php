@@ -113,6 +113,7 @@ Route::post('/outputcolorgenerate', function (Request $request) {
     return redirect('/color');
 });
 
+
 Route::get('/test', function () {
     $colorPalette = NULL;
     return view('test', compact('colorPalette'));
@@ -131,3 +132,7 @@ Route::get('/', function () {
 
 Route::post('/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
 
+
+Route::get('/achievement', function () {
+    return view('achievement');
+});

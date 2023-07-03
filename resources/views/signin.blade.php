@@ -10,6 +10,7 @@
 </head>
 
 <body>
+{{--
     <div class="gradient-circle ellipse-1"></div>
     <div class="gradient-circle ellipse-2"></div>
     <div class="gradient-circle ellipse-4"></div>
@@ -65,6 +66,32 @@
             </div>
         </form>
     </div>
+--}}
+  <div class="gradient-circle ellipse-1"></div>
+  <div class="gradient-circle ellipse-2"></div>
+  <div class="gradient-circle ellipse-4"></div>
+  <div class="gradient-circle ellipse-3"></div>
+  <div class="gradient-circle ellipse-5"></div>
+  <div class="navbar-container">
+    @include('layout/navbar')
+  </div>
+  <div class="backgroundlgn">
+    <img src="{{ asset('img/bglogin.png') }}" class="bg-cover bg-center">
+  </div>
+  <div class="login-box">
+    <form class="form-lgn" action="">
+      <h1 class="flex pb-4 pt-2 my-3 text-4.5xl text-indigo-500 font-bold justify-center">Sign In</h1>
+      <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6" required>
+      <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8" required>
+      <div class="flex mt-5 justify-center text-sm">
+        <p class="text-gray-400 font-medium">Don't have account? </p>
+        <a class="text-gray-500 mx-1 underline decoration-indigo-500 font-bold hover:text-indigo-500" href="/signup">Sign Up</a>
+      </div>
+      <div class="flex justify-center pt-6 -mt-1 pb-7">
+        <button class="flex items-center justify-center h-8 w-48 bg-indigo-500 rounded-full font-bold text-sm text-white hover:bg-indigo-600">Login</button>
+      </div>
+    </form>
+  </div>
 
     <script>
         var form = document.querySelector('form');
