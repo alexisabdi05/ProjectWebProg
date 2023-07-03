@@ -55,7 +55,7 @@
             </div>
             <h1 class="font-bold">You want more?</h1>
         </div>
-        <form class="con-input" method="POST" action="/generate-color-palette">
+        <form class="con-input flex flex-col" method="POST" action="/generate-color-palette">
             @csrf
             <div class="flex items-center justify-center items-center">
                 <label for="file"
@@ -73,7 +73,7 @@
                     <p id="error-message" class="text-red-500 mt-2 hidden"></p>
                 </label>
             </div>
-            <button class="generate hidden" id="generateBut" type="submit">Generate</button>
+            <button class="generate hidden mt-5" id="generateBut">Generate</button>
         </form>
         <div class="qoutes flex justify-center items-center flex-col">
             <p class="font-bold">"Color is a universal language that speaks to all people."</p>

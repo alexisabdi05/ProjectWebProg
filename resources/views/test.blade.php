@@ -196,7 +196,7 @@
 <body>
     <form action="/generate-color-palette" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="file" name="image">
+        <input type="file" name="image" id="image">
         <button type="submit">Generate Color Palette</button>
     </form>
 </body>

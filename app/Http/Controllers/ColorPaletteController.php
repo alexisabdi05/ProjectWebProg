@@ -12,33 +12,35 @@ class ColorPaletteController extends Controller
     {
         // Memvalidasi dan menyimpan gambar yang diunggah
         // @dd($request->image);
-        $image = $request->file('image');
-        // @dd($image);
-        // $directory = 'temp';
-        // if (!is_dir($directory)) {
-        //     // Membuat direktori jika belum ada
-        //     mkdir($directory);
-        //     // echo "Direktori berhasil dibuat.";
-        // } else {
-        //     // echo "Direktori sudah ada.";
+        // ddd($request);
+        return $request->file('image')->store('color-images');
+        // $image = $request->file('image');
+        // // @dd($image);
+        // // $directory = 'temp';
+        // // if (!is_dir($directory)) {
+        // //     // Membuat direktori jika belum ada
+        // //     mkdir($directory);
+        // //     // echo "Direktori berhasil dibuat.";
+        // // } else {
+        // //     // echo "Direktori sudah ada.";
+        // // }
+        // if (!File::exists(public_path('temp'))) {
+        //     File::makeDirectory(public_path('temp'));
         // }
-        if (!File::exists(public_path('temp'))) {
-            File::makeDirectory(public_path('temp'));
-        }
-        $imagePath = $image->store('temp'); // Menyimpan file di direktori temp
+        // $imagePath = $image->store('temp'); // Menyimpan file di direktori temp
 
-        // @dd($imagePath);
-        // Mengirim permintaan ke endpoint Flask dengan data gambar
-        $flaskEndpoint = "http://localhost:5000/generate-color-palette";
+        // // @dd($imagePath);
+        // // Mengirim permintaan ke endpoint Flask dengan data gambar
+        // $flaskEndpoint = "http://localhost:5000/generate-color-palette";
 
-        $response = Http::attach(
-            'image',
-            file_get_contents(storage_path('app/' . $imagePath)),
-            $image->getClientOriginalName()
-        )->post($flaskEndpoint);
+        // $response = Http::attach(
+        //     'image',
+        //     file_get_contents(storage_path('app/' . $imagePath)),
+        //     $image->getClientOriginalName()
+        // )->post($flaskEndpoint);
 
-        $colorPalette = $response->json();
+        // $colorPalette = $response->json();
 
-        return view('coloroutput', ['colorPalette' => $colorPalette]);
+        // return view('coloroutput', ['colorPalette' => $colorPalette]);
     }
 }
