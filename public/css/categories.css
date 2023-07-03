@@ -1,28 +1,168 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
-@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
-
 body {
     background-color: #f4f9fc;
-    background-image: url("../Asset/Frame 4.png");
+    /* background-image: url("../Asset/Frame 4.png");
     background-repeat: no-repeat;
     background-position-y: 200px;
-    background-size: cover;
+    background-size: cover; */
 }
 
-p,
-h1,
-h2,h3,h4,h5 {
-    font-family: "Roboto";
+.title, .sub-title,.cat-title {
+    font-family: "Poppins";
     font-style: normal;
+    text-align: center;
+    color: #4F4F4F;
 }
 
-p {
+.title {
+    font-weight: 600;
+    font-size: 2.25vw;
+    line-height: 2.75vw;
+    margin-bottom: 0.75vw;
+    margin-top: 4vw;
+}
+
+.sub-title{
+    color: #A1A1A1;
+    line-height: 1.55vw;
+    font-size: 1.3vw;
+    font-weight: 500;
+}
+
+.start{
+    margin-top: 0vw;
+}
+
+.category{
+    padding-top: 6vw;
+    padding-bottom: 4vw;
+    background-image: url("../img/cate-cover.png");
+}
+
+.categories {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: auto auto auto auto;
+    gap: 5.5vw;
+    margin: 7vw 18vw;
+}
+
+.category-list{
+    width: 12vw;
+    height: 12.25vw;
+    border-radius: 1.5vw;
+    box-shadow: inset 0 0 1vw rgb(0, 0, 0, 0.5);
+}
+
+.category-list img{
+    width: auto;
+    height: 12vw;
+    margin-top: -5vw;
+}
+
+.cat-title{
+    color: white;
     font-weight: 700;
-    font-size: 50px;
-    line-height: 59px;
-    color: #000000;
+    font-size: 1.75vw;
+    line-height: 2vw;
+    width: 10vw;
+    margin-top: -2vw;
     text-align: center;
 }
+
+.courses {
+    background-image: url("../img/course-cate-cover.png");
+    background-size: cover;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: auto auto auto auto;
+    gap: 4vw;
+    padding: 2vw 5vw;
+    margin-top: 8vw;
+}
+
+.course-list{
+    width: 20vw;
+    height: 28vw;
+    background-color: white;
+    border-radius: 1.5vw;
+    box-shadow: 0 0 1vw rgb(0, 0, 0, 0.5);
+}
+
+.course-list img{
+    width: 18vw;
+    height: auto;
+    margin-top: -1.8vw;
+}
+.course-txt{
+    padding: 1.25vw;
+}
+
+.course-title, .course-desc, .more{
+    font-family: 'Poppins';
+}
+
+.cont{
+    height: 2.7vw;
+}
+
+.course-title{
+    font-size: 1.35vw;
+    font-weight: 700;
+    line-height: 1.5vw;
+    margin-bottom: 0.5vw;
+    /* height: 2.7vw; */
+}
+
+.course-desc{
+    color: #494949;
+    font-size: 1.05vw;
+    line-height: 1.25vw;
+    height: 9vw;
+    overflow: hidden;
+    margin-bottom: 1vw;
+}
+
+.more{
+    color: white;
+    font-size: 1.05vw;
+    background-color: #0D6EFD;
+    border-radius: 1vw;
+    padding: 0.5vw 0vw;
+    width: 8.25vw;
+}
+/* 
+.cat-title, .category-list img{
+    position: relative;
+} */
+
+/* 
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 5vw;
+    width: 12vw;
+    height: 10.5vw;
+    background-color: rgba(255, 255, 255, 0.68);
+    border-radius: 1vw;
+}
+
+.categories img{
+    width: 20vw;
+    height: 12vw;
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8vw;
+}
+
 
 ul > li > h2 {
     margin-top: 4px;
@@ -39,29 +179,14 @@ ul > li > h1 {
     color: #000000;
 }
 
-.box {
-    margin-top: 89.51px;
-    position: absolute;
-    z-index: -1;
-    width: 293px;
-    height: 211px;
-    background-color: rgba(255, 255, 255, 0.68);
-    border-radius: 25px;
-}
+
 
 .cate {
     margin: 0px 265.5px;
     margin-top: 5px;
 }
 
-ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 65px;
-}
+
 
 ul > li {
     display: flex;
@@ -147,4 +272,4 @@ ul > li {
 .navbar-container{
     height: 8vh;
     font-family: 'Poppins';
-}
+} */

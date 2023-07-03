@@ -2,6 +2,7 @@
 use App\Http\Controllers\categoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\courseController;
+use App\Http\Controllers\courseDetailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,9 +28,10 @@ Route::get('/ps', function () {
     return view('photoshop');
 });
 
-Route::get('/categories', function () {
-    return view('categories');
-});
+Route::get('/categories', [categoryController::class, 'index']);
+Route::get('/categories/{id}', [courseController::class, 'index']);
+Route::get('/course', [courseController::class, 'show']);
+Route::get('/courses/{id}', [courseDetailController::class, 'index']);
 
 Route::get('/signin', function () {
     return view('signin');
@@ -50,5 +52,3 @@ Route::get('/colorpaletteoutput', function () {
 Route::get('/colorpalette', function () {
     return view('color');
 });
-
-Route::get('/test',[courseController::class,'index'] );

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('CategoryName');
             $table->string('CategoryIMG');
+            $table->string('Color');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category');
+        Schema::dropIfExists('categories');
     }
 };
