@@ -13,7 +13,7 @@
 
 <div class="courses">
 @foreach ($courses as $course )
-<a href="/courses/{{ $category ->id}}">
+<a href="/courses/{{ $course ->id}}">
     <div class="course-list">
         <div  class="flex justify-center">
             <img src="/img/course-cover.png" alt="">
