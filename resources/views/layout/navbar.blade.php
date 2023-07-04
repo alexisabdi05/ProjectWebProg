@@ -2,7 +2,7 @@
     <div class="max-w-screen flex flex-wrap items-center justify-between ml-10 p-2">
         <div class="flex items-center">
             <a href="/" class="flex items-center">
-                <img src="{{ asset('img/cvlogoo.png') }}" class="h-9" alt="Logo">
+                <img src="{{ asset('/img/cvlogoo.png') }}" class="h-9" alt="Logo">
             </a>
         </div>
         <div class="flex items-center">

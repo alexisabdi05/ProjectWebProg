@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\CourseDetail;
 use App\Models\Category;
+use App\Models\User;
 
 class courseDetailController extends Controller
 {
-    public function index($id){
+    public function index($user, $id){
+        $user = User::find($user);
         $course = Course::find($id);
         $courseDetail = Course::find($id)->CourseDetail;
-        $categories = Category::all();
-        $category = $categories->where('id', $course->category_id);
-        return view('coursedetail', compact('course','courseDetail','category'));
+        $category = Category::where('id', $course->category_id)->get();
+        return view('coursedetail', compact('course','courseDetail','category', 'user'));
     }
 }

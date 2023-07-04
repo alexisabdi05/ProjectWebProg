@@ -8,10 +8,10 @@
     
     <div class="courses">
         @foreach ($courses as $cour)
-        <a href="/courses/{{ $cour->id }}">
+        <a href="/{{ $user->id }}/courses/{{ $cour->id }}">
             <div class="course-list">
                 <div  class="flex justify-center">
-                    <img src="img/course-cover.png" alt="">
+                    <img src="/img/course-cover.png" alt="">
                 </div>
                 {{-- <img src=" {{ $cour->CourseIMG }}" alt=""> --}}
                 <div class="course-txt">
