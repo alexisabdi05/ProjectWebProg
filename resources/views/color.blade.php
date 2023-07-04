@@ -45,18 +45,27 @@
                 <div id="preview2" class="preview2 hidden">
                     <img id="previewImage2" class="imDrag" src="" alt="Preview">
                 </div>
-                <div class="boxes">
+                @if (!empty($colorPalette))
+                    @dd($colorPalette)
+                    <ul>
+                        @foreach ($colorPalette as $color)
+                            <li style="background-color: {{ $color }};">{{ $color }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+                {{-- <div class="boxes">
                     <div class="box" style="background-color: $output[0]"></div>
                     <div class="box" style="background-color: $output[1]"></div>
                     <div class="box" style="background-color: $output[2]"></div>
                     <div class="box" style="background-color: $output[3]"></div>
                     <div class="box" style="background-color: $output[4]"></div>
-                </div>
+                </div> --}}
             </div>
             <h1 class="font-bold">You want more?</h1>
         </div>
-        <form class="con-input flex flex-col" method="POST" action="/generate-color-palette">
-            @csrf
+        <div class="con-input flex flex-col" enctype="multipart/form-data">
+            {{-- @csrf --}}
+            <input type="hidden" name="id" id="id" value="{{ $user->id }}">
             <div class="flex items-center justify-center items-center">
                 <label for="file"
                     class="input rounded-3xl flex justify-center items-center flex-col hover:bg-slate-200 active:bg-slate-300"
@@ -68,13 +77,13 @@
                         <img src="/img/pict.png" class="w-28" alt="">
                         <p class="">Upload your image here</p>
                     </div>
-                    <input id="file" type="file" class="hidden" />
+                    <input id="file" type="file" class="hidden" name="image" />
                     {{-- <img src="" alt=""> --}}
                     <p id="error-message" class="text-red-500 mt-2 hidden"></p>
                 </label>
             </div>
-            <button class="generate hidden mt-5" id="generateBut">Generate</button>
-        </form>
+            <button class="generate hidden bg-[#6e7bdb]" id="generateBut">Generate</button>
+        </div>
         <div class="qoutes flex justify-center items-center flex-col">
             <p class="font-bold">"Color is a universal language that speaks to all people."</p>
             <p class=" mt-2">-John Hench</p>
@@ -84,6 +93,7 @@
     {{-- </div> --}}
     @include('layout/footer')
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         const dropArea = document.getElementById('dropArea');
         const preview = document.getElementById('preview');
@@ -95,18 +105,15 @@
         const fileInput = document.getElementById('file');
         const errorMessage = document.getElementById('error-message');
         const hasil = document.getElementById('showOutput');
+        var id = $('#id').val();
 
-        generate.addEventListener('click', function() {
-            // event.preventDefault();
-            // const file = event.dataTransfer.files;
-            // const reader = new FileReader();
-            previewImage2.src = previewImage.src;
-            hasil.classList.remove('hidden');
-            preview2.classList.remove('hidden');
-            preview.classList.add('hidden');
-            elementUpload.classList.remove('hidden');
-            reader.readAsDataURL(file);
-        });
+        // generate.addEventListener('click', function() {
+        //     // event.preventDefault();
+        //     // const file = event.dataTransfer.files;
+        //     // const reader = new FileReader();
+        //     previewImage2.src = previewImage.src;
+        //     reader.readAsDataURL(file);
+        // });
         // Highlight drop area when dragging file over it
         dropArea.addEventListener('dragover', (event) => {
             event.preventDefault();
@@ -162,6 +169,31 @@
                 errorMessage.classList.remove('hidden');
             }
         };
+
+        $('#generateBut').click(function() {
+                console.log($id);
+                $.ajax({
+                    url = '/{id}/generate-color-palette',
+                    method = 'POST',
+                    data: {
+                        id: id
+                    },
+                    // dataType: 'view',
+                    success: function(response) {
+                        if (response.success) {
+                            hasil.classList.remove('hidden');
+                            preview2.classList.remove('hidden');
+                            preview.classList.add('hidden');
+                            elementUpload.classList.remove('hidden');
+                            const reader = new FileReader();
+                            previewImage2.src = previewImage.src;
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                })
+            }
+
+        )
     </script>
 </body>
 

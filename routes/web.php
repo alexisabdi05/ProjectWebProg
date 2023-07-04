@@ -101,19 +101,20 @@ Route::get('{id}/colorpaletteoutput/', function ($id) {
     return view('coloroputput',  compact('user'));
 });
 
+// Route::post('{id}/courses/', [courseDetailController::class, 'index']);
 Route::get('{id}/colorpalette/', function ($id) {
     $user = User::find($id);
-    $output = NULL;
-    return view('color',  compact('user', 'output'));
-});
+    // $output = NULL;
+    return view('color',  compact('user'));
+})->name('color');
 
 // Route::post('/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
 
 
-Route::post('/outputcolorgenerate', function (Request $request) {
-    $output = $request->all();
-    return redirect('/color');
-});
+// Route::post('/outputcolorgenerate', function (Request $request) {
+//     $output = $request->all();
+//     return redirect('/color');
+// });
 
 
 Route::get('/test', function () {
@@ -132,7 +133,7 @@ Route::get('/', function () {
     return view('test');
 });
 
-Route::post('/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
+Route::post('/{id}/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
 
 
 // Route::get('/achievement', function () {

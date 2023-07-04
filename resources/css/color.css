@@ -100,8 +100,9 @@ body {
 .generate {
     background-color: #6e7bdb;
     font-size: 1.4vw;
-    padding: 0.8vw 0vw;
-    margin: 0 44vw;
+    padding: 0.8vw 2vw;
+    margin: 0vw 44vw;
+    margin-top: 2vw;
     border-radius: 2vw;
     color: #ffffff;
 }
@@ -173,8 +174,8 @@ body {
 }
 
 .preview {
-    width: 90%;
-    height: 90%;
+    width: 50vw;
+    /* height: 20vw; */
     /* border: 1px solid black; */
     display: flex;
     justify-content: center;
@@ -188,4 +189,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.con-input {
+    /* border: 1px solid black; */
+    padding: 0vw 0;
 }
