@@ -19,106 +19,41 @@ use App\Http\Controllers\ColorPaletteController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/signin', [userController::class, 'index'])->name('signin')->middleware('guest');
+Route::post('/signin', [userController::class, 'validate']);
+Route::get('/logout', [userController::class, 'logout'])->name('logout')->middleware('auth');
 
-// Route::fallback(function () {
-//     return '';
-// });
 
-Route::get('/signin', function () {
-    $user = NULL;
-    return view('signin', compact('user'));
-});
-
-Route::get('/signup', function () {
-    $user = NULL;
-    return view('signup', compact('user'));
-});
+Route::get('/signup', [userController::class, 'signup'])->name('signup')->middleware('guest');
 
 Route::post('/MakeUser', [userController::class, 'make']);
-Route::post('/validateSignIn', [userController::class, 'validate']);
+// Route::post('/validateSignIn', [userController::class, 'validate']);
 
 
-// Route::get('/home', function () {
-//     $user = NULL;
-//     return view('home', compact('user'));
-// });
+Route::get('/home', [userController::class, 'home'])->name('home')->middleware('auth');
 
-Route::get('{id}/home/', function ($id) {
-    $user = User::find($id);
-    return view('home',  compact('user'));
-})->name('home');
+Route::get('/courses', [userController::class, 'courses'])->middleware('auth');
 
-// Route::get('/{username}', function ($username) {
-//     $user = Admin::where('username', '=', $request->username)->get();
-//     return view('home',  compact('user'));
-// });
+Route::get('/colorpalette', [userController::class, 'colorpalette'])->middleware('auth');
+
+Route::get('/achievement', [userController::class, 'achievement'])->middleware('auth');
 
 
-Route::get('/courses', function () {
-    return view('courses');
-});
-
-
-// Route::get('/ps', function () {
-//     return view('photoshop');
-// });
-
-
-Route::get('{user}/categories', [categoryController::class, 'index']);
-Route::get('{user}/categories/{id}', [courseController::class, 'index']);
-Route::get('{user}/course', [courseController::class, 'show']);
-Route::get('{user}/courses/{id}', [courseDetailController::class, 'index']);
+Route::get('/categories', [categoryController::class, 'index'])->middleware('auth');
+Route::get('/categories/{id}', [courseController::class, 'index'])->middleware('auth');
+Route::get('/course', [courseController::class, 'show'])->middleware('auth');
+Route::get('/courses/{id}', [courseDetailController::class, 'index'])->middleware('auth');
 Route::post('/update-checkbox', [courseDetailController::class,'updateCheckbox']);
 
 
-Route::get('{id}/profile/', function ($id) {
-    $user = User::find($id);
-    return view('profile',  compact('user'));
-});
+Route::get('/profile', [userController::class, 'profile'])->middleware('auth');
 
-// Route::get('/colorpaletteoutput', function () {
-//     $colorPalette = NULL;
-//     return view('coloroutput', compact('colorPalette'));
-// });
 
-// Route::get('/colorpalette', function () {
-//     return view('color');
-// });
-
-// Route::get('/courses/', function ($id) {
-//     $user = User::find($id);
-//     return view('courses',  compact('user'));
-// });
-
-// Route::get('/ps/', function ($id) {
-//     $user = User::find($id);
-//     return view('photoshop',  compact('user'));
-// });
-
-// Route::get('/categories/', function ($id) {
-//     $user = User::find($id);
-//     return view('categories',  compact('user'));
-// });
-
-Route::get('{id}/colorpaletteoutput/', function ($id) {
-    $user = User::find($id);
+Route::get('/colorpaletteoutput', function () {
+    $user = User::find();
     return view('coloroputput',  compact('user'));
 });
 
-// Route::post('{id}/courses/', [courseDetailController::class, 'index']);
-Route::get('{id}/colorpalette/', function ($id) {
-    $user = User::find($id);
-    // $output = NULL;
-    return view('color',  compact('user'));
-})->name('color');
-
-// Route::post('/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
-
-
-// Route::post('/outputcolorgenerate', function (Request $request) {
-//     $output = $request->all();
-//     return redirect('/color');
-// });
 
 
 Route::get('/test', function () {
@@ -126,20 +61,10 @@ Route::get('/test', function () {
     return view('test', compact('colorPalette'));
 });
 
-// Route::fallback(function () {
-//     // Mengembalikan respons kosong tanpa output apapun
-//     return '';
-// });
-
-// routes/web.php
 
 Route::get('/', function () {
     return view('test');
 });
 
-Route::post('/{id}/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
+Route::post('/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
 
-
-// Route::get('/achievement', function () {
-//     return view('achievement');
-// });

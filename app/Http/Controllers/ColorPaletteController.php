@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use App\Http\Controllers\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Requests;
 
 class ColorPaletteController extends Controller
 {
     public function generateColorPalette(Request $request)
     {
-        ddd($request);
+        // ddd($request);
         $oldImage = Photo::first();
+        $path = NULL;
         if($oldImage){
             Storage::delete($oldImage);
             $path = $request->file('image')->store('color-images');
@@ -32,7 +34,10 @@ class ColorPaletteController extends Controller
 
         $colorPalette = $response->json();
 
-        // return redirect()->route('home', ['id' => $user->id]);
-        return view('coloroutput', ['colorPalette'=> $colorPalette]);
+        // return redirect()->route('', ['id' => $user->id]);
+        return view('coloroutput', [
+            'image' => $path,
+            'colorPalette'=> $colorPalette
+        ]);
     }
 }

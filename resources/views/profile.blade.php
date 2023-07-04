@@ -86,59 +86,70 @@
     </div>
 
     <div class="flex grid-flow-row">
-        <div class="bg-white shadow-lg rounded-lg p-8 ml-5 z-40 w-1/3"
-            style="background: linear-gradient(125deg, #F5C2C9, #B2B8EF);">
-            <div class="flex items-center">
-                <div class="w-32 h-32 rounded-full bg-white shadow-lg overflow-hidden">
-                    <img src="../img/profilee.png" alt="propil" class="object-cover">
+        <div class="">
+            <div class="bg-white shadow-lg rounded-lg p-8 ml-5 z-40 w-1/3"
+                style="background: linear-gradient(125deg, #F5C2C9, #B2B8EF);">
+                <div class="flex items-center">
+                    <div class="w-32 h-32 rounded-full bg-white shadow-lg overflow-hidden">
+                        <img src="../img/profilee.png" alt="propil" class="object-cover">
+                    </div>
+                    <h1 class="ml-9 text-3xl font-medium text-white leading-8">Hello, <br>
+                        {{ auth()->user()->username }}
+                    </h1>
                 </div>
-                <h1 class="ml-9 text-3xl font-medium text-white leading-8">Hello, <br> amandaardianti!</h1>
-            </div>
 
-            <div class="mt-6 flex">
-                <div class="bg-white rounded-lg p-2 py-4 shadow-md mr-6 w-1/2">
-                    <div class="flex flex-col items-center">
-                        <h2 class="text-3xl font-bold content-center text-gray-600">4</h2>
-                        <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
-                            Courses<br>On-Going</p>
+                <div class="mt-6 flex">
+                    <div class="bg-white rounded-lg p-2 py-4 shadow-md mr-6 w-1/2">
+                        <div class="flex flex-col items-center">
+                            <h2 class="text-3xl font-bold content-center text-gray-600">4</h2>
+                            <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
+                                Courses<br>On-Going</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-2 py-4 shadow-md w-1/2">
+                        <div class="flex flex-col items-center">
+                            <h2 class="text-3xl font-bold content-center text-gray-600 ">8</h2>
+                            <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
+                                Courses<br>Completed</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg p-2 py-4 shadow-md w-1/2">
-                    <div class="flex flex-col items-center">
-                        <h2 class="text-3xl font-bold content-center text-gray-600 ">8</h2>
-                        <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
-                            Courses<br>Completed</p>
+                <div class="mt-10">
+                    <h2 class="text-2xl font-medium text-white mb-3 inline-block">Achievement</h2>
+                    <a href="/achievement" class="text-indigo-500 ml-41 text-xl underline">See more</a>
+                </div>
+
+                <div class="mt-2">
+                    <div class="mb-4">
+                        <span class="text-md text-white">Watch 10 Days Canva Course</span>
+                        <div class="bg-gray-200 rounded-full h-2 mt-1">
+                            <div class="bg-blue-500 rounded-full h-full" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <span class="text-md text-white">Watch 10 Days Canva Course</span>
+                        <div class="bg-gray-200 rounded-full h-2 mt-1">
+                            <div class="bg-blue-500 rounded-full h-full" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-md text-white">Watch 10 Days Canva Course</span>
+                        <div class="bg-gray-200 rounded-full h-2 mt-1">
+                            <div class="bg-blue-500 rounded-full h-full" style="width: 25%;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="mt-10">
-                <h2 class="text-2xl font-medium text-white mb-3 inline-block">Achievement</h2>
-                <a href="/achievement" class="text-indigo-500 ml-41 text-xl underline">See more</a>
-            </div>
-
             <div class="mt-2">
-                <div class="mb-4">
-                    <span class="text-md text-white">Watch 10 Days Canva Course</span>
-                    <div class="bg-gray-200 rounded-full h-2 mt-1">
-                        <div class="bg-blue-500 rounded-full h-full" style="width: 50%;"></div>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <span class="text-md text-white">Watch 10 Days Canva Course</span>
-                    <div class="bg-gray-200 rounded-full h-2 mt-1">
-                        <div class="bg-blue-500 rounded-full h-full" style="width: 75%;"></div>
-                    </div>
-                </div>
-                <div>
-                    <span class="text-md text-white">Watch 10 Days Canva Course</span>
-                    <div class="bg-gray-200 rounded-full h-2 mt-1">
-                        <div class="bg-blue-500 rounded-full h-full" style="width: 25%;"></div>
-                    </div>
-                </div>
+                {{-- <form action="/logout" method="POST">
+                    <button type="submit">SIGN OUT</button>
+                </form> --}}
+                <a href="/logout">SIGN OUT</a>
             </div>
         </div>
+
 
         <div class="mt-3 ml-6 z-40 flex-initial mb-5">
             <h1 class="text-xl font-semibold text-gray-600">On-going course</h1>

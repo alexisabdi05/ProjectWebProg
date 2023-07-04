@@ -12,7 +12,7 @@ body {
 }
 
 .navbar-container {
-    height: 8vh;
+    height: 6vh;
     /* margin-bottom: 5vh; */
     font-family: "Poppins";
 }
@@ -123,6 +123,7 @@ body {
 
 .hasil {
     padding-top: 1.5vw;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -133,8 +134,10 @@ body {
     margin-top: 1vw;
     margin-bottom: 3vw;
     background: white;
-    height: 40vw;
-    width: 65vw;
+    /* height: 40vw; */
+    width: 70%;
+    padding: 2vw 0vw;
+    padding-bottom: 5vw;
     background: rgba(255, 255, 255, 0.5);
     box-shadow: 0px 0px 52px rgba(0, 0, 0, 0.25);
 }
@@ -183,8 +186,8 @@ body {
 }
 
 .preview2 {
-    width: 90%;
-    height: 90%;
+    width: 30vw;
+    /* height: 90%; */
     /* border: 1px solid black; */
     display: flex;
     justify-content: center;
@@ -194,4 +197,31 @@ body {
 .con-input {
     /* border: 1px solid black; */
     padding: 0vw 0;
+}
+
+.colorRow {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    /* width: 40vw; */
+    justify-content: space-around;
+    height: 3vw;
+    margin-top: 2vw;
+    width: 60%;
+}
+
+.box1 {
+    width: 6vw;
+    height: 5vw;
+}
+
+.back {
+    background-color: #6e7bdb;
+    font-size: 1.4vw;
+    padding: 0.8vw 2vw;
+    /* margin: 0vw 44vw; */
+    margin-top: 1vw;
+    margin-bottom: 2vw;
+    border-radius: 2vw;
+    color: #ffffff;
 }
