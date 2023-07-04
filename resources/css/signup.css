@@ -7,7 +7,7 @@ body {
     height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     z-index: 999;
 }
 
@@ -28,7 +28,7 @@ body {
 .ellipse-1 {
     left: -8%;
     top: 4%;
-    background: linear-gradient(270.64deg, #BFBCEB 13.73%, #dcb9e7 92.26%);
+    background: linear-gradient(270.64deg, #bfbceb 13.73%, #dcb9e7 92.26%);
     filter: blur(3vw);
     z-index: -1;
 }
@@ -36,32 +36,32 @@ body {
 .ellipse-2 {
     left: 70%;
     top: 35%;
-    background: #FFDACA;
+    background: #ffdaca;
     filter: blur(3vw);
 }
 
 .ellipse-3 {
     left: 40%;
     top: 15%;
-    background: linear-gradient(109.91deg, #A9C5E7 10.17%, #F2CBEC 88.19%);
+    background: linear-gradient(109.91deg, #a9c5e7 10.17%, #f2cbec 88.19%);
     filter: blur(3vw);
 }
 
 .ellipse-4 {
     left: -15%;
     top: 55%;
-    background: #FFDACA;
+    background: #ffdaca;
     filter: blur(3vw);
 }
 
 .ellipse-5 {
     left: 40%;
     top: 70%;
-    background: linear-gradient(96.78deg, #A9C5E7 -4.94%, #FFDACA 86.78%);
+    background: linear-gradient(96.78deg, #a9c5e7 -4.94%, #ffdaca 86.78%);
     filter: blur(3vw);
 }
 
-.navbar-container{
+.navbar-container {
     height: 8vh;
     margin-bottom: 13vh;
 }
@@ -77,15 +77,24 @@ body {
     max-width: 400px;
 }
 
-.form-lgn{
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 55px 6px rgba(0, 0, 0, 0.6);
+.form-lgn {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+        0px 0px 55px 6px rgba(0, 0, 0, 0.6);
     border-radius: 34px;
     @apply flex-col bg-white pb-2 px-10 justify-center;
 }
 
-.inputbox{
+.inputbox {
     box-shadow: 0px 4px 10px rgba(133, 133, 133, 0.5);
-    @apply flex items-center h-9 px-3 w-60 bg-gray-100 mb-5 shadow-gray-400 rounded-full focus:outline-none focus:ring-2 placeholder:font-bold text-sm placeholder-gray-400;
+    @apply flex items-center h-9 px-3 w-80 bg-gray-100 mb-6 shadow-gray-400 rounded-full focus:outline-none focus:ring-2 placeholder:font-bold text-sm placeholder-gray-400;
+}
+
+.eror {
+    color: red;
+    display: flex;
+    margin-top: -1vw;
+    margin-bottom: 1vw;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {

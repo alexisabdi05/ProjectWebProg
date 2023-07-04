@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('course_detail', function (Blueprint $table) {
             // $table->Integer('CourseID');
+            $table->id();
             $table->foreignId('course_id')->references('id')->on('courses');
             $table->string('CourseDetailTitle');
             $table->text('CourseDetailDesc');
             $table->string('CourseDetailVideo');
-            $table->integer('CourseStatus');
             $table->integer('day');
             $table->timestamps();
         });

@@ -84,8 +84,14 @@
             <h1 class="flex pb-4 pt-2 my-3 text-4.5xl text-indigo-500 font-bold justify-center">Sign In</h1>
             <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6"
                 required>
+            @error('username')
+                <div class="eror">{{ $message }}</div>
+            @enderror
             <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8"
                 required>
+            @error('password')
+                <div class="eror">{{ $message }}</div>
+            @enderror
             <div class="flex mt-5 justify-center text-sm">
                 <p class="text-gray-400 font-medium">Don't have account? </p>
                 <a class="text-gray-500 mx-1 underline decoration-indigo-500 font-bold hover:text-indigo-500"
