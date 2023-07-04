@@ -45,9 +45,14 @@
                     {{-- @dd($colorPalette) --}}
                     <ul class="colorRow flex flex-row">
                         @foreach ($colorPalette as $color)
-                            <li style="background-color: {{ $color }};" class="box1">{{ $color }}</li>
+                            <li style="background-color: {{ $color }};" class="box1">
+                                <button onclick="copytoclipboard(this)" id="kotak">
+                                    <p id="hexa">{{ $color }}</p>
+                                </button>
+                            </li>
                         @endforeach
                     </ul>
+                    <p class="mt-14 text-lg">*You can copy the hex color above by pressing the hex color box </p>
                 @endif
             </div>
             <h1 class="font-bold">You want more?</h1>
@@ -55,6 +60,39 @@
         </div>
     </div>
     @include('layout/footer')
+    <script>
+        function copytoclipboard(button) {
+            /* Get the parent <li> element */
+            var listItem = button.parentNode;
+
+            /* Get the <p> element within the parent <li> */
+            var pElement = listItem.querySelector("p");
+
+            /* Get the text from the <p> element */
+            var text = pElement.innerText;
+
+            /* Create a temporary textarea element */
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+
+            /* Append the textarea element to the document */
+            document.body.appendChild(textarea);
+
+            /* Select the text within the textarea */
+            textarea.select();
+
+            /* Copy the text to the clipboard */
+            document.execCommand("copy");
+
+            /* Remove the temporary textarea element */
+            document.body.removeChild(textarea);
+
+            /* Provide feedback to the user */
+            alert("Text has been copied: " + text);
+        }
+    </script>
+
+
 </body>
 
 </html>

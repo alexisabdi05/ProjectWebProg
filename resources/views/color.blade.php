@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
@@ -17,6 +17,10 @@
             background-repeat: repeat;
             background-attachment: fixed;
             background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             /* height: 90%; */
             /* margin-top: -3vw; */
         }
@@ -31,21 +35,18 @@
     <div class="navbar-container">
         @include('layout/navbar')
     </div>
-    <div class="backgroundColor flex flex-col justify-center text-center">
+    <div class="backgroundColor flex flex-col justify-center text-center item-center">
         <div class="top w-full px-16 flex flex-row items-center">
             <div class="left w-2/4">
                 <h1 class="font-bold">Generate your Color Palette</h1>
-                <p class="mt-2">Drag and drop your photo here and watch the magic happen
+                <p class="mt-2 mb-4">Drag and drop your photo here and watch the magic happen
                 <p>
             </div>
         </div>
-
         <form class="con-input flex flex-col" method="POST" action="/generate-color-palette"
             enctype="multipart/form-data">
             @csrf
-            {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
-            {{-- <input type="hidden" name="id" id="id" value="{{ $user->id }}"> --}}
-            <div class="flex items-center justify-center items-center">
+            <div class="kotak flex items-center justify-center items-center">
                 <label for="file"
                     class="input rounded-3xl flex justify-center items-center flex-col hover:bg-slate-200 active:bg-slate-300"
                     id='dropArea'>
@@ -67,26 +68,15 @@
             <p class=" mt-2">-John Hench</p>
         </div>
     </div>
-    {{-- <div class="absolute"> --}}
-    {{-- </div> --}}
     @include('layout/footer')
-    <script src="jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         const dropArea = document.getElementById('dropArea');
         const preview = document.getElementById('preview');
         const previewImage = document.getElementById('previewImage');
-        const preview2 = document.getElementById('preview2');
-        const previewImage2 = document.getElementById('previewImage2');
         const elementUpload = document.getElementById("elementUpload");
         const generate = document.getElementById("generateBut");
         const fileInput = document.getElementById('image');
         const errorMessage = document.getElementById('error-message');
-        const hasil = document.getElementById('showOutput');
-        var idTemp = document.getElementById('id');
-        var id = idTemp.value;
-        // var image = fileInput.value;
-        // var csrfToken = $('meta[name="csrf-token"]').attr('content');
         // Highlight drop area when dragging file over it
         dropArea.addEventListener('dragover', (event) => {
             event.preventDefault();
@@ -107,6 +97,7 @@
             const file = event.dataTransfer.files;
 
             handleFileUpload(file[0]);
+            sendFilesToController(file);
         });
 
 
@@ -115,7 +106,6 @@
             dropArea.classList.add('highlight');
             handleFileUpload(selectedFile[0]);
         });
-        var image;
 
         function handleFileUpload(file) {
             if (file) {
@@ -124,7 +114,7 @@
                     const reader = new FileReader();
                     reader.onload = function() {
                         previewImage.src = reader.result;
-                        image = reader.readAsDataURL(file);;
+                        // image = reader.readAsDataURL(file);;
                         preview.classList.remove('hidden');
                         elementUpload.classList.add('hidden');
                         errorMessage.classList.add('hidden');
@@ -143,7 +133,22 @@
                 errorMessage.innerText = 'No file selected.';
                 errorMessage.classList.remove('hidden');
             }
+
         };
+
+        function sendFilesToController(files) {
+            var formData = new FormData();
+
+            for (var i = 0; i < files.length; i++) {
+                formData.append('images[]', files[i]);
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/generate-color-palette');
+            xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
+
+            xhr.send(formData);
+        }
     </script>
 </body>
 

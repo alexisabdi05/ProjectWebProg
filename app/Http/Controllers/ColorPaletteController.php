@@ -16,8 +16,10 @@ class ColorPaletteController extends Controller
 {
     public function generateColorPalette(Request $request)
     {
-        // ddd($request);
-        $oldImage = Photo::first();
+        ddd($request);
+        $oldImage = Photo::all();
+        $directoryPath = storage_path('app/public');
+        Storage::deleteDirectory($directoryPath);
         $path = NULL;
         if($oldImage){
             Storage::delete($oldImage);
