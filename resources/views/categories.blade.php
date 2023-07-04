@@ -7,21 +7,22 @@
         <h2 class="title start">Browse course by categories</h2>
         <p class="sub-title">No matter your skill level, you’ll find so much to learn design in a<br>wide range of our
             categories.</p>
-            <div class="categories">
-                @foreach ($categories as $category)
-                <a href="/{{ $user->id }}/categories/{{ $category ->id}}">
-                    <div class="category-list flex flex-col" style="
+        <div class="categories">
+            @foreach ($categories as $category)
+                <a href="/categories/{{ $category->id }}">
+                    <div class="category-list flex flex-col"
+                        style="
                         background-color:{{ $category->Color }}">
                         <div class="flex justify-center">
-                            <img class="w-fit" src="/{{ $category ->CategoryIMG}}" alt="">
+                            <img class="w-fit" src="/{{ $category->CategoryIMG }}" alt="">
                         </div>
                         <div class="flex h-full w-full justify-center">
                             <h1 class="cat-title self-center">{{ $category->CategoryName }}</h1>
                         </div>
                     </div>
                 </a>
-                @endforeach
-            </div>
+            @endforeach
+        </div>
     </div>
 
     <h2 class="title">Let’s find the best course for you!</h2>
@@ -36,24 +37,24 @@
     <div class="courses">
 
         @foreach ($courses as $cour)
-        <a href="/{{ $user->id }}/courses/{{ $cour->id }}">
-            <div class="course-list">
-                <div  class="flex justify-center">
-                    <img src="/img/course-cover.png" alt="">
-                </div>
-                {{-- <img src=" {{ $cour->CourseIMG }}" alt=""> --}}
-                <div class="course-txt">
-                    <div class="flex items-center cont">
-                        <h1 class="course-title">{{ $cour->CourseName }}</h1>
+            <a href="/courses/{{ $cour->id }}">
+                <div class="course-list">
+                    <div class="flex justify-center">
+                        <img src="/img/course-cover.png" alt="">
                     </div>
-                    <h4 class="course-desc">{{ $cour->CourseDesc }}</h4>
-                    <p class="more text-center">See more →</p>
+                    {{-- <img src=" {{ $cour->CourseIMG }}" alt=""> --}}
+                    <div class="course-txt">
+                        <div class="flex items-center cont">
+                            <h1 class="course-title">{{ $cour->CourseName }}</h1>
+                        </div>
+                        <h4 class="course-desc">{{ $cour->CourseDesc }}</h4>
+                        <p class="more text-center">See more →</p>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
         @endforeach
     </div>
-    {{--@for ($i = 0; $i < 16; $i++)
+    {{-- @for ($i = 0; $i < 16; $i++)
     <a href="/{{ $user->id }}/courses/{{ $courses[$i]->id }}">
         <div class="course-list">
             <div  class="flex justify-center">
@@ -68,4 +69,4 @@
             </div>
         </div>
     </a>
-    @endfor--}}
+    @endfor --}}

@@ -56,7 +56,6 @@
                             <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
                                 Courses<br>Completed</p>
                         </div>
-
                     </div>
                 </div>
 
@@ -126,7 +125,7 @@
                     </div>
                 </div>
 
-                <div
+                {{-- <div
                     class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                     <div
                         class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
@@ -172,9 +171,9 @@
                             Continue Learn
                         </button>
                     </div>
-                </div>
+                </div> --}}
 
-                <div
+                {{-- <div
                     class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                     <div
                         class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
@@ -196,7 +195,7 @@
                             Continue Learn
                         </button>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

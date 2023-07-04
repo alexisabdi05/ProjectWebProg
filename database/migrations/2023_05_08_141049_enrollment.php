@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('course_id')->references('id')->on('courses');
             $table->id();
             $table->Boolean('statusFinish')->default(FALSE);
-            $table->Boolean('status')->default(FALSE);
+            // $table->Boolean('status')->default(FALSE);
             $table->timestamps();
         });
     }
