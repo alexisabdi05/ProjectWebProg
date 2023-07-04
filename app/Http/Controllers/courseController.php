@@ -16,11 +16,11 @@ class courseController extends Controller
         return view('courses', compact('courses','category', 'user'));
     }
 
-    public function show(){
-        $courses = Course::all();
-        $user = User::find($id);
-        $courses = $courses->shuffle();
-        return view('course', compact('courses', 'user'));
-    }
+    // public function show($user){
+    //     $courses = Course::all();
+    //     $user = User::find($user);
+    //     $courses = $courses->shuffle();
+    //     return view('search', compact('courses', 'user'));
+    // }
     
 }

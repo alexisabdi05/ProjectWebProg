@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('CourseDetailTitle');
             $table->text('CourseDetailDesc');
             $table->string('CourseDetailVideo');
-            $table->integer('CourseStatus');
             $table->integer('day');
             $table->timestamps();
         });

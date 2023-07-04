@@ -9,6 +9,7 @@ use App\Http\Controllers\courseController;
 use App\Http\Controllers\courseDetailController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\ColorPaletteController;
+use App\Http\Controllers\searchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,10 +67,17 @@ Route::get('/courses', function () {
 
 Route::get('{user}/categories', [categoryController::class, 'index']);
 Route::get('{user}/categories/{id}', [courseController::class, 'index']);
-Route::get('{user}/course', [courseController::class, 'show']);
+// Route::get('{user}/search', [courseController::class, 'show']);
 Route::get('{user}/courses/{id}', [courseDetailController::class, 'index']);
 Route::post('/update-checkbox', [courseDetailController::class,'updateCheckbox']);
 
+Route::get('/search', [SearchController::class, 'index'])->name('search.index');
+Route::get('/search/result', [SearchController::class, 'liveSearch'])->name('live-search');
+
+
+Route::get('/search-result', function(){
+    return view('search');
+});
 
 Route::get('{id}/profile/', function ($id) {
     $user = User::find($id);
