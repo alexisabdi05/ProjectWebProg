@@ -140,6 +140,7 @@ Route::get('/', function () {
 Route::post('/{id}/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
 
 
-// Route::get('/achievement', function () {
-//     return view('achievement');
-// });
+Route::get('{id}/achievement/', function ($id) {
+    $user = User::find($id);
+    return view('achievement',  compact('user'));
+});
