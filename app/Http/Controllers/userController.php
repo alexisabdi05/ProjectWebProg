@@ -7,9 +7,40 @@ use App\Models\Admin;
 use App\Models\CourseStatus;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class userController extends Controller
 {
+    public function index(){
+        return view('signin');
+    }
+    public function signup(){
+        return view('signup');
+    }
+
+    public function home(){
+        return view('home');
+    }
+
+    public function profile(){
+        return view('profile');
+    }
+
+    public function achievement(){
+        return view('achievement');
+    }
+
+    public function logout(){
+        // @dd($request);
+        Auth::logout();
+
+        request()->session()->invalidate();
+
+        request()->session()->regenerateToken();
+
+        return redirect('/signin');
+    }
+
     public function make(Request $request){
         $validateUserSignUp = $request->validate([
             'username' => 'unique:users,username',
@@ -18,7 +49,8 @@ class userController extends Controller
         $user = new User();
         $user->email = $validateUserSignUp['email'];
         $user->username = $validateUserSignUp['username'];
-        $user->password = $request->password;
+        $password = bcrypt($request->password);
+        $user->password = $password;
         $user->valAdmin= FALSE;
         $user->save();
         for ($i=1; $i <= 117; $i++) {
@@ -31,12 +63,22 @@ class userController extends Controller
     }
 
     public function validate(Request $request){
-            $validateUser = $request->validate([
-                'username' => 'exists:users,username',
-                'password' => 'exists:users,password'
+        // @dd($request);
+            $credentials  = $request->validate([
+                'username' => 'required',
+                'password' => 'required '
             ]);
-            $user = User::where('username', '=', $validateUser['username'])->first();
-            return redirect()->route('home', ['id' => $user->id]);
+            // @dd(Auth);
+            if(Auth::attempt($credentials)){
+                $request->session()->regenerate();
+                $user = User::where('username', '=', $credentials['username'])->first();
+                // return redirect()->intended('/{id}/home', ['id' => $user->id]);
+                return redirect()->intended('/home');
+            };
+            return back()->with('signinEror', 'Sign in Failed!');
     }
 
+    public function colorpalette(){
+        return view('color');
+    }
 }

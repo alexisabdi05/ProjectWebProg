@@ -20,7 +20,7 @@
         <img src="{{ asset('img/bglogin.png') }}" class="bg-cover bg-center">
     </div>
     <div class="login-box">
-        <form class="form-lgn" action="/validateSignIn" method="POST">
+        <form class="form-lgn" action="/signin" method="POST">
             @csrf
             <h1 class="flex pb-4 pt-2 my-3 text-4.5xl text-indigo-500 font-bold justify-center">Sign In</h1>
             <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6"
@@ -33,6 +33,12 @@
             @error('password')
                 <div class="eror">{{ $message }}</div>
             @enderror
+            @if (session()->has('signinEror'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('signinEror') }}
+                    <button type="button" class="btn-close" data-bs-dismis="alert" aria-label="close"></button>
+                </div>
+            @endif
             <div class="flex mt-5 justify-center text-sm">
                 <p class="text-gray-400 font-medium">Don't have account? </p>
                 <a class="text-gray-500 mx-1 underline decoration-indigo-500 font-bold hover:text-indigo-500"
@@ -59,11 +65,6 @@
             if (!validateEmail(email)) {
                 event.preventDefault();
                 alert('Please enter a valid email address.');
-            }
-
-            if (password.length < 8) {
-                event.preventDefault();
-                alert('Password must be at least 8 characters long.');
             }
 
             if (username.length < 6) {
