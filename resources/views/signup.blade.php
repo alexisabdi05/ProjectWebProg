@@ -85,7 +85,13 @@
             <h1 class="flex py-3 my-3 text-4.5xl text-indigo-500 font-bold justify-center">Sign Up</h1>
             <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6"
                 required>
+            @error('username')
+                <div class="eror">{{ $message }}</div>
+            @enderror
             <input class="inputbox" type="email" id="email" placeholder="E-mail" name="email" required>
+            @error('email')
+                <div class="eror">{{ $message }}</div>
+            @enderror
             <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8"
                 required>
             <div class="flex mt-5 justify-center text-sm">

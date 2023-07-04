@@ -10,71 +10,12 @@
 </head>
 
 <body>
-    {{--
-    <div class="gradient-circle ellipse-1"></div>
-    <div class="gradient-circle ellipse-2"></div>
-    <div class="gradient-circle ellipse-4"></div>
-    <div class="gradient-circle ellipse-3"></div>
-    {{-- <div class="gradient-circle ellipse-5"></div>
-    <div class="navbar-container">
-        @include('layout/navbar')
-    </div>
-    <div class="backgroundlgn">
-        <img src="{{ asset('img/bglogin.png') }}" class="bg-cover bg-center">
-    </div>
-    <div class="login-box">
-        <form class="form-lgn" method="POST" action="/validateSignIn">
-            @csrf
-            <h1 class="flex py-3 my-3 text-5xl text-indigo-500 font-bold justify-center">Sign In</h1>
-            <h3 class="text-gray-400 font-bold">Identification as</h3>
-            <ul
-                class="items-center w-full text-sm font-medium text-gray-900 bg-white sm:flex dark:bg-gray-700 dark:text-white mt-2 mb-5">
-                <li class="w-full sm:border-b-0  ">
-                    <div class="flex items-center pl-3">
-                        <input id="horizontal-list-radio-license" type="radio" name="identify" value="User"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-700  dark:bg-gray-600 dark:border-gray-500 mx-2">
-                        <label for="horizontal-list-radio-license" class="text-gray-400 font-medium">User
-                        </label>
-                    </div>
-                </li>
-                <li class="w-full border-b border-gray-200 sm:border-b-0  dark:border-gray-600">
-                    <div class="flex items-center pl-3">
-                        <input id="horizontal-list-radio-id" type="radio" name="identify" value="Admin"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-700  dark:bg-gray-600 dark:border-gray-500 mx-2">
-                        <label for="horizontal-list-radio-id" class="text-gray-400 font-medium">Admin</label>
-                    </div>
-                </li>
-            </ul>
-            <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6"
-                value="{{ old('username') }}" required>
-            @error('username')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-            <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8"
-                value="{{ old('password') }}" required>
-            @error('password')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-            <div class="flex mt-5 justify-center text-s">
-                <p class="text-gray-400 font-medium">Don't have account? </p>
-                <a class="text-gray-500 mx-1 underline decoration-indigo-500 font-bold hover:text-indigo-500"
-                    href="/signup">Sign Up</a>
-            </div>
-            <div class="flex justify-center py-7">
-                <button
-                    class="flex items-center justify-center h-9 w-48 bg-indigo-500 rounded-full font-bold text-sm text-white hover:bg-indigo-600">Login</button>
-            </div>
-        </form>
-    </div>
---}}
     <div class="gradient-circle ellipse-1"></div>
     <div class="gradient-circle ellipse-2"></div>
     <div class="gradient-circle ellipse-4"></div>
     <div class="gradient-circle ellipse-3"></div>
     <div class="gradient-circle ellipse-5"></div>
     <div class="navbar-container">
-        {{-- @include('layout/navbar') --}}
-    </div>
     <div class="backgroundlgn">
         <img src="{{ asset('img/bglogin.png') }}" class="bg-cover bg-center">
     </div>
@@ -84,8 +25,14 @@
             <h1 class="flex pb-4 pt-2 my-3 text-4.5xl text-indigo-500 font-bold justify-center">Sign In</h1>
             <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6"
                 required>
+            @error('username')
+                <div class="eror">{{ $message }}</div>
+            @enderror
             <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8"
                 required>
+            @error('password')
+                <div class="eror">{{ $message }}</div>
+            @enderror
             <div class="flex mt-5 justify-center text-sm">
                 <p class="text-gray-400 font-medium">Don't have account? </p>
                 <a class="text-gray-500 mx-1 underline decoration-indigo-500 font-bold hover:text-indigo-500"

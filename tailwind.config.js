@@ -8,7 +8,9 @@ module.exports = {
     theme: {
         extend: {
             margin: {
-                '128': '33.25rem',
+                '128': '34.50rem',
+                '130': '46rem',
+                '150': '55rem',
                 '41': '10.25rem',
               },
             fontSize: {

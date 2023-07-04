@@ -4,43 +4,39 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\CourseStatus;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class userController extends Controller
 {
     public function make(Request $request){
+        $validateUserSignUp = $request->validate([
+            'username' => 'unique:users,username',
+            'email' => 'unique:users,email'
+        ]);
         $user = new User();
-        $user->email = $request->email;
-        $user->username = $request->username;
+        $user->email = $validateUserSignUp['email'];
+        $user->username = $validateUserSignUp['username'];
         $user->password = $request->password;
         $user->valAdmin= FALSE;
         $user->save();
-        // return redirect('/home/{id}')->with('id', '$user->id');
-        // return redirect('/home/',$user->id);
-        // return view('home', compact('user'));
-        // return redirect()->route('home', ['id' => $user->id]);
+        for ($i=1; $i <= 117; $i++) {
+            CourseStatus::create([
+                'user_id' => $user->id,
+            'coursedetail_id'=> $i
+            ]);
+        };
         return redirect('/signin');
-        // return redirect('')
     }
 
     public function validate(Request $request){
-        // if ($request->identify == "User") {
             $validateUser = $request->validate([
                 'username' => 'exists:users,username',
                 'password' => 'exists:users,password'
             ]);
             $user = User::where('username', '=', $validateUser['username'])->first();
-            // return redirect()->route('home', ['id'=>$person->id]);
             return redirect()->route('home', ['id' => $user->id]);
-        // } else {
-        //     $validateUser = $request->validate([
-        //         'username' => 'exists:admins,username',
-        //         'password' => 'exists:admins,password'
-        //     ]);
-        //     $person = Admin::where('username', '=', $validateUser['username'])->first();
-        //     return redirect($person->username);
-        // }
     }
 
 }

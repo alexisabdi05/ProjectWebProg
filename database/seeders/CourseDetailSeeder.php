@@ -1187,16 +1187,5 @@ class CourseDetailSeeder extends Seeder
                 'day' => 5
             ]
         );
-
-        // CourseDetail::create(
-        //     [
-        //         'course_id' => ,
-        //         'CourseDetailTitle' => '',
-        //         'CourseDetailDesc' => "",
-        //         'CourseDetailVideo' => '',
-        //    
-        //         'day' =>
-        //     ]
-        // );
     }
 }
