@@ -1,19 +1,12 @@
 
-.hero{
-    padding-top: 5vw;
-    background-image: url("../img/cour-bg.png");
-    background-size:cover;
-    background-repeat: repeat;
-}
 .courses {
     background-image: url("../img/course-cate-cover.png");
     background-size: cover;
     display: grid;
-    justify-items: center;
     grid-template-columns: auto auto auto auto;
     gap: 4vw;
+    justify-items: center;
     padding: 2vw 5vw;
-    padding-top: 5vw;
 }
 
 .course-list{
@@ -46,7 +39,6 @@
     font-weight: 700;
     line-height: 1.5vw;
     margin-bottom: 0.5vw;
-    /* height: 2.7vw; */
 }
 
 .course-desc{

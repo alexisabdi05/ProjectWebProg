@@ -1,0 +1,25 @@
+
+.hero{
+    padding-top: 5vw;
+    padding-bottom: 2vw;
+    background-image: url("../img/cour-bg.png");
+    background-size: 100% 100%;
+}
+
+form {
+    margin: 1vw 7vw;
+}
+
+input {
+    border-radius: 5vw;
+    text-indent: 3vw;
+    box-shadow: 0vw 0vw 2.5vw 1vw rgba(0 ,0,0,0.15);
+}
+
+input:focus {
+    outline: none;
+}
+
+input::-webkit-input-placeholder {
+    font-weight: 700;
+}

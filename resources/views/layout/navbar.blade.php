@@ -17,7 +17,7 @@
                         Palette</a>
                 </div>
             </div>
-            <a href="{{ $user->id }}/profile/"
+            <a href="/{{ $user->id }}/profile/"
                 class="px-3 py-2 rounded-md text-lg font-bold text-gray-500 hover:text-gray-900">Hi,
                 {{ $user->username }}</a>
         </div>
