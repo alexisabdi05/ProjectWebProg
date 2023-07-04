@@ -23,13 +23,22 @@ class courseDetailController extends Controller
 
         $recordId = $request->input('recordId');
         $isChecked = $request->input('isChecked');
-
-        // Update the corresponding record in the database
+        $flag = $request->input('flag');
+       
+        // Retrieve the corresponding record from the database
         $courseDetail = CourseDetail::find($recordId);
-        $courseDetail-> CourseStatus = $isChecked;
+
+        // Update the CourseStatus field based on the checkbox state
+        if ($flag == 1) {
+            $courseDetail->CourseStatus = 1;
+        }else {
+            $courseDetail->CourseStatus = 0;
+        }
+        
+        // Save the changes to the database
         $courseDetail->save();
 
-        // Return a response indicating success
-        return response()->json(['status' => 'success']);
+        // Return a response indicating the success or failure
+        return response()->json(['success' => $isChecked]);
     }
 }
