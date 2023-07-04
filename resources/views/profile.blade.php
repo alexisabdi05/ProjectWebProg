@@ -16,65 +16,6 @@
 </head>
 
 <body>
-    {{--
-    <div class="gradient-circle ellipse-1"></div>
-    <div class="gradient-circle ellipse-2"></div>
-    <div class="gradient-circle ellipse-4"></div>
-    <div class="gradient-circle ellipse-3"></div>
-    {{-- <div class="gradient-circle ellipse-5"></div>
-    <div class="navbar-container">
-        @include('layout/navbar')
-    </div>
-    <div class="rectangle">
-        <div class="w-70 md:w-3/4 h-64 bg-white shadow-lg rounded-2xl flex flex-col justify-center items-start">
-            <h1 class="text-6xl font-extrabold ml-12">Hello Manda!</h1>
-            <p class="text-lg ml-12">It's good to see you again.</p>
-        </div>
-        <div
-            class="w-15 md:w-1/5 h-64 bg-white shadow-lg rounded-xl ml-3 flex flex-col justify-center content-center items-center">
-            <h1 class="text-6xl font-extrabold content-center">3</h1>
-            <p class="mt-3 text-lg text-center leading-snug content-center">Courses<br>Completed</p>
-        </div>
-        <div
-            class="w-15 md:w-1/5 h-64 bg-white shadow-lg rounded-xl flex flex-col justify-center content-center items-center">
-            <h1 class="text-6xl font-extrabold content-center">5</h1>
-            <p class="mt-3 text-lg text-center leading-snug content-center">Courses<br>In Progress</p>
-        </div>
-    </div>
-    <div>
-        <img src="{{ asset('img/profile.png') }}" class="img-profile">
-    </div>
-    </div>
-    <div class="continue">
-        <div class="w-full bg-white shadow-lg rounded-2xl flex flex-row justify-center">
-            <img src="img/home_photoshop.png" class="logo">
-            <h4 class=" ml-5 text-4xl font-extrabold self-center">Adobe Photoshop <br> Essentials</h4>
-            <p class=" ml-16 text-lg font-extrabold self-center">- </p>
-            <p class="ml-4 text-2xl self-center font-medium"> By Herman Ps Channel</p>
-            <p class="ml-24 text-3xl self-center font-medium"> 83%</p>
-            <button
-                class="text-white font-bold text-3xl py-4 px-16 self-center rounded-2xl focus:outline-none focus:shadow-outline ml-24"
-                type="button"
-                style="background-image: linear-gradient(180deg, #7479DC 0%, #C6C6C6 100%); box-shadow: 0px 0px 7px #000000;">
-                Continue
-            </button>
-        </div>
-    </div>
-    <h4 class=" ml-20 mt-20 text-4xl font-extrabold self-center">Courses</h4>
-    <div class="courses">
-        <div class="w-full bg-white shadow-lg rounded-2xl flex flex-row justify-center items-center">
-            <img src="img/home_canva.png" class="logo">
-            <h4 class=" ml-24  text-3xl font-extrabold self-center">Be A Pro With Canva</h4>
-            <p class=" ml-32 text-2xl font-medium self-center">by</p>
-            <p class="ml-2 text-2xl self-center font-medium"> Stefan William</p>
-            <button class="text-black font-bold text-2xl py-2 px-16 self-center rounded-xl ml-36" type="button"
-                style="border: 2px solid #0C0B0B; border-radius: 8px;">
-                View Course
-            </button>
-        </div>
-    </div>
-    @include('layout/footer')
---}}
     <div class="gradient-circle ellipse-1"></div>
     <div class="gradient-circle ellipse-2"></div>
     <div class="gradient-circle ellipse-4"></div>
@@ -86,17 +27,17 @@
     </div>
 
     <div class="flex grid-flow-row">
-        <div class="bg-white shadow-lg rounded-lg p-8 ml-5 z-40 w-1/3"
+        <div class="fixed top-25 left-0 bg-white shadow-lg rounded-xl py-14 px-8 ml-5 z-40 w-1/3"
             style="background: linear-gradient(125deg, #F5C2C9, #B2B8EF);">
             <div class="flex items-center">
-                <div class="w-32 h-32 rounded-full bg-white shadow-lg overflow-hidden">
+                <div class="w-32 h-32 -mt-2 rounded-full bg-white shadow-lg overflow-hidden">
                     <img src="../img/profilee.png" alt="propil" class="object-cover">
                 </div>
-                <h1 class="ml-9 text-3xl font-medium text-white leading-8">Hello, <br> amandaardianti!</h1>
+                <h1 class="ml-9 -mt-2 text-3xl font-medium text-white leading-8">Hello, <br> amandaardianti!</h1>
             </div>
 
-            <div class="mt-6 flex">
-                <div class="bg-white rounded-lg p-2 py-4 shadow-md mr-6 w-1/2">
+            <div class="mt-8 flex">
+                <div class="bg-white rounded-2xl p-2 py-6 shadow-md mr-6 w-1/2">
                     <div class="flex flex-col items-center">
                         <h2 class="text-3xl font-bold content-center text-gray-600">4</h2>
                         <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
@@ -104,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg p-2 py-4 shadow-md w-1/2">
+                <div class="bg-white rounded-2xl p-2 py-6 shadow-md w-1/2">
                     <div class="flex flex-col items-center">
                         <h2 class="text-3xl font-bold content-center text-gray-600 ">8</h2>
                         <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
@@ -113,34 +54,34 @@
                 </div>
             </div>
 
-            <div class="mt-10">
+            <div class="mt-8 mb-2">
                 <h2 class="text-2xl font-medium text-white mb-3 inline-block">Achievement</h2>
                 <a href="/achievement" class="text-indigo-500 ml-41 text-xl underline">See more</a>
             </div>
 
             <div class="mt-2">
                 <div class="mb-4">
-                    <span class="text-md text-white">Watch 10 Days Canva Course</span>
-                    <div class="bg-gray-200 rounded-full h-2 mt-1">
+                    <span class="text-lg text-white">Watch 10 Days Canva Course</span>
+                    <div class="bg-gray-200 rounded-full h-3 mt-2">
                         <div class="bg-blue-500 rounded-full h-full" style="width: 50%;"></div>
                     </div>
                 </div>
                 <div class="mb-4">
-                    <span class="text-md text-white">Watch 10 Days Canva Course</span>
-                    <div class="bg-gray-200 rounded-full h-2 mt-1">
+                    <span class="text-lg text-white">Watch 10 Days Canva Course</span>
+                    <div class="bg-gray-200 rounded-full h-3 mt-2">
                         <div class="bg-blue-500 rounded-full h-full" style="width: 75%;"></div>
                     </div>
                 </div>
                 <div>
-                    <span class="text-md text-white">Watch 10 Days Canva Course</span>
-                    <div class="bg-gray-200 rounded-full h-2 mt-1">
+                    <span class="text-lg text-white">Watch 10 Days Canva Course</span>
+                    <div class="bg-gray-200 rounded-full h-3 mt-2">
                         <div class="bg-blue-500 rounded-full h-full" style="width: 25%;"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="mt-3 ml-6 z-40 flex-initial mb-5">
+        <div class="mt-3 ml-128 z-40 flex-initial mb-5">
             <h1 class="text-xl font-semibold text-gray-600">On-going course</h1>
             <div class="grid grid-cols-4 gap-4 mt-10 mr-5">
                 <div
@@ -242,7 +183,7 @@
         </div>
     </div>
 
-    <div class="-mt-36 ml-128 z-40 flex-initial">
+    <div class="mt-2 ml-128 z-40 flex-initial">
         <h1 class="text-xl font-semibold text-gray-700">Completed Course</h1>
         <div class="grid grid-cols-4 gap-4 mt-10 mr-5">
             <div

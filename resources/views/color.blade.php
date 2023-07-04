@@ -16,6 +16,7 @@
             background-repeat: repeat;
             background-attachment: fixed;
             background-size: cover;
+            margin-top: -5px;
             /* height: 90%; */
             /* margin-top: -3vw; */
         }
