@@ -16,8 +16,6 @@
     <div class="gradient-circle ellipse-3"></div>
     <div class="gradient-circle ellipse-5"></div>
     <div class="navbar-container">
-        {{-- @include('layout/navbar') --}}
-    </div>
     <div class="backgroundlgn">
         <img src="{{ asset('img/bglogin.png') }}" class="bg-cover bg-center">
     </div>

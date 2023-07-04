@@ -14,14 +14,13 @@
     background-image: url("../img/bg-course-detail.png");
     background-size: cover;
     padding: 2vw;
-    padding-bottom: 1vw;
     border-radius: 1vw;
-    height:17vw;
     position: relative;
 }
 
 .vid{
     background-image: url("../img/bg-video.png");
+    box-shadow: inset 0 0 0.85vw rgb(0, 0, 0, 0.5);
     background-size: cover;
     padding: 1vw;
     border-radius: 1vw;
@@ -47,9 +46,9 @@
 }
 
 .CourseDesc{
-    margin-top:0.5vw
-    line-height: 0.85vw;
-    height: 9vw;
+    margin-top:0.5vw;
+    line-height: 0.9vw;
+    padding-bottom: 2vw;
 }
 
 .course-img{
@@ -62,9 +61,8 @@
     box-shadow: inset 0 0 0.45vw rgb(0, 0, 0, 0.5);
     color: #6F77E2;
     width: 7vw;
-    padding: 0.2vw;
-    border-radius: 1vw;
-    margin-top: 0.75vw;
+    padding: 0.25vw;
+    border-radius: 0.75vw;
     position: absolute;
     bottom: 0.75vw;
     right: 0.85vw;
@@ -73,4 +71,10 @@
 .Enroll:hover{
     background-color:#6F77E2;
     color: white;
+}
+
+video{
+    width: 48vw;
+    height: auto;
+    margin-bottom: 1vw;
 }

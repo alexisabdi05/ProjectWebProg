@@ -21,6 +21,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
             /* height: 90%; */
             /* margin-top: -3vw; */
         }

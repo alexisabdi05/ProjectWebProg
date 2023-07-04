@@ -9,6 +9,7 @@ use App\Http\Controllers\courseController;
 use App\Http\Controllers\courseDetailController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\ColorPaletteController;
+use App\Http\Controllers\searchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,12 +40,31 @@ Route::get('/colorpalette', [userController::class, 'colorpalette'])->middleware
 Route::get('/achievement', [userController::class, 'achievement'])->middleware('auth');
 
 
+
 Route::get('/categories', [categoryController::class, 'index'])->middleware('auth');
 Route::get('/categories/{id}', [courseController::class, 'index'])->middleware('auth');
 Route::get('/course', [courseController::class, 'show'])->middleware('auth');
 Route::get('/courses/{id}', [courseDetailController::class, 'index'])->middleware('auth');
+
+// Route::get('/ps', function () {
+//     return view('photoshop');
+// });
+
+
+Route::get('{user}/categories', [categoryController::class, 'index']);
+Route::get('{user}/categories/{id}', [courseController::class, 'index']);
+// Route::get('{user}/search', [courseController::class, 'show']);
+Route::get('{user}/courses/{id}', [courseDetailController::class, 'index']);
+
 Route::post('/update-checkbox', [courseDetailController::class,'updateCheckbox']);
 
+Route::get('/search', [SearchController::class, 'index'])->name('search.index');
+Route::get('/search/result', [SearchController::class, 'liveSearch'])->name('live-search');
+
+
+Route::get('/search-result', function(){
+    return view('search');
+});
 
 Route::get('/profile', [userController::class, 'profile'])->middleware('auth');
 
@@ -67,4 +87,10 @@ Route::get('/', function () {
 });
 
 Route::post('/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
+
+
+Route::get('{id}/achievement/', function ($id) {
+    $user = User::find($id);
+    return view('achievement',  compact('user'));
+});
 

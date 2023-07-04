@@ -10,7 +10,7 @@
                 <div class="txt">
                     <h1 class="CourseName">{{ $course->CourseName }}</h1>
                     <h5 class="Category">{{ $category[0]->CategoryName }} Tutorial</h5>
-                    <h4 class="CourseDesc">{{ $course->CourseDesc }}</h4>
+                    <h4 class="CourseDesc text-justify">{{ $course->CourseDesc }}</h4>
                     <div class= "Enroll text-center">
                         <button type="submit">
                             Enroll course
@@ -33,8 +33,8 @@
         </div>
         <div class="vid">
             <video src="{{ $cd->CourseDetailVideo }}" controls></video>
-            {{ $cd->CourseDetailTitle }}
-            {{ $cd->CourseDetailDesc }}
+            <h1 class="CourseName">{{ $cd->CourseDetailTitle }}</h1>
+            <h4 class="CourseDesc text-justify">{{ $cd->CourseDetailDesc }}</h4>
         </div>
     </div>
 
