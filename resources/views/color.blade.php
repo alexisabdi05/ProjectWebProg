@@ -36,6 +36,7 @@
     <div class="navbar-container">
         @include('layout/navbar')
     </div>
+
     <div class="backgroundColor flex flex-col justify-center text-center item-center">
         <div class="top w-full px-16 flex flex-row items-center">
             <div class="left w-2/4">
