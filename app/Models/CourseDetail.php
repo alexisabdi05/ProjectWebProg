@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CourseDetail extends Model
 {
@@ -12,5 +13,10 @@ class CourseDetail extends Model
     public function Course()
     {
         return $this->belongsTo(Course::class);
+    }
+
+    public function CourseStatus()
+    {
+        return $this->hasMany(CourseStatus::class);
     }
 }

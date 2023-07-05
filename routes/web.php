@@ -58,15 +58,15 @@ Route::get('{user}/courses/{id}', [courseDetailController::class, 'index']);
 
 Route::post('/update-checkbox', [courseDetailController::class,'updateCheckbox']);
 
-Route::get('/search', [SearchController::class, 'index'])->name('search.index');
-Route::get('/search/result', [SearchController::class, 'liveSearch'])->name('live-search');
+Route::get('/search', [SearchController::class, 'index'])->name('search.index')->middleware('auth');
+Route::get('/search/result', [SearchController::class, 'liveSearch'])->name('live-search')->middleware('auth');
 
 
 Route::get('/search-result', function(){
     return view('search');
 });
 
-Route::get('/profile', [userController::class, 'profile'])->middleware('auth');
+Route::get('/profile', [userController::class, 'profile']);
 
 
 Route::get('/colorpaletteoutput', function () {
