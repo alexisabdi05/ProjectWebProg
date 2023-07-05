@@ -47,7 +47,8 @@
                         @foreach ($colorPalette as $color)
                             <li style="background-color: {{ $color }};" class="box1">
                                 <button onclick="copytoclipboard(this)" id="kotak">
-                                    <p id="hexa">{{ $color }}</p>
+                                    <p id="hexa" class="drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] ">
+                                        {{ $color }}</p>
                                 </button>
                             </li>
                         @endforeach
