@@ -1,69 +1,33 @@
+{{-- @dd($courses) --}}
 @extends('master')
-@section('Title','Courses')
-@section('Style','/css/categories.css')
+@section('Title', 'Courses')
+@section('Style', '/css/courses.css')
 @section('content')
-@include('include.form')
 
+    <div class="hero">
+        @include('include.form')
+        <div class="flex justify-center">
+            <img src="/{{ $category->CategoryIMG }}" alt="" class="main">
+        </div>
+        <h1 class="title">{{ $category->CategoryName }}</h1>
+    </div>
 
-<p class="course">Adobe Photoshop</p>
-
-<ul class="courses">
-    <div class="layout">
-    <li class="cour">
-        <div></div>
-        <h3>Adobe Photoshop Essential</h3>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</h4>
-        <h5>See more →</h5>
-    </li>
-    <li class="cour">
-        <div></div>
-        <h3>Adobe Photoshop Essential</h3>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</h4>
-        <h5>See more →</h5>
-    </li>
-    <li class="cour">
-        <div></div>
-        <h3>Adobe Photoshop Essential</h3>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</h4>
-        <h5>See more →</h5>
-    </li>
-    <li class="cour">
-        <div></div>
-        <h3>Adobe Photoshop Essential</h3>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</h4>
-        <h5>See more →</h5>
-    </li>
-    <li class="cour">
-        <div></div>
-        <h3>Adobe Photoshop Essential</h3>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</h4>
-        <h5>See more →</h5>
-    </li>
-    <li class="cour">
-        <div></div>
-        <h3>Adobe Photoshop Essential</h3>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</h4>
-        <h5>See more →</h5>
-    </li>
-    <li class="cour">
-        <div></div>
-        <h3>Adobe Photoshop Essential</h3>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</h4>
-        <h5>See more →</h5>
-    </li>
-    <li class="cour">
-        <div></div>
-        <h3>Adobe Photoshop Essential</h3>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</h4>
-        <h5>See more →</h5>
-    </li>
-    <li class="cour">
-        <div></div>
-        <h3>Adobe Photoshop Essential</h3>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</h4>
-        <h5>See more →</h5>
-    </li>
-</div>
-</ul>
-
-@include('layout/footer')
+    <div class="courses">
+        @foreach ($courses as $course)
+            <a href="/courses/{{ $course->id }}">
+                <div class="course-list">
+                    <div class="flex justify-center">
+                        <img src="/img/course-cover.png" alt="">
+                    </div>
+                    {{-- <img src="{{ $course->courseIMG }}" alt=""> --}}
+                    <div class="course-txt">
+                        <div class="flex items-center cont">
+                            <h2 class="course-title">{{ $course->CourseName }}</h2>
+                        </div>
+                        <h4 class="course-desc">{{ $course->CourseDesc }}</h4>
+                        <p class="more text-center">See more →</p>
+                    </div>
+                </div>
+            </a>
+        @endforeach
+    </div>

@@ -1,0 +1,80 @@
+.hero{
+    padding-top: 2vw;
+    margin: 2vw;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1vw
+}
+
+.course-info{
+    width: 45vw;
+}
+
+.course-outline{
+    background-image: url("../img/bg-course-detail.png");
+    background-size: cover;
+    padding: 2vw;
+    border-radius: 1vw;
+    position: relative;
+}
+
+.vid{
+    background-image: url("../img/bg-video.png");
+    box-shadow: inset 0 0 0.85vw rgb(0, 0, 0, 0.5);
+    background-size: cover;
+    padding: 1vw;
+    border-radius: 1vw;
+}
+
+.txt{
+    margin-left: 1vw;
+}
+
+.CourseName, .CourseDesc, .Category, .Enroll{
+    font-family: "Poppins";
+}
+
+.CourseName{
+    font-weight: 700;
+    font-size: 1.2vw;
+    line-height: 1vw;
+}
+
+.Category{
+    color: #858585;
+    font-size: 0.75vw;
+}
+
+.CourseDesc{
+    margin-top:0.5vw;
+    line-height: 0.9vw;
+    padding-bottom: 2vw;
+}
+
+.course-img{
+    width: 25vw;
+    height: 12vw;
+}
+
+.Enroll{
+    background-color: white;
+    box-shadow: inset 0 0 0.45vw rgb(0, 0, 0, 0.5);
+    color: #6F77E2;
+    width: 7vw;
+    padding: 0.25vw;
+    border-radius: 0.75vw;
+    position: absolute;
+    bottom: 0.75vw;
+    right: 0.85vw;
+}
+
+.Enroll:hover{
+    background-color:#6F77E2;
+    color: white;
+}
+
+video{
+    width: 48vw;
+    height: auto;
+    margin-bottom: 1vw;
+}

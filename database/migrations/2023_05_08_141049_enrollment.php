@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('enrollment', function (Blueprint $table) {
+        Schema::create('enrollments', function (Blueprint $table) {
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('course_id')->references('id')->on('courses');
             $table->id();
-            $table->integer('status');
+            $table->Boolean('statusFinish')->default(FALSE);
+            // $table->Boolean('status')->default(FALSE);
             $table->timestamps();
         });
     }

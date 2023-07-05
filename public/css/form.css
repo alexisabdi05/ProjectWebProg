@@ -1,13 +1,17 @@
 form {
-    padding: 12px 31px;
-    margin-bottom: 50px;
+    margin: 1vw 7vw;
 }
 
 input {
-    border-radius: 30px;
-    text-indent: 50px;
+    border-radius: 5vw;
+    text-indent: 3vw;
+    box-shadow: 0vw 0vw 2.5vw 1vw rgba(0 ,0,0,0.15);
 }
 
 input:focus {
     outline: none;
+}
+
+input::-webkit-input-placeholder {
+    font-weight: 700;
 }
