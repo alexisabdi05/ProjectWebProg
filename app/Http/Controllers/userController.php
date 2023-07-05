@@ -75,7 +75,7 @@ class userController extends Controller
                 // return redirect()->intended('/{id}/home', ['id' => $user->id]);
                 return redirect()->intended('/home');
             };
-            return back()->with('signinEror', 'Sign in Failed!');
+            return back()->with('signinEror', 'Wrong Email/Password');
     }
 
     public function colorpalette(){
