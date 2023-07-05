@@ -1,3 +1,4 @@
+{{-- @dd($courses) --}}
 @extends('master')
 @section('Title', 'Courses')
 @section('Style', '/css/courses.css')

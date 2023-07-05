@@ -1,3 +1,4 @@
+@dd($courseStat)
 @extends('master')
 @section('Title', 'Photoshop')
 @section('Style', '/css/course-detail.css')
@@ -22,7 +23,7 @@
                 @foreach ($courseDetail as $cd)
                     <form class="update-checkbox" data-record-id="{{ $cd->id }}">
                         @csrf
-                        <input type="checkbox" {{ $cd->CourseStatus ? 'checked' : '' }} value="try">
+                        <input type="checkbox" {{ $courseStat->status ? 'checked' : '' }} value="try">
                         Day {{ $cd->day }}
                         <br>
                         {{ $cd->CourseDetailTitle }}
