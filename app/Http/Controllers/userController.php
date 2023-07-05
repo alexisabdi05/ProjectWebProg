@@ -53,12 +53,6 @@ class userController extends Controller
         $user->password = $password;
         $user->valAdmin= FALSE;
         $user->save();
-        for ($i=1; $i <= 117; $i++) {
-            CourseStatus::create([
-                'user_id' => $user->id,
-            'coursedetail_id'=> $i
-            ]);
-        };
         return redirect('/signin');
     }
 

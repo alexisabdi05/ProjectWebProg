@@ -1,4 +1,3 @@
-@dd($courseStat)
 @extends('master')
 @section('Title', 'Photoshop')
 @section('Style', '/css/course-detail.css')
@@ -12,67 +11,234 @@
                     <h1 class="CourseName">{{ $course->CourseName }}</h1>
                     <h5 class="Category">{{ $category[0]->CategoryName }} Tutorial</h5>
                     <h4 class="CourseDesc text-justify">{{ $course->CourseDesc }}</h4>
-                    <div class= "Enroll text-center">
-                        <button type="submit">
-                            Enroll course
-                        </button>
+                    <div class="Enroll text-center">
+                        @if ($enrolled)
+                            <div class="cancel-button" data-enrollment-id="{{ $enrolled->id }}"
+                                data-course-id="{{ $course->id }}">Cancel</div>
+                        @else
+                            <div class="enroll-button" data-course-id="{{ $course->id }}">Enroll</div>
+                        @endif
                     </div>
-                    </div>
+                </div>
             </div>
             <div class="course-detail">
-                @foreach ($courseDetail as $cd)
-                    <form class="update-checkbox" data-record-id="{{ $cd->id }}">
+                @for ($i = 0; $i < $len; $i++)
+                    <form class="update-checkbox" data-record-id="{{ $courseDetail[$i]->id }}">
                         @csrf
-                        <input type="checkbox" {{ $courseStat->status ? 'checked' : '' }} value="try">
-                        Day {{ $cd->day }}
-                        <br>
-                        {{ $cd->CourseDetailTitle }}
-                        <br>
+                        <input class="cek-box" type="checkbox" {{ $courseStatuses[$i]->status ?? '' ? 'checked' : '' }} value="try"
+                            @if (!$enrolled) disabled @endif>
+        
+                            <button @if (!$enrolled) disabled @endif class="day-button"
+                            data-index="{{ $i }}" data-video-src="{{ $courseDetail[$i]->CourseDetailVideo }}">Day
+                            {{ $courseDetail[$i]->day }}</button>
+                            
+                        <h2 class="courseDTitle">{{ $courseDetail[$i]->CourseDetailTitle }}<h2>
+                     
+
                     </form>
-                @endforeach
+                @endfor
             </div>
         </div>
         <div class="vid">
-            <video src="{{ $cd->CourseDetailVideo }}" controls></video>
-            <h1 class="CourseName">{{ $cd->CourseDetailTitle }}</h1>
-            <h4 class="CourseDesc text-justify">{{ $cd->CourseDetailDesc }}</h4>
+            <iframe id="video-iframe" @if (!$enrolled) disabled @endif width="920" height="500"
+                src="{{ $courseDetail[0]->CourseDetailVideo }}" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            <h1 id="video-title" class="CourseName">{{ $courseDetail[0]->CourseDetailTitle }}</h1>
+            <h4 id="video-desc" class="CourseDesc text-justify">{{ $courseDetail[0]->CourseDetailDesc }}</h4>
+            
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-
         $(document).ready(function() {
-    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+            var userId = @json($user->id);
+            var courseId = @json($course->id);
+            var enrolled = @json($enrolled);
+            var lastCheckedIndex = -1;
+            var checkboxes = $('.update-checkbox input[type="checkbox"]');
 
-    $('.update-checkbox input[type="checkbox"]').on('change', function() {
-        var form = $(this).closest('form');
-        var recordId = form.data('record-id');
-        var isChecked = $(this).is(':checked');
-        var flag = 0;
-        if (isChecked) {
-            flag = 1;
-        }
+            checkboxes.prop('disabled', true);
 
-        $.ajax({
-            url: '/update-checkbox',
-            type: 'POST',
-            data: {
-                recordId: recordId,
-                isChecked: isChecked,
-                flag: flag
-            },
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            },
-            success: function(response) {
-                console.log(response.success);
-            },
-            error: function(xhr, status, error) {
-                console.log(xhr.responseText);
+            checkboxes.each(function(index) {
+                var currentCheckbox = $(this);
+                var isChecked = currentCheckbox.is(':checked');
+
+                if (isChecked) {
+                    lastCheckedIndex = index;
+                }
+                currentCheckbox.prop('disabled', true);
+
+                if (index === 0) {
+                    currentCheckbox.prop('disabled',
+                        false); // Enable the first checkbox regardless of its checked state
+                }
+            });
+
+            if (lastCheckedIndex !== -1) {
+                checkboxes.prop('disabled', true);
+                checkboxes.eq(lastCheckedIndex + 1).prop('disabled', false);
+            }
+
+            if (!enrolled) {
+                checkboxes.prop('disabled', true); // Disable all checkboxes except the first one if not enrolled
+            }
+
+            $('.day-button').on('click', function() {
+                event.preventDefault();
+                var index = $(this).data('index') + 1;
+                var videoSrc = $(this).data('video-src');
+                // Update video source based on the clicked day-button
+                $('#video-iframe').attr('src', videoSrc);
+
+                // Fetch the video title and description for the clicked day-button
+                $.ajax({
+                    url: '/get-video-details', // Replace with the URL that fetches video details
+                    method: 'GET',
+                    data: {
+                        index: index
+                    },
+                    success: function(response) {
+                        $('#video-title').text(response.title);
+                        $('#video-desc').text(response.description);
+                    },
+                    error: function(error) {
+                        console.log(index);
+                    }
+                });
+            });
+
+            checkboxes.on('change', function() {
+                var currentCheckbox = $(this);
+                var form = $(this).closest('form');
+                var recordId = form.data('record-id');
+                var isChecked = $(this).is(':checked');
+                var flag = 0;
+                var currentIndex = checkboxes.index(currentCheckbox);
+
+                checkboxes.prop('disabled', true); // Disable all checkboxes
+
+                if (isChecked) {
+                    currentCheckbox.prop('checked', true); // Check the current checkbox
+                    currentCheckbox.prop('disabled', true); // Disable the current checkbox
+                    checkboxes.eq(currentIndex + 1).prop('disabled', false); // Enable the next checkbox
+                }
+
+                var nextCheckbox = checkboxes.eq(currentIndex + 1);
+                nextCheckbox.prop('disabled', false); // Enable the next checkbox
+
+                if (isChecked) {
+                    flag = 1;
+                }
+
+                var allChecked = checkboxes.filter(':not(:checked)').length === 0;
+
+                if (allChecked) {
+                    // Make AJAX request to update the courseStatus in the database
+                    updateCourseStatus(recordId);
+                }
+
+                $.ajax({
+                    url: '/update-checkbox',
+                    type: 'POST',
+                    data: {
+                        recordId: recordId,
+                        isChecked: isChecked,
+                        userId: userId,
+                        flag: flag
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    success: function(response) {
+                        console.log(response.success);
+                    }
+                });
+
+            });
+
+            function updateCourseStatus(recordId) {
+                $.ajax({
+                    url: '/update-course-status',
+                    type: 'POST',
+                    data: {
+                        courseId: courseId,
+                        userId: userId
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    success: function(response) {
+                        console.log('Course status updated successfully');
+                    }
+                });
+            }
+
+            $(document).on('click', '.enroll-button', function() {
+                var courseId = $(this).data('course-id');
+                enrollCourse(courseId, userId);
+            });
+
+            $(document).on('click', '.cancel-button', function() {
+                var enrollmentId = $(this).data('enrollment-id');
+                var courseId = $(this).data('course-id');
+                cancelEnrollment(enrollmentId, userId, courseId);
+            });
+
+            function enrollCourse(courseId, userId) {
+                
+                $.ajax({
+                    url: '/enroll-course',
+                    type: 'POST',
+                    data: {
+                        courseId: courseId,
+                        userId: userId
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            updateEnrollmentButton(courseId, true);
+                            location.reload();
+                        }
+                    }
+                });
+            }
+
+            function cancelEnrollment(enrollmentId, userId, courseId) {
+
+                $.ajax({
+                    url: '/cancel-enrollment',
+                    type: 'DELETE',
+                    data: {
+                        enrollmentId: enrollmentId,
+                        courseId: courseId,
+                        userId: userId
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            updateEnrollmentButton(enrollmentId, false);
+                            location.reload();
+                        }
+                    }
+                });
+            }
+
+            function updateEnrollmentButton(enrollmentId, enrolled) {
+                var button = $('[data-enrollment-id="' + enrollmentId + '"]');
+                if (enrolled) {
+                    button.text('Cancel');
+                    button.removeClass('enroll-button').addClass('cancel-button');
+                } else {
+                    button.text('Enroll');
+                    button.removeClass('cancel-button').addClass('enroll-button');
+                }
             }
         });
-    });
-});
-
     </script>
