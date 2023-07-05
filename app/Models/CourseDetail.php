@@ -17,6 +17,6 @@ class CourseDetail extends Model
 
     public function CourseStatus()
     {
-        return $this->hasMany(CourseStatus::class);
+        return $this->hasMany(CourseStatus::class, 'coursedetail_id');
     }
 }

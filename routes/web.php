@@ -43,25 +43,21 @@ Route::get('/achievement', [userController::class, 'achievement'])->middleware('
 
 Route::get('/categories', [categoryController::class, 'index'])->middleware('auth');
 Route::get('/categories/{id}', [courseController::class, 'index'])->middleware('auth');
-Route::get('/courses/{id}', [courseDetailController::class, 'index'])->middleware('auth');
+Route::get('/courses/{id}', [courseDetailController::class, 'index']);
 
-// Route::get('/ps', function () {
-//     return view('photoshop');
-// });
-
-
-// Route::get('{user}/categories', [categoryController::class, 'index']);
-// Route::get('{user}/categories/{id}', [courseController::class, 'index']);
-// Route::get('{user}/search', [courseController::class, 'show']);
-// Route::get('/search-result', function(){
-//     return view('search');
-// });
-// Route::get('{user}/courses/{id}', [courseDetailController::class, 'index']);
+Route::post('/update-course-status', [courseController::class, 'updateCourseStatus']);
 Route::post('/update-checkbox', [courseDetailController::class,'updateCheckbox']);
+Route::post('/enroll-course', [CourseController::class, 'enrollCourse'])->name('enroll-course');
+Route::delete('/cancel-enrollment', [CourseController::class, 'cancelEnrollment'])->name('cancel-enrollment');
+
+Route::get('/get-video-details', [courseDetailController::class, 'getVideoDetails']);
 
 Route::get('/search', [SearchController::class, 'index'])->name('search.index')->middleware('auth');
 Route::get('/search/result', [SearchController::class, 'liveSearch'])->name('live-search')->middleware('auth');
 Route::get('/profile', [userController::class, 'profile'])->middleware('auth');
+Route::fallback(function () {
+    return view('error');
+});
 
 
 

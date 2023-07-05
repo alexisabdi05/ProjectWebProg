@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="/css/live-search.css">
 @if (isset($searchResults))
 <div class="courses">
-{{-- <a href="/{{ $user->id }}/courses/{{ $course ->id}}"> --}}
     @foreach ($searchResults as $result)
-        <div class="search-result course-list">
+    <a href="/courses/{{ $result->id }}">
+    <div class="search-result course-list">
             <div class="flex justify-center">
                 <img src="/img/course-cover.png" alt="">
             </div>
@@ -15,7 +15,7 @@
                 <p class="more text-center">See more →</p>
             </div>
         </div>
+    </a>
     @endforeach
-{{-- </a> --}}
 </div>
 @endif
