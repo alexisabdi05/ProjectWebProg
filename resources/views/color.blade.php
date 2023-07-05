@@ -9,7 +9,7 @@
 <body>
     <div class="navbar-container">
         @include('layout/navbar')
-        </div>
+    </div>
         <div class="top w-full px-16 flex flex-row items-center">
             <div class="left w-2/4">
                 <h1 class="font-bold text-black">DRAG & DROP</h1>
