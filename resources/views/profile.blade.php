@@ -25,7 +25,15 @@
     <div class="navbar-container">
         @include('layout/navbar')
     </div>
-
+    @php
+        use App\Models\User;
+        use App\Models\Enrollment;
+        use App\Models\CourseStatus;
+        $user = auth()->user();
+        // @dd($user->id);
+        $enrollment = Enrollment::where('user_id', '=', $user->id)->get();
+        // @dd($enrollment);
+    @endphp
     <div class="flex grid-flow-row">
 
         <div class="">
@@ -66,25 +74,34 @@
                 </div>
 
                 <div class="mt-2">
-                    <div class="mb-4">
-                        <span class="text-md text-white">Watch 10 Days Canva Course</span>
-                        <div class="bg-gray-200 rounded-full h-2 mt-1">
-                            <div class="bg-blue-500 rounded-full h-full" style="width: 50%;"></div>
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <span class="text-md text-white">Watch 10 Days Canva Course</span>
-                        <div class="bg-gray-200 rounded-full h-2 mt-1">
-                            <div class="bg-blue-500 rounded-full h-full" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="text-md text-white">Watch 10 Days Canva Course</span>
-                        <div class="bg-gray-200 rounded-full h-2 mt-1">
-                            <div class="bg-blue-500 rounded-full h-full" style="width: 25%;"></div>
-                        </div>
+                    @foreach ($enrollment as $enroll)
+                        @if ($enroll->statusFinish == 0)
+                            @php
+                                $total = $enroll->Course->CourseDetail->count();
+                                $temp = $enroll->Course->CourseDetail;
+                                // @dd($temp);
+                                $completed = 0;
+                                foreach ($temp as $t) {
+                                    $temp2 = CourseStatus::where('coursedetail_id', '=', $t->id)->get();
+                                    // @dd($temp2);
+                                    foreach ($temp2 as $key => $t2) {
+                                        if ($t2->status == true) {
+                                            $completed = $completed + 1;
+                                        }
+                                    }
+                                }
+                            @endphp
+                            <div class="mb-4">
+                                <span class="text-md text-white">W{{ $enroll->Course->CourseName }}</span>
+                                <div class="bg-gray-200 rounded-full h-2 mt-1">
+                                    <div class="bg-blue-500 rounded-full h-full"
+                                        style="width: {{ ($completed / $total) * 100 }}%"></div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
 
-                    </div>
+
                 </div>
             </div>
             <div class="mt-2">
@@ -99,27 +116,69 @@
 
         <div class="mt-3 ml-6 z-40 flex-initial mb-5">
             <h1 class="text-xl font-semibold text-gray-600">On-going course</h1>
-            @php
-                use App\Models\User;
-                use App\Models\Enrollment;
-                use App\Models\CourseStatus;
-                $user = auth()->user();
-                // @dd($user->id);
-                $enrollment = Enrollment::where('user_id', '=', $user->id)->get();
-                // @dd($enrollment);
-            @endphp
             <div class="grid grid-cols-4 gap-4 mt-10 mr-5">
                 {{-- @dd($enrollment) --}}
                 @foreach ($enrollment as $enroll)
+                    @if ($enroll->statusFinish == 0)
+                        <div
+                            class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                            @php
+                                $total = $enroll->Course->CourseDetail->count();
+                                $temp = $enroll->Course->CourseDetail;
+                                // @dd($temp);
+                                $completed = 0;
+                                foreach ($temp as $t) {
+                                    $temp2 = CourseStatus::where('coursedetail_id', '=', $t->id)->get();
+                                    // @dd($temp2);
+                                    foreach ($temp2 as $key => $t2) {
+                                        if ($t2->status == true) {
+                                            $completed = $completed + 1;
+                                        }
+                                    }
+                                }
+                                // $temp2 = CourseStatus::where('coursedetail_id', '=', $temp->id)->get();
+                                // $completed = $temp2->SortByDesc('');
+                            @endphp
+                            <div
+                                class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
+                                <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
+                            </div>
+                            <div class="p-5 text-center">
+                                <h5
+                                    class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                                    {{ $enroll->Course->CourseName }}
+                                </h5>
+                                <p class="block text-base font-light leading-relaxed text-inherit antialiased">
+                                    <span
+                                        class="text-indigo-500 font-bold text-3xl">{{ $completed }}</span>/{{ $total }}
+                                    completed
+                                    days
+                                </p>
+                            </div>
+                            <div class="p-5 pt-0 flex justify-center">
+                                <button
+                                    class="select-none rounded-full bg-indigo-500 py-2 px-6 text-center align-middle text-xs font-semibold uppercase text-white shadow-md shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                    type="button" data-ripple-light="true">
+                                    Continue Learn
+                                </button>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-2 ml-128 z-40 flex-initial">
+        <h1 class="text-xl font-semibold text-gray-700">Completed Course</h1>
+        <div class="grid grid-cols-4 gap-4 mt-10 mr-5 flex flex-wrap">
+            @php
+                $flag = 0;
+            @endphp
+            @foreach ($enrollment as $enroll)
+                @if ($enroll->statusFinish == 1)
                     <div
                         class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                        @php
-                            $total = $enroll->Course->CourseDetail->count();
-                            $temp = $enroll->Course->CourseDetail;
-                            @dd($temp);
-                            $temp2 = CourseStatus::where('coursedetail_id', '=', $temp->id)->get();
-                            $completed = $temp2->SortByDesc('');
-                        @endphp
                         <div
                             class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
                             <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
@@ -130,236 +189,18 @@
                                 {{ $enroll->Course->CourseName }}
                             </h5>
                             <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                                <span
-                                    class="text-indigo-500 font-bold text-3xl">{{ $completed }}</span>/{{ $total }}
-                                completed
-                                days
+                                by {{ $enroll->Course->author }}
                             </p>
                         </div>
-                        <div class="p-5 pt-0 flex justify-center">
-                            <button
-                                class="select-none rounded-full bg-indigo-500 py-2 px-6 text-center align-middle text-xs font-semibold uppercase text-white shadow-md shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                                type="button" data-ripple-light="true">
-                                Continue Learn
-                            </button>
-                        </div>
                     </div>
-                @endforeach
-                {{-- <div
-                    class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                    <div
-                        class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                        <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                    </div>
-                    <div class="p-5 text-center">
-                        <h5
-                            class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                            Photoshop Effects Tutorial
-                        </h5>
-                        <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                            <span class="text-indigo-500 font-bold text-3xl">3</span>/5 completed days
-                        </p>
-                    </div>
-                    <div class="p-5 pt-0 flex justify-center">
-                        <button
-                            class="select-none rounded-full bg-indigo-500 py-2 px-6 text-center align-middle text-xs font-semibold uppercase text-white shadow-md shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                            type="button" data-ripple-light="true">
-                            Continue Learn
-                        </button>
-                    </div>
-                </div>
-
-                <div
-                    class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                    <div
-                        class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                        <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                    </div>
-                    <div class="p-5 text-center">
-                        <h5
-                            class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                            Photoshop Effects Tutorial
-                        </h5>
-                        <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                            <span class="text-indigo-500 font-bold text-3xl">3</span>/5 completed days
-                        </p>
-                    </div>
-                    <div class="p-5 pt-0 flex justify-center">
-                        <button
-                            class="select-none rounded-full bg-indigo-500 py-2 px-6 text-center align-middle text-xs font-semibold uppercase text-white shadow-md shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                            type="button" data-ripple-light="true">
-                            Continue Learn
-                        </button>
-                    </div>
-                </div> --}}
-
-                {{-- <div
-                    class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                    <div
-                        class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                        <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                    </div>
-                    <div class="p-5 text-center">
-                        <h5
-                            class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                            Photoshop Effects Tutorial
-                        </h5>
-                        <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                            <span class="text-indigo-500 font-bold text-3xl">3</span>/5 completed days
-                        </p>
-                    </div>
-                    <div class="p-5 pt-0 flex justify-center">
-                        <button
-                            class="select-none rounded-full bg-indigo-500 py-2 px-6 text-center align-middle text-xs font-semibold uppercase text-white shadow-md shadow-indigo-500/20 transition-all hover:shadow-lg hover:shadow-indigo-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                            type="button" data-ripple-light="true">
-                            Continue Learn
-                        </button>
-                    </div>
-                </div> --}}
-            </div>
-        </div>
-    </div>
-
-    <div class="mt-2 ml-128 z-40 flex-initial">
-        <h1 class="text-xl font-semibold text-gray-700">Completed Course</h1>
-        <div class="grid grid-cols-4 gap-4 mt-10 mr-5">
-            <div
-                class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div
-                    class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                    <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                </div>
-                <div class="p-5 text-center">
-                    <h5
-                        class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        Photoshop Effects Tutorial
-                    </h5>
-                    <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                        by Photoshop Tutorial
-                    </p>
-                </div>
-            </div>
-
-            <div
-                class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div
-                    class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                    <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                </div>
-                <div class="p-5 text-center">
-                    <h5
-                        class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        Photoshop Effects Tutorial
-                    </h5>
-                    <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                        by Photoshop Tutorial
-                    </p>
-                </div>
-            </div>
-
-            <div
-                class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div
-                    class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                    <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                </div>
-                <div class="p-5 text-center">
-                    <h5
-                        class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        Photoshop Effects Tutorial
-                    </h5>
-                    <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                        by Photoshop Tutorial
-                    </p>
-                </div>
-            </div>
-
-            <div
-                class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div
-                    class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                    <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                </div>
-                <div class="p-5 text-center">
-                    <h5
-                        class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        Photoshop Effects Tutorial
-                    </h5>
-                    <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                        by Photoshop Tutorial
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-4 mt-14 mb-10 mr-5">
-            <div
-                class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div
-                    class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                    <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                </div>
-                <div class="p-5 text-center">
-                    <h5
-                        class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        Photoshop Effects Tutorial
-                    </h5>
-                    <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                        by Photoshop Tutorial
-                    </p>
-                </div>
-            </div>
-
-            <div
-                class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div
-                    class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                    <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                </div>
-                <div class="p-5 text-center">
-                    <h5
-                        class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        Photoshop Effects Tutorial
-                    </h5>
-                    <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                        by Photoshop Tutorial
-                    </p>
-                </div>
-            </div>
-
-            <div
-                class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div
-                    class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                    <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                </div>
-                <div class="p-5 text-center">
-                    <h5
-                        class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        Photoshop Effects Tutorial
-                    </h5>
-                    <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                        by Photoshop Tutorial
-                    </p>
-                </div>
-            </div>
-
-            <div
-                class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div
-                    class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                    <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
-                </div>
-                <div class="p-5 text-center">
-                    <h5
-                        class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        Photoshop Effects Tutorial
-                    </h5>
-                    <p class="block text-base font-light leading-relaxed text-inherit antialiased">
-                        by Photoshop Tutorial
-                    </p>
-                </div>
-            </div>
+                    @php
+                        $flag = $flag + 1;
+                    @endphp
+                @endif
+            @endforeach
+            @if ($flag == 0)
+                <h1 class="text-lg  text-gray-700">no courses have been completed</h1>
+            @endif
         </div>
     </div>
 </body>

@@ -7,6 +7,7 @@ use App\Models\Gallery;
 use App\Models\Enrollment;
 use App\Models\Achievement;
 use App\Models\CourseStatus;
+use App\Models\SocialAccount;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -24,6 +25,11 @@ class Category extends Model
     public function Achievement()
     {
         return $this->hasMany(Achievement::class);
+    }
+
+    public function SocialAccount()
+    {
+        return $this->hasMany(SocialAccount::class);
     }
 
     public function Enrollment()

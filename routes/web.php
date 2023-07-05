@@ -3,6 +3,7 @@ use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\courseController;
@@ -10,6 +11,15 @@ use App\Http\Controllers\courseDetailController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\ColorPaletteController;
 use App\Http\Controllers\searchController;
+use App\Http\Controllers\GoogleAuthController;
+use Laravel\Socialite\Facades\Socialite;
+// use GuzzleHttp\Client;
+
+// $client = new Client([
+//     'verify' => false,
+// ]);
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,16 +80,8 @@ Route::get('/colorpaletteoutput', function () {
     return view('coloroputput',  compact('user'));
 });
 
-
-
-Route::get('/test', function () {
-    $colorPalette = NULL;
-    return view('test', compact('colorPalette'));
-});
-
-
 Route::get('/', function () {
-    return view('test');
+    return redirect('/signin');
 });
 
 Route::post('/generate-color-palette', [ColorPaletteController::class, 'generateColorPalette']);
@@ -90,3 +92,7 @@ Route::get('{id}/achievement/', function ($id) {
     return view('achievement',  compact('user'));
 });
 
+
+Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+
+Route::get('/auth/google/callback', [GoogleAuthController::class, 'callbackGoogle']);
