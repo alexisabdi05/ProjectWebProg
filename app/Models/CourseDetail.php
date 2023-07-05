@@ -13,4 +13,9 @@ class CourseDetail extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+    public function CourseStatus()
+    {
+        return $this->hasMany(CourseStatus::class);
+    }
 }

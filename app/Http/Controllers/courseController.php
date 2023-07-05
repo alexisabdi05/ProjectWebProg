@@ -8,19 +8,11 @@ use Illuminate\Http\Request;
 
 class courseController extends Controller
 {
-    
-    public function index($user, $id){
-        $user = User::find($user);
-        $courses = Category::find($id)->Course;
+
+    public function index($id){
+        $courses = Course::where('category_id',$id)->get();
         $category = Category::find($id);
-        return view('courses', compact('courses','category', 'user'));
+        return view('courses', compact('courses','category'));
     }
 
-    // public function show($user){
-    //     $courses = Course::all();
-    //     $user = User::find($user);
-    //     $courses = $courses->shuffle();
-    //     return view('search', compact('courses', 'user'));
-    // }
-    
 }

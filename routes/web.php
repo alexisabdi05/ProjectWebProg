@@ -43,7 +43,6 @@ Route::get('/achievement', [userController::class, 'achievement'])->middleware('
 
 Route::get('/categories', [categoryController::class, 'index'])->middleware('auth');
 Route::get('/categories/{id}', [courseController::class, 'index'])->middleware('auth');
-Route::get('/course', [courseController::class, 'show'])->middleware('auth');
 Route::get('/courses/{id}', [courseDetailController::class, 'index'])->middleware('auth');
 
 // Route::get('/ps', function () {
@@ -51,21 +50,18 @@ Route::get('/courses/{id}', [courseDetailController::class, 'index'])->middlewar
 // });
 
 
-Route::get('{user}/categories', [categoryController::class, 'index']);
-Route::get('{user}/categories/{id}', [courseController::class, 'index']);
+// Route::get('{user}/categories', [categoryController::class, 'index']);
+// Route::get('{user}/categories/{id}', [courseController::class, 'index']);
 // Route::get('{user}/search', [courseController::class, 'show']);
-Route::get('{user}/courses/{id}', [courseDetailController::class, 'index']);
-
+// Route::get('/search-result', function(){
+//     return view('search');
+// });
+// Route::get('{user}/courses/{id}', [courseDetailController::class, 'index']);
 Route::post('/update-checkbox', [courseDetailController::class,'updateCheckbox']);
 
-Route::get('/search', [SearchController::class, 'index'])->name('search.index');
-Route::get('/search/result', [SearchController::class, 'liveSearch'])->name('live-search');
 
-
-Route::get('/search-result', function(){
-    return view('search');
-});
-
+Route::get('/search', [SearchController::class, 'index'])->name('search.index')->middleware('auth');
+Route::get('/search/result', [SearchController::class, 'liveSearch'])->name('live-search')->middleware('auth');
 Route::get('/profile', [userController::class, 'profile'])->middleware('auth');
 
 
