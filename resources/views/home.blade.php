@@ -26,46 +26,47 @@
         <h3>we will gladly help you to learn design from a very basic stage into advanced stage</h3>
     </div>
     <div class="sec1c">
-        <input type="text" placeholder="What do you want to learn today?">
+        @include('include.form')
     </div>
+
 
     {{-- SECTION 2 --}}
     <div class="sec2">
         <div class="sec2_left">
             <h1>Look at our online courses</h1>
-            <a href="/">Study Now!</a>
+            <a href="/categories/">Study Now!</a>
         </div>
         <div class="sec2_right">
             <div class="grid grid-cols-4 gap-9">
                 <div id="c1">
-                    <a href="">
+                    <a href="/categories/1">
                         <div class="c1_a">Adobe Photoshop</div>
                     </a>
-                    <a href="">
+                    <a href="/categories/5">
                         <div class="c1_b">Logo Design</div>
                     </a>
                 </div>
                 <div id="c2">
-                    <a href="">
+                    <a href="/categories/2">
                         <div class="c2_a">Adobe Illustrator</div>
                     </a>
-                    <a href="">
+                    <a href="/categories/6">
                         <div class="c2_b">Figure Draw</div>
                     </a>
                 </div>
                 <div id="c3">
-                    <a href="">
+                    <a href="/categories/3">
                         <div class="c3_a">Canva</div>
                     </a>
-                    <a href="">
+                    <a href="/categories/7">
                         <div class="c3_b">Cartoon</div>
                     </a>
                 </div>
                 <div id="c4">
-                    <a href="">
+                    <a href="/categories/4">
                         <div class="c4_a">Color Theory</div>
                     </a>
-                    <a href="">
+                    <a href="/categories/8">
                         <div class="c4_b">Graphic Design</div>
                     </a>
                 </div>
@@ -75,7 +76,7 @@
 
     {{-- CAROUSEL --}}
 
-    <div id="animation-carousel" class="relative" data-carousel="static">
+    <div id="animation-carousel" class="relative" data-carousel="slide">
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden rounded-md">
             <!-- Item 1 -->
@@ -121,13 +122,13 @@
         <h3>Unleash your creativity and master design with our best courses, where you'll discover how simple it is with Colorverse.</h3>
     </div>
 
-    <div class="grid grid-cols-3 gap-9" id="col2">
+    <div class="grid grid-cols-3 gap-9 best-course" id="col2">
         <div class="c31">
             <img src="img/home_c_pic.png" alt="">
             <div class="c32_desc">
-                <h1>Adobe Photoshop Essentials</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</p>
-                <a href="">
+                <h1>{{ $courses[0]->CourseName }}</h1>
+                <p>{{ $courses[0]->CourseDesc }}</p>
+                <a href="/courses/{{ $courses[0]->id }}">
                     <h5>See More →</h5>
                 </a>
             </div>
@@ -135,9 +136,9 @@
         <div class="c32">
             <img src="img/home_c_pic.png" alt="">
             <div class="c32_desc">
-                <h1>Adobe Photoshop Essentials</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</p>
-                <a href="">
+                <h1>{{ $courses[1]->CourseName }}</h1>
+                <p>{{ $courses[1]->CourseDesc }}</p>
+                <a href="/courses/{{ $courses[1]->id }}">
                     <h5>See More →</h5>
                 </a>
             </div>
@@ -145,9 +146,9 @@
         <div class="c33">
             <img src="img/home_c_pic.png" alt="">
             <div class="c32_desc">
-                <h1>Adobe Photoshop Essentials</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam augue odio, dapibus sit amet vulputate ut.</p>
-                <a href="">
+                <h1>{{ $courses[2]->CourseName }}</h1>
+                <p>{{ $courses[2]->CourseDesc }}</p>
+                <a href="/courses/{{ $courses[2]->id }}">
                     <h5>See More →</h5>
                 </a>
             </div>

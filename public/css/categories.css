@@ -130,12 +130,16 @@ body {
     padding: 0.5vw 0vw;
     width: 8.25vw;
 }
-/* 
+
+.more:hover{
+    background-color: #0F5DD1;
+}
+/*
 .cat-title, .category-list img{
     position: relative;
 } */
 
-/* 
+/*
 
 .category-list {
     display: flex;
