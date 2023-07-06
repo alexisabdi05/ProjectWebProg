@@ -1100,7 +1100,7 @@ class CourseDetailSeeder extends Seeder
         CourseDetail::create(
             [
                 'course_id' => 4,
-                'CourseDetailTitle' => 'Panels & Workspaces in Adobe Illustrator',
+                'CourseDetailTitle' => 'Panels & Workspaces in Adobe Illustrator II',
                 'CourseDetailDesc' => "In this video we are going to take a closer look at artboards in Adobe illustrator. Topics Covered The Artboard panel and Artboard tool, Enjoy!",
                 'CourseDetailVideo' => 'https://www.youtube.com/embed/2E9oGKd0Ayg',
                 'day' => 3

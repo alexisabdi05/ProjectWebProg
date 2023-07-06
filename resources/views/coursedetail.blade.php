@@ -98,7 +98,8 @@
                     url: '/get-video-details', // Replace with the URL that fetches video details
                     method: 'GET',
                     data: {
-                        index: index
+                        index: index,
+                        courseId: courseId
                     },
                     success: function(response) {
                         $('#video-title').text(response.title);
@@ -106,6 +107,7 @@
                     },
                     error: function(error) {
                         console.log(index);
+                        console.log(courseId);
                     }
                 });
             });

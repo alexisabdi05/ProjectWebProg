@@ -67,9 +67,10 @@ class courseDetailController extends Controller
     public function getVideoDetails(Request $request)
     {
         $index = $request->input('index');
+        $courseId = $request->input('courseId');
 
         // Fetch the course detail based on the index
-        $courseDetail = CourseDetail::find($index);
+        $courseDetail = CourseDetail::where('day',$index)->where('course_id', $courseId)->first();
 
         if (!$courseDetail) {
             // Course detail not found
