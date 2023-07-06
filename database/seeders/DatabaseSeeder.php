@@ -30,7 +30,6 @@ class DatabaseSeeder extends Seeder
                     CategorySeeder::class,
                     CourseSeeder::class,
                     CourseDetailSeeder::class,
-                    EnrollmentSeeder::class,
                 ]);
     }
 }

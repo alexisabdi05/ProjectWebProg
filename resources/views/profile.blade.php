@@ -33,11 +33,20 @@
         // @dd($user->id);
         $enrollment = Enrollment::where('user_id', '=', $user->id)->get();
         // @dd($enrollment);
+        $ongoing = 0;
+        $done = 0;
+        foreach ($enrollment as $e) {
+            if ($e->statusFinish == 0) {
+                $ongoing = $ongoing + 1;
+            } else {
+                $done = $done + 1;
+            }
+        }
     @endphp
     <div class="flex grid-flow-row">
+        <div class="flex flex-col ml-5">
 
-        <div class="">
-            <div class="bg-white shadow-lg rounded-lg p-8 ml-5 z-40 w-1/3"
+            <div class="bg-white shadow-lg rounded-lg p-8  z-40"
                 style="background: linear-gradient(125deg, #F5C2C9, #B2B8EF);">
                 <div class="flex items-center">
                     <div class="w-32 h-32 rounded-full bg-white shadow-lg overflow-hidden">
@@ -51,7 +60,7 @@
                 <div class="mt-6 flex">
                     <div class="bg-white rounded-lg p-2 py-4 shadow-md mr-6 w-1/2">
                         <div class="flex flex-col items-center">
-                            <h2 class="text-3xl font-bold content-center text-gray-600">4</h2>
+                            <h2 class="text-3xl font-bold content-center text-gray-600">{{ $ongoing }}</h2>
                             <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
                                 Courses<br>On-Going</p>
                         </div>
@@ -60,7 +69,7 @@
 
                     <div class="bg-white rounded-lg p-2 py-4 shadow-md w-1/2">
                         <div class="flex flex-col items-center">
-                            <h2 class="text-3xl font-bold content-center text-gray-600 ">8</h2>
+                            <h2 class="text-3xl font-bold content-center text-gray-600 ">{{ $done }}</h2>
                             <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
                                 Courses<br>Completed</p>
                         </div>
@@ -72,8 +81,10 @@
                     <h2 class="text-2xl font-medium text-white mb-3 inline-block">Achievement</h2>
                     <a href="/achievement" class="text-indigo-500 ml-41 text-xl underline">See more</a>
                 </div>
-
                 <div class="mt-2">
+                    @php
+                        $flag = 0;
+                    @endphp
                     @foreach ($enrollment as $enroll)
                         @if ($enroll->statusFinish == 0)
                             @php
@@ -98,16 +109,18 @@
                                         style="width: {{ ($completed / $total) * 100 }}%"></div>
                                 </div>
                             </div>
+                            @php
+                                $flag = $flag + 1;
+                            @endphp
                         @endif
                     @endforeach
-
+                    @if ($flag == 0)
+                        <h1 class="text-lg  text-gray-700">You have not enrolled any course</h1>
+                    @endif
 
                 </div>
             </div>
-            <div class="mt-2">
-                {{-- <form action="/logout" method="POST">
-                    <button type="submit">SIGN OUT</button>
-                </form> --}}
+            <div class="signout mt-2">
                 <a href="/logout">SIGN OUT</a>
             </div>
         </div>
@@ -118,9 +131,12 @@
             <h1 class="text-xl font-semibold text-gray-600">On-going course</h1>
             <div class="grid grid-cols-4 gap-4 mt-10 mr-5">
                 {{-- @dd($enrollment) --}}
+                @php
+                    $flag = 0;
+                @endphp
                 @foreach ($enrollment as $enroll)
                     @if ($enroll->statusFinish == 0)
-                        <div
+                        <a href="/courses/{{ $enroll->Course->id }}"
                             class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                             @php
                                 $total = $enroll->Course->CourseDetail->count();
@@ -130,12 +146,14 @@
                                 foreach ($temp as $t) {
                                     $temp2 = CourseStatus::where('coursedetail_id', '=', $t->id)->get();
                                     // @dd($temp2);
-                                    foreach ($temp2 as $key => $t2) {
+                                
+                                    foreach ($temp2 as $t2) {
                                         if ($t2->status == true) {
                                             $completed = $completed + 1;
                                         }
                                     }
                                 }
+                                // dd($completed);
                                 // $temp2 = CourseStatus::where('coursedetail_id', '=', $temp->id)->get();
                                 // $completed = $temp2->SortByDesc('');
                             @endphp
@@ -162,9 +180,15 @@
                                     Continue Learn
                                 </button>
                             </div>
-                        </div>
+                        </a>
+                        @php
+                            $flag = $flag + 1;
+                        @endphp
                     @endif
                 @endforeach
+                @if ($flag == 0)
+                    <h1 class="text-lg  text-gray-700">You have not enrolled any course</h1>
+                @endif
             </div>
         </div>
     </div>
