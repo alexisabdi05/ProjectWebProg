@@ -26,7 +26,16 @@
         $user = auth()->user();
         // @dd($user->id);
         
-        $enrollment = Enrollment::where('user_id', '=', $user->id)->get();
+        $enrollmentTemp = Enrollment::where('user_id', '=', $user->id)->get();
+        $enrollment = $enrollmentTemp->where('statusFinish', '=', true);
+        $photoshop = 0;
+        $Ilustrator = 0;
+        $Canva = 0;
+        $Cartoon = 0;
+        $figure = 0;
+        $logo = 0;
+        $graphic = 0;
+        $color = 0;
     @endphp
     <div class="backgroundach">
         <img src="{{ asset('img/achievement.png') }}" class="bg-cover bg-center z-0">
@@ -41,176 +50,167 @@
     <div class="ml-56 flex-row text-left mb-12 z-10">
         <h2 class="font-semibold text-2xl text-gray-700 mb-6">On-going Achievement</h2>
         @foreach ($enrollment as $enroll)
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
             @php
-                $flag = 0;
-                if ($enroll->Course->Category->CategoryName == 'Adobe Photoshop') {
-                    if ($enroll->statusFinish == true) {
-                        // dd($enroll->statusFinish);
-                        $flag = $flag + 1;
-                    }
+                switch ($enroll->Course->Category->CategoryName) {
+                    case 'Adobe Photoshop':
+                        $photoshop = $photoshop + 1;
+                        if ($photoshop >= 2) {
+                            $photoshop = 2;
+                        }
+                        break;
+                
+                    case 'Adobe Ilustrator':
+                        $Ilustrator = $Ilustrator + 1;
+                        if ($Ilustrator >= 2) {
+                            $Ilustrator = 2;
+                        }
+                        break;
+                    case 'Canva':
+                        $Canva = $Canva + 1;
+                        if ($Canva >= 3) {
+                            $Canva = 3;
+                        }
+                        break;
+                    case 'Cartoon':
+                        $Cartoon = $Cartoon + 1;
+                        if ($Cartoon >= 3) {
+                            $Cartoon = 3;
+                        }
+                        break;
+                    case 'Figure Draw':
+                        $figure = $figure + 1;
+                        if ($figure >= 3) {
+                            $figure = 3;
+                        }
+                        break;
+                    case 'Logo Design':
+                        $logo = $logo + 1;
+                        if ($logo >= 3) {
+                            $logo = 3;
+                        }
+                        break;
+                    case 'Graphic Design':
+                        $graphic = $graphic + 1;
+                        if ($graphic >= 5) {
+                            $graphic = 5;
+                        }
+                        break;
+                    case 'Color Theory':
+                        $color = $color + 1;
+                        if ($color >= 5) {
+                            $color = 5;
+                        }
+                        break;
+                    default:
+                        break;
                 }
-                if ($flag >= 2) {
-                    $flag = 2;
-                }
+                
             @endphp
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: {{ ($flag / 2) * 100 }}%;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">{{ ($flag / 2) * 100 }}%</span>
-            </div>
-
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
-            <span class="text-2xl text-gray-600">Finish 2 adobe photoshop courses</span>
-            <div class="flex flex-row items-center mt-2">
-                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                    <div class="bar">
-                        <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                            <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <span class="persen ml-4 text-gray-600">40%</span>
-            </div>
         @endforeach
-
+        @if ($photoshop < 2)
+            <span class="text-2xl text-gray-600">Finish 2 Adobe Photoshop courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($photoshop / 2) * 100) }}%;">
+                        </div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($photoshop / 2) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($Ilustrator < 2)
+            <span class="text-2xl text-gray-600">Finish 2 Adobe Ilustrator courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($Ilustrator / 2) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($Ilustrator / 2) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($Canva < 3)
+            <span class="text-2xl text-gray-600">Finish 3 Canva courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: {{ ceil(($Canva / 3) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($Canva / 3) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($Cartoon < 3)
+            <span class="text-2xl text-gray-600">Finish 3 Cartoon courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($Cartoon / 2) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($Cartoon / 2) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($figure < 3)
+            <span class="text-2xl text-gray-600">Finish 3 Figure Drawing courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($figure / 3) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($figure / 3) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($logo < 3)
+            <span class="text-2xl text-gray-600">Finish 3 Logo Design courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: {{ ceil(($logo / 3) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($logo / 3) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($graphic < 5)
+            <span class="text-2xl text-gray-600">Finish 5 Graphic Design courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($graphic / 5) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($graphic / 5) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($color < 5)
+            <span class="text-2xl text-gray-600">Finish 5 Color Theory courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($color / 5) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($color / 5) * 100) }}%</span>
+            </div>
+        @endif
 
     </div>
 
@@ -218,27 +218,137 @@
     <div class="ml-56 mt-5 flex-row text-left mb-20 z-10">
         <h2 class="font-semibold text-2xl text-gray-700 mb-8">Completed</h2>
         @php
-            $flag = 0;
+            $check = false;
         @endphp
-        @foreach ($enrollment as $enroll)
-            @if ($enroll->statusFinish == 1)
-                <span class="text-2xl text-gray-600">{{ $enroll->Course->CourseName }}</span>
-                <div class="flex flex-row items-center mt-2">
-                    <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
-                        <div class="bar">
-                            <div class="bg-gray-200 rounded-full w-9/12 h-6 ">
-                                <div class="bg-indigo-300 rounded-full h-full " style="width: 40%;"></div>
-                            </div>
-                        </div>
+        @if ($photoshop == 2)
+            <span class="text-2xl text-gray-600">Finish 2 Adobe Photoshop courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
                     </div>
-                    <span class="persen ml-4 text-gray-600">40%</span>
+                    {{-- </div> --}}
                 </div>
-                @php
-                    $flag = $flag + 1;
-                @endphp
-            @endif
-        @endforeach
-        @if ($flag == 0)
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($Ilustrator == 2)
+            <span class="text-2xl text-gray-600">Finish 2 Adobe Ilustrator courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($Canva == 3)
+            <span class="text-2xl text-gray-600">Finish 3 Canva courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($Cartoon == 3)
+            <span class="text-2xl text-gray-600">Finish 3 Cartoon courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($figure == 3)
+            <span class="text-2xl text-gray-600">Finish 3 Figure Drawing courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($logo == 3)
+            <span class="text-2xl text-gray-600">Finish 3 Logo Design courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($graphic == 5)
+            <span class="text-2xl text-gray-600">Finish 5 Graphic Design courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($color == 5)
+            <span class="text-2xl text-gray-600">Finish 5 Color Theory courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($check == false)
             <h1 class="text-lg  text-gray-700">No achievements have been achieved. Don't give up!!</h1>
         @endif
 

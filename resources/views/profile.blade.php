@@ -42,6 +42,9 @@
                 $done = $done + 1;
             }
         }
+        $photoshop = 0;
+        $Ilustrator = 0;
+        $Canva = 0;
     @endphp
     <div class="flex grid-flow-row">
         <div class="flex flex-col ml-5">
@@ -82,41 +85,74 @@
                     <a href="/achievement" class="text-indigo-500 ml-41 text-xl underline">See more</a>
                 </div>
                 <div class="mt-2">
-                    @php
-                        $flag = 0;
-                    @endphp
                     @foreach ($enrollment as $enroll)
-                        @if ($enroll->statusFinish == 0)
-                            @php
-                                $total = $enroll->Course->CourseDetail->count();
-                                $temp = $enroll->Course->CourseDetail;
-                                // @dd($temp);
-                                $completed = 0;
-                                foreach ($temp as $t) {
-                                    $temp2 = CourseStatus::where('coursedetail_id', '=', $t->id)->get();
-                                    // @dd($temp2);
-                                    foreach ($temp2 as $key => $t2) {
-                                        if ($t2->status == true) {
-                                            $completed = $completed + 1;
-                                        }
+                        @php
+                            switch ($enroll->Course->Category->CategoryName) {
+                                case 'Adobe Photoshop':
+                                    $photoshop = $photoshop + 1;
+                                    if ($photoshop >= 2) {
+                                        $photoshop = 2;
                                     }
-                                }
-                            @endphp
-                            <div class="mb-4">
-                                <span class="text-md text-white">W{{ $enroll->Course->CourseName }}</span>
-                                <div class="bg-gray-200 rounded-full h-2 mt-1">
-                                    <div class="bg-blue-500 rounded-full h-full"
-                                        style="width: {{ ($completed / $total) * 100 }}%"></div>
+                                    break;
+                            
+                                case 'Adobe Ilustrator':
+                                    $Ilustrator = $Ilustrator + 1;
+                                    if ($Ilustrator >= 2) {
+                                        $Ilustrator = 2;
+                                    }
+                                    break;
+                                case 'Canva':
+                                    $Canva = $Canva + 1;
+                                    if ($Canva >= 3) {
+                                        $Canva = 3;
+                                    }
+                                    break;
+                            
+                                default:
+                                    break;
+                            }
+                            
+                        @endphp
+                    @endforeach
+
+                    <span class="text-xl text-gray-600">Finish 2 Adobe Photoshop courses</span>
+                    <div class="flex flex-row items-center mt-2">
+                        <div class="bg-gray-200 rounded-full w-11/12 h-3  ">
+                            {{-- <div class="bar"> --}}
+                            <div class="bg-gray-200 rounded-full h-3 ">
+                                <div class="bg-indigo-300 rounded-full h-full "
+                                    style="width: {{ ceil(($photoshop / 2) * 100) }}%;">
                                 </div>
                             </div>
-                            @php
-                                $flag = $flag + 1;
-                            @endphp
-                        @endif
-                    @endforeach
-                    @if ($flag == 0)
-                        <h1 class="text-lg  text-gray-700">You have not enrolled any course</h1>
-                    @endif
+                            {{-- </div> --}}
+                        </div>
+                        <span class="persen ml-4 text-gray-600">{{ ceil(($photoshop / 2) * 100) }}%</span>
+                    </div>
+
+                    <span class="text-xl text-gray-600">Finish 2 Adobe Ilustrator courses</span>
+                    <div class="flex flex-row items-center mt-2">
+                        <div class="bg-gray-200 rounded-full w-11/12 h-3  ">
+                            <div class="bg-gray-200 rounded-full h-3 ">
+                                <div class="bg-indigo-300 rounded-full h-full "
+                                    style="width: {{ ceil(($Ilustrator / 2) * 100) }}%;">
+                                </div>
+                            </div>
+                        </div>
+                        <span class="persen ml-4 text-gray-600">{{ ceil(($Ilustrator / 2) * 100) }}%</span>
+                    </div>
+
+                    <span class="text-xl text-gray-600">Finish 3 Canva courses</span>
+                    <div class="flex flex-row items-center mt-2">
+                        <div class="bg-gray-200 rounded-full w-11/12 h-3  ">
+                            <div class="bg-gray-200 rounded-full h-3 ">
+                                <div class="bg-indigo-300 rounded-full h-full "
+                                    style="width: {{ ceil(($Canva / 3) * 100) }}%;">
+                                </div>
+                            </div>
+                        </div>
+                        <span class="persen ml-4 text-gray-600">{{ ceil(($Canva / 3) * 100) }}%</span>
+                    </div>
+
 
                 </div>
             </div>
@@ -129,7 +165,7 @@
 
         <div class="mt-3 ml-6 z-40 flex-initial mb-5">
             <h1 class="text-xl font-semibold text-gray-600">On-going course</h1>
-            <div class="grid grid-cols-4 gap-4 mt-10 mr-5">
+            <div class="grid grid-cols-4 gap-4 mt-10 mr-5 flex flex-wrap">
                 {{-- @dd($enrollment) --}}
                 @php
                     $flag = 0;
@@ -137,7 +173,7 @@
                 @foreach ($enrollment as $enroll)
                     @if ($enroll->statusFinish == 0)
                         <a href="/courses/{{ $enroll->Course->id }}"
-                            class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                            class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8">
                             @php
                                 $total = $enroll->Course->CourseDetail->count();
                                 $temp = $enroll->Course->CourseDetail;
@@ -201,8 +237,8 @@
             @endphp
             @foreach ($enrollment as $enroll)
                 @if ($enroll->statusFinish == 1)
-                    <div
-                        class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                    <a href="/courses/{{ $enroll->Course->id }}"
+                        class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8">
                         <div
                             class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
                             <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
@@ -216,7 +252,7 @@
                                 by {{ $enroll->Course->author }}
                             </p>
                         </div>
-                    </div>
+                    </a>
                     @php
                         $flag = $flag + 1;
                     @endphp
