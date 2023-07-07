@@ -28,6 +28,8 @@
         
         $enrollmentTemp = Enrollment::where('user_id', '=', $user->id)->get();
         $enrollment = $enrollmentTemp->where('statusFinish', '=', true);
+        $finished = $enrollment->count();
+        // dd($finished);
         $photoshop = 0;
         $Ilustrator = 0;
         $Canva = 0;
@@ -36,6 +38,7 @@
         $logo = 0;
         $graphic = 0;
         $color = 0;
+        // $finished = 0;
     @endphp
     <div class="backgroundach">
         <img src="{{ asset('img/achievement.png') }}" class="bg-cover bg-center z-0">
@@ -211,7 +214,71 @@
                 <span class="persen ml-4 text-gray-600">{{ ceil(($color / 5) * 100) }}%</span>
             </div>
         @endif
-
+        @if ($finished < 5)
+            <span class="text-2xl text-gray-600">Finish 5 Courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($finished / 5) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($finished / 5) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($finished < 10)
+            <span class="text-2xl text-gray-600">Finish 10 Courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($finished / 10) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($finished / 10) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($finished < 15)
+            <span class="text-2xl text-gray-600">Finish 15 Courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($finished / 15) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($finished / 15) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($finished < 20)
+            <span class="text-2xl text-gray-600">Finish 20 Courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($finished / 20) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($finished / 20) * 100) }}%</span>
+            </div>
+        @endif
+        @if ($finished < 24)
+            <span class="text-2xl text-gray-600">Finish All Courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full "
+                            style="width: {{ ceil(($finished / 24) * 100) }}%;">
+                        </div>
+                    </div>
+                </div>
+                <span class="persen ml-4 text-gray-600">{{ ceil(($finished / 24) * 100) }}%</span>
+            </div>
+        @endif
     </div>
 
 
@@ -334,6 +401,86 @@
         @endif
         @if ($color == 5)
             <span class="text-2xl text-gray-600">Finish 5 Color Theory courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($finished >= 5)
+            <span class="text-2xl text-gray-600">Finish 5 Courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($finished >= 10)
+            <span class="text-2xl text-gray-600">Finish 10 Courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($finished >= 15)
+            <span class="text-2xl text-gray-600">Finish 15 Courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($finished >= 20)
+            <span class="text-2xl text-gray-600">Finish 20 Courses</span>
+            <div class="flex flex-row items-center mt-2">
+                <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
+                    {{-- <div class="bar"> --}}
+                    <div class="bg-gray-200 rounded-full h-6 ">
+                        <div class="bg-indigo-300 rounded-full h-full " style="width: 100%;"></div>
+                    </div>
+                    {{-- </div> --}}
+                </div>
+                <span class="persen ml-4 text-gray-600">100%</span>
+            </div>
+            @php
+                $check = true;
+            @endphp
+        @endif
+        @if ($finished == 24)
+            <span class="text-2xl text-gray-600">Finish All Courses</span>
             <div class="flex flex-row items-center mt-2">
                 <div class="bg-gray-200 rounded-full w-9/12 h-6  ">
                     {{-- <div class="bar"> --}}

@@ -3,20 +3,19 @@
     <div class="up px-14 py-10 flex flex-row justify-around flex-wrap">
         <div class="kol flex flex-col  text-white">
             <h2 class="text-2xl mb-2 font-semibold">ColorVerse</h2>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 ">About Us</a>
-            <a href="/courses" class="text-base mb-1 hover:text-gray-900 ">Course</a>
+            <a href="/categories" class="text-base mb-1 hover:text-gray-900 ">Course</a>
             <a href="/colorpalette" class="text-base mb-1 hover:text-gray-900 ">Color Palette</a>
         </div>
         <div class="kol flex flex-col  text-white">
             <h2 class="text-2xl mb-2 font-semibold">Course</h2>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 ">Photoshop</a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 ">Adobe Ilustrator</a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 ">Canva</a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 ">Graphic Design</a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 ">Logo Design</a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 ">Figure Draw</a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 ">Cartoon</a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 ">Color Theory</a>
+            <a href="/categories/1" class="text-base mb-1 hover:text-gray-900 ">Photoshop</a>
+            <a href="/categories/2" class="text-base mb-1 hover:text-gray-900 ">Adobe Ilustrator</a>
+            <a href="/categories/3" class="text-base mb-1 hover:text-gray-900 ">Canva</a>
+            <a href="/categories/4" class="text-base mb-1 hover:text-gray-900 ">Graphic Design</a>
+            <a href="/categories/5" class="text-base mb-1 hover:text-gray-900 ">Logo Design</a>
+            <a href="/categories/6" class="text-base mb-1 hover:text-gray-900 ">Figure Draw</a>
+            <a href="/categories/7" class="text-base mb-1 hover:text-gray-900 ">Cartoon</a>
+            <a href="/categories/8" class="text-base mb-1 hover:text-gray-900 ">Color Theory</a>
         </div>
         <div class="kol flex flex-col  text-white">
             <h2 class="text-2xl mb-2 font-semibold">Copyright</h2>
