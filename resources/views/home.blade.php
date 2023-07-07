@@ -123,36 +123,36 @@
     </div>
 
     <div class="grid grid-cols-3 gap-9 best-course" id="col2">
+        <a href="/courses/{{ $courses[0]->id }}">
         <div class="c31">
-            <img src="img/home_c_pic.png" alt="">
+            <img src="/{{$courses[0]->CourseIMG}}" alt="">
             <div class="c32_desc">
                 <h1>{{ $courses[0]->CourseName }}</h1>
                 <p>{{ $courses[0]->CourseDesc }}</p>
-                <a href="/courses/{{ $courses[0]->id }}">
                     <h5>See More →</h5>
-                </a>
+                </div>
             </div>
-        </div>
+        </a>
+        <a href="/courses/{{ $courses[1]->id }}">
         <div class="c32">
-            <img src="img/home_c_pic.png" alt="">
+            <img src="/{{$courses[1]->CourseIMG}}" alt="">
             <div class="c32_desc">
                 <h1>{{ $courses[1]->CourseName }}</h1>
                 <p>{{ $courses[1]->CourseDesc }}</p>
-                <a href="/courses/{{ $courses[1]->id }}">
                     <h5>See More →</h5>
-                </a>
+                </div>
             </div>
-        </div>
+        </a>
+        <a href="/courses/{{ $courses[2]->id }}">
         <div class="c33">
-            <img src="img/home_c_pic.png" alt="">
+            <img src="/{{$courses[2]->CourseIMG}}" alt="">
             <div class="c32_desc">
                 <h1>{{ $courses[2]->CourseName }}</h1>
                 <p>{{ $courses[2]->CourseDesc }}</p>
-                <a href="/courses/{{ $courses[2]->id }}">
                     <h5>See More →</h5>
-                </a>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 
     {{-- SECTION 4 --}}

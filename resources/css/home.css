@@ -580,3 +580,12 @@ body {
 .best-course h5:hover{
     background-color: #0F5DD1;
 }
+
+.c31 img,.c32 img,.c33 img{
+    .courses img{
+    width: 18vw;
+    height: 13vw;
+    border-radius: 2vw;
+    object-fit: cover;
+}
+}
