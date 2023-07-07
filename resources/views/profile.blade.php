@@ -33,11 +33,23 @@
         // @dd($user->id);
         $enrollment = Enrollment::where('user_id', '=', $user->id)->get();
         // @dd($enrollment);
+        $ongoing = 0;
+        $done = 0;
+        foreach ($enrollment as $e) {
+            if ($e->statusFinish == 0) {
+                $ongoing = $ongoing + 1;
+            } else {
+                $done = $done + 1;
+            }
+        }
+        $photoshop = 0;
+        $Ilustrator = 0;
+        $Canva = 0;
     @endphp
     <div class="flex grid-flow-row">
+        <div class="flex flex-col ml-5">
 
-        <div class="">
-            <div class="bg-white shadow-lg rounded-lg p-8 ml-5 z-40 w-1/3"
+            <div class="bg-white shadow-lg rounded-lg p-8  z-40"
                 style="background: linear-gradient(125deg, #F5C2C9, #B2B8EF);">
                 <div class="flex items-center">
                     <div class="w-32 h-32 rounded-full bg-white shadow-lg overflow-hidden">
@@ -51,7 +63,7 @@
                 <div class="mt-6 flex">
                     <div class="bg-white rounded-lg p-2 py-4 shadow-md mr-6 w-1/2">
                         <div class="flex flex-col items-center">
-                            <h2 class="text-3xl font-bold content-center text-gray-600">4</h2>
+                            <h2 class="text-3xl font-bold content-center text-gray-600">{{ $ongoing }}</h2>
                             <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
                                 Courses<br>On-Going</p>
                         </div>
@@ -60,7 +72,7 @@
 
                     <div class="bg-white rounded-lg p-2 py-4 shadow-md w-1/2">
                         <div class="flex flex-col items-center">
-                            <h2 class="text-3xl font-bold content-center text-gray-600 ">8</h2>
+                            <h2 class="text-3xl font-bold content-center text-gray-600 ">{{ $done }}</h2>
                             <p class="text-md text-center font-medium leading-4 content-center text-gray-400">
                                 Courses<br>Completed</p>
                         </div>
@@ -72,42 +84,79 @@
                     <h2 class="text-2xl font-medium text-white mb-3 inline-block">Achievement</h2>
                     <a href="/achievement" class="text-indigo-500 ml-41 text-xl underline">See more</a>
                 </div>
-
                 <div class="mt-2">
                     @foreach ($enrollment as $enroll)
-                        @if ($enroll->statusFinish == 0)
-                            @php
-                                $total = $enroll->Course->CourseDetail->count();
-                                $temp = $enroll->Course->CourseDetail;
-                                // @dd($temp);
-                                $completed = 0;
-                                foreach ($temp as $t) {
-                                    $temp2 = CourseStatus::where('coursedetail_id', '=', $t->id)->get();
-                                    // @dd($temp2);
-                                    foreach ($temp2 as $key => $t2) {
-                                        if ($t2->status == true) {
-                                            $completed = $completed + 1;
-                                        }
+                        @php
+                            switch ($enroll->Course->Category->CategoryName) {
+                                case 'Adobe Photoshop':
+                                    $photoshop = $photoshop + 1;
+                                    if ($photoshop >= 2) {
+                                        $photoshop = 2;
                                     }
-                                }
-                            @endphp
-                            <div class="mb-4">
-                                <span class="text-md text-white">W{{ $enroll->Course->CourseName }}</span>
-                                <div class="bg-gray-200 rounded-full h-2 mt-1">
-                                    <div class="bg-blue-500 rounded-full h-full"
-                                        style="width: {{ ($completed / $total) * 100 }}%"></div>
+                                    break;
+                            
+                                case 'Adobe Ilustrator':
+                                    $Ilustrator = $Ilustrator + 1;
+                                    if ($Ilustrator >= 2) {
+                                        $Ilustrator = 2;
+                                    }
+                                    break;
+                                case 'Canva':
+                                    $Canva = $Canva + 1;
+                                    if ($Canva >= 3) {
+                                        $Canva = 3;
+                                    }
+                                    break;
+                            
+                                default:
+                                    break;
+                            }
+                            
+                        @endphp
+                    @endforeach
+
+                    <span class="text-xl text-gray-600">Finish 2 Adobe Photoshop courses</span>
+                    <div class="flex flex-row items-center mt-2">
+                        <div class="bg-gray-200 rounded-full w-11/12 h-3  ">
+                            {{-- <div class="bar"> --}}
+                            <div class="bg-gray-200 rounded-full h-3 ">
+                                <div class="bg-indigo-300 rounded-full h-full "
+                                    style="width: {{ ceil(($photoshop / 2) * 100) }}%;">
                                 </div>
                             </div>
-                        @endif
-                    @endforeach
+                            {{-- </div> --}}
+                        </div>
+                        <span class="persen ml-4 text-gray-600">{{ ceil(($photoshop / 2) * 100) }}%</span>
+                    </div>
+
+                    <span class="text-xl text-gray-600">Finish 2 Adobe Ilustrator courses</span>
+                    <div class="flex flex-row items-center mt-2">
+                        <div class="bg-gray-200 rounded-full w-11/12 h-3  ">
+                            <div class="bg-gray-200 rounded-full h-3 ">
+                                <div class="bg-indigo-300 rounded-full h-full "
+                                    style="width: {{ ceil(($Ilustrator / 2) * 100) }}%;">
+                                </div>
+                            </div>
+                        </div>
+                        <span class="persen ml-4 text-gray-600">{{ ceil(($Ilustrator / 2) * 100) }}%</span>
+                    </div>
+
+                    <span class="text-xl text-gray-600">Finish 3 Canva courses</span>
+                    <div class="flex flex-row items-center mt-2">
+                        <div class="bg-gray-200 rounded-full w-11/12 h-3  ">
+                            <div class="bg-gray-200 rounded-full h-3 ">
+                                <div class="bg-indigo-300 rounded-full h-full "
+                                    style="width: {{ ceil(($Canva / 3) * 100) }}%;">
+                                </div>
+                            </div>
+                        </div>
+                        <span class="persen ml-4 text-gray-600">{{ ceil(($Canva / 3) * 100) }}%</span>
+                    </div>
 
 
                 </div>
             </div>
-            <div class="mt-2">
-                {{-- <form action="/logout" method="POST">
-                    <button type="submit">SIGN OUT</button>
-                </form> --}}
+            <div class="signout mt-2">
                 <a href="/logout">SIGN OUT</a>
             </div>
         </div>
@@ -116,12 +165,15 @@
 
         <div class="mt-3 ml-6 z-40 flex-initial mb-5">
             <h1 class="text-xl font-semibold text-gray-600">On-going course</h1>
-            <div class="grid grid-cols-4 gap-4 mt-10 mr-5">
+            <div class="grid grid-cols-4 gap-4 mt-10 mr-5 flex flex-wrap">
                 {{-- @dd($enrollment) --}}
+                @php
+                    $flag = 0;
+                @endphp
                 @foreach ($enrollment as $enroll)
                     @if ($enroll->statusFinish == 0)
-                        <div
-                            class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                        <a href="/courses/{{ $enroll->Course->id }}"
+                            class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8">
                             @php
                                 $total = $enroll->Course->CourseDetail->count();
                                 $temp = $enroll->Course->CourseDetail;
@@ -130,12 +182,14 @@
                                 foreach ($temp as $t) {
                                     $temp2 = CourseStatus::where('coursedetail_id', '=', $t->id)->get();
                                     // @dd($temp2);
-                                    foreach ($temp2 as $key => $t2) {
+                                
+                                    foreach ($temp2 as $t2) {
                                         if ($t2->status == true) {
                                             $completed = $completed + 1;
                                         }
                                     }
                                 }
+                                // dd($completed);
                                 // $temp2 = CourseStatus::where('coursedetail_id', '=', $temp->id)->get();
                                 // $completed = $temp2->SortByDesc('');
                             @endphp
@@ -162,9 +216,15 @@
                                     Continue Learn
                                 </button>
                             </div>
-                        </div>
+                        </a>
+                        @php
+                            $flag = $flag + 1;
+                        @endphp
                     @endif
                 @endforeach
+                @if ($flag == 0)
+                    <h1 class="text-lg  text-gray-700">You have not enrolled any course</h1>
+                @endif
             </div>
         </div>
     </div>
@@ -177,8 +237,8 @@
             @endphp
             @foreach ($enrollment as $enroll)
                 @if ($enroll->statusFinish == 1)
-                    <div
-                        class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                    <a href="/courses/{{ $enroll->Course->id }}"
+                        class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8">
                         <div
                             class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
                             <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
@@ -192,7 +252,7 @@
                                 by {{ $enroll->Course->author }}
                             </p>
                         </div>
-                    </div>
+                    </a>
                     @php
                         $flag = $flag + 1;
                     @endphp
