@@ -5,7 +5,7 @@
     <a href="/courses/{{ $result->id }}">
     <div class="search-result course-list">
             <div class="flex justify-center">
-                <img src="/img/course-cover.png" alt="">
+                <img src="/{{ $result->CourseIMG }}" alt="">
             </div>
             <div class="course-txt">
                 <div class="flex items-center cont">

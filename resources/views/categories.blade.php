@@ -40,9 +40,8 @@
             <a href="/courses/{{ $cour->id }}">
                 <div class="course-list">
                     <div class="flex justify-center">
-                        <img src="/img/course-cover.png" alt="">
+                        <img src="/{{ $cour->CourseIMG }}" alt="">
                     </div>
-                    {{-- <img src=" {{ $cour->CourseIMG }}" alt=""> --}}
                     <div class="course-txt">
                         <div class="flex items-center cont">
                             <h1 class="course-title">{{ $cour->CourseName }}</h1>
@@ -54,19 +53,4 @@
             </a>
         @endforeach
     </div>
-    {{-- @for ($i = 0; $i < 16; $i++)
-    <a href="/{{ $user->id }}/courses/{{ $courses[$i]->id }}">
-        <div class="course-list">
-            <div  class="flex justify-center">
-                <img src="/img/course-cover.png" alt="">
-            </div>
-            {{-- <img src=" {{ $courses[$i]->CourseIMG }}" alt="">
-                <div class="flex items-center cont">
-                    <h1 class="course-title">{{ $courses[$i]->CourseName }}</h1>
-                </div>
-                <h4 class="course-desc">{{ $courses[$i]->CourseDesc }}</h4>
-                <p class="more text-center">See more →</p>
-            </div>
-        </div>
-    </a>
-    @endfor --}}
+

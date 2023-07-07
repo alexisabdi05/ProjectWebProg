@@ -144,6 +144,13 @@ body {
 .more:hover{
     background-color: #0F5DD1;
 }
+
+.course-list img{
+    width: 18vw;
+    height: 13vw;
+    border-radius: 2vw;
+    object-fit: cover;
+}
 /*
 .cat-title, .category-list img{
     position: relative;

@@ -226,13 +226,11 @@
 
             $(document).on('click', '.enroll-button', function() {
                 var courseId = $(this).data('course-id');
-                enrollCourse(courseId, userId);
             });
 
             $(document).on('click', '.cancel-button', function() {
                 var enrollmentId = $(this).data('enrollment-id');
                 var courseId = $(this).data('course-id');
-                cancelEnrollment(enrollmentId, userId, courseId);
             });
 
             function enrollCourse(courseId, userId) {

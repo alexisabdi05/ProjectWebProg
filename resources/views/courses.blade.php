@@ -17,9 +17,8 @@
             <a href="/courses/{{ $course->id }}">
                 <div class="course-list">
                     <div class="flex justify-center">
-                        <img src="/img/course-cover.png" alt="">
+                        <img src="/{{ $course->courseIMG }}" alt="">
                     </div>
-                    {{-- <img src="{{ $course->courseIMG }}" alt=""> --}}
                     <div class="course-txt">
                         <div class="flex items-center cont">
                             <h2 class="course-title">{{ $course->CourseName }}</h2>
