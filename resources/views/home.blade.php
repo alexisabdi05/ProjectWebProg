@@ -63,10 +63,10 @@
                     </a>
                 </div>
                 <div id="c4">
-                    <a href="/categories/4">
+                    <a href="/categories/8">
                         <div class="c4_a">Color Theory</div>
                     </a>
-                    <a href="/categories/8">
+                    <a href="/categories/4">
                         <div class="c4_b">Graphic Design</div>
                     </a>
                 </div>
