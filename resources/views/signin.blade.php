@@ -52,7 +52,7 @@
                         in</button>
                 </div>
                 <a href="/auth/google"
-                    class="github text-indigo-500 border-2 border-indigo-500 hover:bg-indigo-500 hover:text-white font-medium rounded-full text-sm px-2.5 py-1 text-center inline-flex items-center  flex justify-center self-center -mt-4 mb-8">
+                    class="github text-indigo-500 border-2 border-indigo-500 hover:bg-indigo-500 hover:text-white font-medium rounded-full text-sm px-2.5 py-1 text-center inline-flex items-center  flex justify-center self-center -mt-4 mb-8 px-4">
                     <svg class="mr-2 -ml-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab"
                         data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
                         <path fill="currentColor"

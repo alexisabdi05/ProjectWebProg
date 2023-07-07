@@ -24,23 +24,23 @@
         </div>
         <div class="kol flex flex-col  text-white">
             <h2 class="text-2xl mb-2 font-semibold">Follow Us</h2>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 flex">
+            <a href="https://www.instagram.com/" target="_blank" class="text-base mb-1 hover:text-gray-900 flex">
                 <img src="/img/keperluanfooter/footer - ig 1.png" alt="" class="mr-2">
                 Instagram
             </a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 flex">
+            <a href="https://www.facebook.com/" target="_blank" class="text-base mb-1 hover:text-gray-900 flex">
                 <img src="/img/keperluanfooter/footer - fb 1.png" alt="" class="mr-2">
                 Facebook
             </a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 flex">
+            <a href="https://twitter.com/home?lang=id" target="_blank" class="text-base mb-1 hover:text-gray-900 flex">
                 <img src="/img/keperluanfooter/footer - twt 1.png" alt="" class="mr-2">
                 Twitter
             </a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 flex">
+            <a href="https://www.tiktok.com/foryou" target="_blank" class="text-base mb-1 hover:text-gray-900 flex">
                 <img src="/img/keperluanfooter/footer - tiktok 1.png" alt="" class="mr-2">
                 TikTok
             </a>
-            <a href="#" class="text-base mb-1 hover:text-gray-900 flex">
+            <a href="https://www.youtube.com/" target="_blank" class="text-base mb-1 hover:text-gray-900 flex">
                 <img src="/img/keperluanfooter/footer - yt 1.png" alt="" class="mr-2">
                 Youtube
             </a>
