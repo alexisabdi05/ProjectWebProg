@@ -36,13 +36,14 @@
 
 .CourseName{
     font-weight: 700;
-    font-size: 1.2vw;
-    line-height: 1vw;
+    font-size: 1.3vw;
+    line-height: 1.25vw;
 }
 
 .Category{
     color: #858585;
-    font-size: 0.75vw;
+    font-size: 0.85vw;
+    font-weight: 500;
 }
 
 .CourseDesc{
@@ -114,3 +115,65 @@ input.cek-box{
     height: 1.4vw;
     margin: 0;
 }
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .popup {
+    background-image: url("../img/bg-course-detail.png");
+    background-size: cover;
+    padding: 1vw 2vw;
+    color: #333;
+    border-radius: 1vw;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 35vw;
+    text-align: center;
+  }
+
+  .popup-title {
+    font-family: "Poppins";
+    margin: 0;
+    font-size: 1.25vw;
+    font-weight: bold;
+  }
+
+  .popup-message {
+    margin: 0.25vw 0;
+    font-family: "Poppins";
+
+  }
+
+  .popup-close-btn {
+    background-color: #6F77E2;
+    font-family: "Poppins";
+    border: none;
+    color: white;
+    padding: 0.25vw 2vw;
+    font-size: 1vw;
+    font-weight: bold;
+    border-radius: 0.2vw;
+    cursor: pointer;
+    margin-top: 1vw;
+  }
+
+  .popup-close-btn:hover{
+    font-family: "Poppins";
+    background-color: #0F5DD1;
+  }
+
+  .VideoName{
+    font-size:1.5vw;
+}
+.VideoDesc{
+    font-size:1.1vw;
+    line-height: 1.25vw;
+  }

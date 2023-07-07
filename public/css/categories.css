@@ -53,6 +53,11 @@ body {
     box-shadow: inset 0 0 1vw rgb(0, 0, 0, 0.5);
 }
 
+.category-list:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
 .category-list img{
     width: auto;
     height: 12vw;
@@ -86,6 +91,11 @@ body {
     background-color: white;
     border-radius: 1.5vw;
     box-shadow: 0 0 1vw rgb(0, 0, 0, 0.5);
+}
+
+.course-list:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
 }
 
 .course-list img{
@@ -130,12 +140,16 @@ body {
     padding: 0.5vw 0vw;
     width: 8.25vw;
 }
-/* 
+
+.more:hover{
+    background-color: #0F5DD1;
+}
+/*
 .cat-title, .category-list img{
     position: relative;
 } */
 
-/* 
+/*
 
 .category-list {
     display: flex;

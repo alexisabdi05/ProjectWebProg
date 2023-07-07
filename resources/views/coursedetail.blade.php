@@ -9,7 +9,7 @@
                 <img src="/img/course-cover.png" alt="" class="course-img">
                 <div class="txt">
                     <h1 class="CourseName">{{ $course->CourseName }}</h1>
-                    <h5 class="Category">{{ $category[0]->CategoryName }} Tutorial</h5>
+                    <h5 class="Category">Author: {{ $course->author }} </h5>
                     <h4 class="CourseDesc text-justify">{{ $course->CourseDesc }}</h4>
                     <div class="Enroll text-center">
                         @if ($enrolled)
@@ -27,14 +27,12 @@
                         @csrf
                         <input class="cek-box" type="checkbox" {{ $courseStatuses[$i]->status ?? '' ? 'checked' : '' }} value="try"
                             @if (!$enrolled) disabled @endif>
-        
+
                             <button @if (!$enrolled) disabled @endif class="day-button"
                             data-index="{{ $i }}" data-video-src="{{ $courseDetail[$i]->CourseDetailVideo }}">Day
                             {{ $courseDetail[$i]->day }}</button>
-                            
-                        <h2 class="courseDTitle">{{ $courseDetail[$i]->CourseDetailTitle }}<h2>
-                     
 
+                        <h2 class="courseDTitle">{{ $courseDetail[$i]->CourseDetailTitle }}<h2>
                     </form>
                 @endfor
             </div>
@@ -44,11 +42,20 @@
                 src="{{ $courseDetail[0]->CourseDetailVideo }}" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
-            <h1 id="video-title" class="CourseName">{{ $courseDetail[0]->CourseDetailTitle }}</h1>
-            <h4 id="video-desc" class="CourseDesc text-justify">{{ $courseDetail[0]->CourseDetailDesc }}</h4>
-            
+            <h1 id="video-title" class="CourseName VideoName">{{ $courseDetail[0]->CourseDetailTitle }}</h1>
+            <h4 id="video-desc" class="CourseDesc VideoDesc text-justify">{{ $courseDetail[0]->CourseDetailDesc }}</h4>
+
         </div>
     </div>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+          <h3 class="popup-title">Congratulations you've finish this Course!</h3>
+          <p class="popup-message">The ultimate inspiration is the deadline.</p>
+          <button class="popup-close-btn" id="popupCloseBtn">Close</button>
+        </div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -59,6 +66,7 @@
             var enrolled = @json($enrolled);
             var lastCheckedIndex = -1;
             var checkboxes = $('.update-checkbox input[type="checkbox"]');
+            var courseDetail = @json($courseDetail);
 
             checkboxes.prop('disabled', true);
 
@@ -98,7 +106,8 @@
                     url: '/get-video-details', // Replace with the URL that fetches video details
                     method: 'GET',
                     data: {
-                        index: index
+                        index: index,
+                        courseId: courseId
                     },
                     success: function(response) {
                         $('#video-title').text(response.title);
@@ -106,8 +115,22 @@
                     },
                     error: function(error) {
                         console.log(index);
+                        console.log(courseId);
                     }
                 });
+            });
+
+            $(document).on('click', '.enroll-button', function() {
+                var courseId = $(this).data('course-id');
+                enrollCourse(courseId, userId);
+                alert('Course Enrolled!');
+            });
+
+            $(document).on('click', '.cancel-button', function() {
+                var enrollmentId = $(this).data('enrollment-id');
+                var courseId = $(this).data('course-id');
+                cancelEnrollment(enrollmentId, userId, courseId);
+                alert('Course Enrollment Cancelled!');
             });
 
             checkboxes.on('change', function() {
@@ -157,6 +180,27 @@
                     }
                 });
 
+                var nextCourseIndex = currentIndex + 1;
+    var nextCourse = courseDetail[nextCourseIndex];
+    var nextVideoSrc = nextCourse.CourseDetailVideo;
+    var nextCourseName = nextCourse.CourseDetailTitle;
+    var nextCourseDesc = nextCourse.CourseDetailDesc;
+
+    $('#video-iframe').attr('src', nextVideoSrc);
+    $('#video-title').text(nextCourseName);
+    $('#video-desc').text(nextCourseDesc);
+
+            });
+
+            function showPopup() {
+            var popupOverlay = document.getElementById('popupOverlay');
+            popupOverlay.style.display = 'flex';
+            }
+
+            var popupCloseBtn = document.getElementById('popupCloseBtn');
+            popupCloseBtn.addEventListener('click', function () {
+            var popupOverlay = document.getElementById('popupOverlay');
+            popupOverlay.style.display = 'none';
             });
 
             function updateCourseStatus(recordId) {
@@ -172,6 +216,10 @@
                     },
                     success: function(response) {
                         console.log('Course status updated successfully');
+                        var allChecked = checkboxes.filter(':not(:checked)').length === 0;
+                        if (allChecked) {
+                            showPopup(); // Show the pop-up
+                        }
                     }
                 });
             }
@@ -188,7 +236,7 @@
             });
 
             function enrollCourse(courseId, userId) {
-                
+
                 $.ajax({
                     url: '/enroll-course',
                     type: 'POST',

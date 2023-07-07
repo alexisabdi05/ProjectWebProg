@@ -37,27 +37,6 @@ body {
     color: #A1A1A1;
 }
 
-.sec1c {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.sec1c input[type=text] {
-    width: 39vw;
-    height: 4vw;
-    margin-top: 20vw;
-    border-radius: 3vw;
-    box-shadow: 0px 0px 60px #00000059;
-    background: white url("/public/img/home_search-icon.png");
-    background-repeat: no-repeat;
-    background-position: 1.5vw;
-    background-size: 2vw;
-    padding-left: 4.5vw;
-    color: #4F4F4F;
-    font-weight: 700;
-}
-
 ::placeholder {
     font-size: 1.3vw;
     font-weight: 700;
@@ -587,4 +566,17 @@ body {
 
 .space {
     margin-top: 30vw;
+}
+
+.sec1c{
+    margin-top: 20vw;
+}
+
+.best-course p{
+    height: 7vw;
+    overflow: hidden;
+}
+
+.best-course h5:hover{
+    background-color: #0F5DD1;
 }

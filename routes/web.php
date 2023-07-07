@@ -2,17 +2,18 @@
 use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\userController;
-use App\Http\Controllers\courseController;
-use App\Http\Controllers\courseDetailController;
-use App\Http\Controllers\categoryController;
-use App\Http\Controllers\ColorPaletteController;
-use App\Http\Controllers\searchController;
-use App\Http\Controllers\GoogleAuthController;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\courseController;
+use App\Http\Controllers\searchController;
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\ColorPaletteController;
+use App\Http\Controllers\courseDetailController;
 // use GuzzleHttp\Client;
 
 // $client = new Client([
@@ -41,7 +42,7 @@ Route::post('/MakeUser', [userController::class, 'make']);
 // Route::post('/validateSignIn', [userController::class, 'validate']);
 
 
-Route::get('/home', [userController::class, 'home'])->name('home')->middleware('auth');
+Route::get('/home', [HomeController::class, 'home'])->middleware('auth');
 
 Route::get('/courses', [userController::class, 'courses'])->middleware('auth');
 

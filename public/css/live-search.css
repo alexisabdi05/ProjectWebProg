@@ -17,6 +17,11 @@
     box-shadow: 0 0 1vw rgb(0, 0, 0, 0.5);
 }
 
+.course-list:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
 .course-list img{
     width: 18vw;
     height: auto;
@@ -57,4 +62,8 @@
     border-radius: 1vw;
     padding: 0.5vw 0vw;
     width: 8.25vw;
+}
+
+.more:hover{
+    background-color: #0F5DD1;
 }
