@@ -23,7 +23,7 @@
     </div>
 
     <div class="login-box">
-        <form class="form-lgn" action="/MakeUser" method="POST">
+        <form class="form-lgn flex flex-col justify-center" action="/MakeUser" method="POST">
             @csrf
             <h1 class="flex py-3 my-3 text-4.5xl text-indigo-500 font-bold justify-center">Sign Up</h1>
             <input class="inputbox" type="text" id="username" placeholder="Username" name="username" minlength="6"
@@ -35,19 +35,11 @@
             @error('email')
                 <div class="eror">{{ $message }}</div>
             @enderror
-            <a href="/auth/google"
-                class="github text-white bg-indigo-500 hover:bg-indigo-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mb-2 flex justify-center self-center">
-                <svg class="mr-2 -ml-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab"
-                    data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
-                    <path fill="currentColor"
-                        d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z">
-                    </path>
-                </svg>
-                Sign in with Google
-            </a>
+
             <input class="inputbox" type="password" id="password" placeholder="Password" name="password" minlength="8"
                 required>
-            <div class="flex mt-5 justify-center text-sm">
+
+            <div class="flex mt-2 justify-center text-sm">
                 <p class="text-gray-400 font-medium">Already have an account? </p>
                 <a class="text-gray-500 mx-1 underline decoration-indigo-500 font-bold hover:text-indigo-500"
                     href="/signin">Sign in</a>
@@ -57,6 +49,16 @@
                     class="flex items-center justify-center h-8 w-44 bg-indigo-500 rounded-full font-bold text-sm text-white hover:bg-indigo-600">Create
                     Account</button>
             </div>
+            <a href="/auth/google"
+                class="github text-indigo-500 border-2 border-indigo-500 hover:bg-indigo-500 hover:text-white font-medium rounded-full text-sm px-2.5 py-1 text-center inline-flex items-center  flex justify-center self-center -mt-2 mb-3">
+                <svg class="mr-2 -ml-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab"
+                    data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                    <path fill="currentColor"
+                        d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z">
+                    </path>
+                </svg>
+                Sign up with Google
+            </a>
         </form>
     </div>
 
