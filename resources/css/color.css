@@ -230,7 +230,7 @@ body {
     color: white;
     font-weight: bold;
     font-size: 1.3vw;
-    -webkit-text-stroke-width: 0.09vw;
+    -webkit-text-stroke-width: 0.05vw;
     /* text-shadow: 1vw 1vw 3vw rgb(0, 0, 0, 0.8); */
     -webkit-text-stroke-color: black;
 }
