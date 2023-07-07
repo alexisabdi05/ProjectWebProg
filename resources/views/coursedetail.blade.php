@@ -33,8 +33,6 @@
                             {{ $courseDetail[$i]->day }}</button>
 
                         <h2 class="courseDTitle">{{ $courseDetail[$i]->CourseDetailTitle }}<h2>
-
-
                     </form>
                 @endfor
             </div>
@@ -68,6 +66,7 @@
             var enrolled = @json($enrolled);
             var lastCheckedIndex = -1;
             var checkboxes = $('.update-checkbox input[type="checkbox"]');
+            var courseDetail = @json($courseDetail);
 
             checkboxes.prop('disabled', true);
 
@@ -121,6 +120,19 @@
                 });
             });
 
+            $(document).on('click', '.enroll-button', function() {
+                var courseId = $(this).data('course-id');
+                enrollCourse(courseId, userId);
+                alert('Course Enrolled!');
+            });
+
+            $(document).on('click', '.cancel-button', function() {
+                var enrollmentId = $(this).data('enrollment-id');
+                var courseId = $(this).data('course-id');
+                cancelEnrollment(enrollmentId, userId, courseId);
+                alert('Course Enrollment Cancelled!');
+            });
+
             checkboxes.on('change', function() {
                 var currentCheckbox = $(this);
                 var form = $(this).closest('form');
@@ -167,7 +179,16 @@
                         console.log(response.success);
                     }
                 });
-                
+
+                var nextCourseIndex = currentIndex + 1;
+    var nextCourse = courseDetail[nextCourseIndex];
+    var nextVideoSrc = nextCourse.CourseDetailVideo;
+    var nextCourseName = nextCourse.CourseDetailTitle;
+    var nextCourseDesc = nextCourse.CourseDetailDesc;
+
+    $('#video-iframe').attr('src', nextVideoSrc);
+    $('#video-title').text(nextCourseName);
+    $('#video-desc').text(nextCourseDesc);
 
             });
 

@@ -40,6 +40,11 @@
     box-shadow: 0 0 1vw rgb(0, 0, 0, 0.5);
 }
 
+.course-list:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
 .course-list img{
     width: 18vw;
     height: auto;
