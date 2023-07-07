@@ -500,9 +500,9 @@ class CourseDetailSeeder extends Seeder
         CourseDetail::create(
             [
                 'course_id' => 23,
-                'CourseDetailTitle' => 'Vocabulary',
-                'CourseDetailDesc' => "This is my first color video, going over the terms you need to know to study color more in depth! Created for fashion designers and illustrators, but I'm told many others find this helpful!",
-                'CourseDetailVideo' => 'https://www.youtube.com/embed/qSwBxnHZxKA',
+                'CourseDetailTitle' => 'Use the Color Wheel & Color Harmonies to Choose Colors that Work Well Together',
+                'CourseDetailDesc' => "TLearn color theory and how to choose colors that work well together: with the color wheel, color harmonies and color palettes. ",
+                'CourseDetailVideo' => 'https://www.youtube.com/embed/YeI6Wqn4I78',
                 'day' => 1
             ]
         );
@@ -510,9 +510,9 @@ class CourseDetailSeeder extends Seeder
         CourseDetail::create(
             [
                 'course_id' => 23,
-                'CourseDetailTitle' => 'Mixing Colors',
-                'CourseDetailDesc' => "MAGENTA: Winsor & Newton Gouache in Rose Tyrien, Winsor & Newton Cotman Watercolor in Permanent Rose. YELLOW: Winsor & Newton Gouache in Primary Yellow, Winsor & Newton Cotman Watercolor in Lemon Yellow. CYAN: Winsor & Newton Gouache in Pthalo Blue, Cerulean, and Primary Blue, Winsor & Newton Cotman Watercolor in Cerulean.",
-                'CourseDetailVideo' => 'https://www.youtube.com/embed/Ax9F622xwfs ',
+                'CourseDetailTitle' => 'RYB vs CMY Color Wheel - What are the REAL Primary Colors?',
+                'CourseDetailDesc' => "Red, blue and yellow, or cyan, yellow and magenta? Which are the REAL primary colors? And which primary color wheel is the best for color mixing and color harmony?",
+                'CourseDetailVideo' => 'https://www.youtube.com/embed/yRQmV4XYmqI',
                 'day' => 2
             ]
         );
@@ -1021,8 +1021,8 @@ class CourseDetailSeeder extends Seeder
             [
                 'course_id' => 22,
                 'CourseDetailTitle' => 'How to Avoid Muddy Colors - Complimentary Colors',
-                'CourseDetailDesc' => "https://www.youtube.com/embed/ixPEbzAVwE0",
-                'CourseDetailVideo' => 'In this video we talk about the first part of avoid making mud. Mixing complimentary colors together, what is it, and how making this kind of mud can be really useful in watercolor paintings.',
+                'CourseDetailDesc' => "In this video we talk about the first part of avoid making mud. Mixing complimentary colors together, what is it, and how making this kind of mud can be really useful in watercolor paintings.",
+                'CourseDetailVideo' => 'https://www.youtube.com/embed/ixPEbzAVwE0',
                 'day' => 4
             ]
         );
@@ -1040,9 +1040,9 @@ class CourseDetailSeeder extends Seeder
         CourseDetail::create(
             [
                 'course_id' => 23,
-                'CourseDetailTitle' => 'Tints, Shades, and Tones',
-                'CourseDetailDesc' => "This video is like getting 2 for the price of 1! I discuss tints, shades, and tones while testing and reviewing a gouache brand I've never used before!",
-                'CourseDetailVideo' => 'https://www.youtube.com/embed/lPvH27EhfOk',
+                'CourseDetailTitle' => 'How to Mix 1000+ Colors From 12 Pencils',
+                'CourseDetailDesc' => "Mix 1000+ colors from just 12 colored pencils! I've tested Prismacolor colored pencils and Crayola colored pencils to see if you REALLY need more than a cheap set of 12 pencils to create beautiful adult coloring pages.",
+                'CourseDetailVideo' => 'https://www.youtube.com/embed/4zh0OktPDOA',
                 'day' => 3
             ]
         );
@@ -1050,9 +1050,9 @@ class CourseDetailSeeder extends Seeder
         CourseDetail::create(
             [
                 'course_id' => 23,
-                'CourseDetailTitle' => 'Mutes, Undertones, Neutrals',
-                'CourseDetailDesc' => "This is the last of the super deep dive technical color vocab vids before we start applying these concepts to fashion design and illustration. This video covers mutes, what they are, how to use them, how understanding them will help you mix all sorts of colors and neutrals, how to pick neutrals that work well with what colors, all kinds of stuff.",
-                'CourseDetailVideo' => 'https://www.youtube.com/embed/d6BBP9w39fU',
+                'CourseDetailTitle' => 'Color Theory for Noobs | Beginner Guide',
+                'CourseDetailDesc' => "Learn how the basics of color theory to help take your artwork to the next level!",
+                'CourseDetailVideo' => 'https://www.youtube.com/embed/AvgCkHrcj90',
                 'day' => 4
             ]
         );
@@ -1060,9 +1060,12 @@ class CourseDetailSeeder extends Seeder
         CourseDetail::create(
             [
                 'course_id' => 23,
-                'CourseDetailTitle' => 'Color Theory Applied to Fashion Design',
-                'CourseDetailDesc' => "Concepts discussed in this video include monochromatic, analogous, and complementary color schemes; value usage and placement and how it affects proportions and focal points; how complementary color schemes are more than just bright jarring opposites.",
-                'CourseDetailVideo' => 'https://www.youtube.com/embed/Rv-oMZebBEU',
+                'CourseDetailTitle' => 'How to Find the Perfect Color Palette Using The Color Catalog',
+                'CourseDetailDesc' => "Finding the right color combination can be one of the biggest obstacles to starting a new project. 
+
+                That's why I created The Color Catalog - with 250 color palettes in an interactive format that you can use on your tablet or mobile device for instant access to a library of color inspiration.
+                ",
+                'CourseDetailVideo' => 'https://www.youtube.com/embed/Nl63YiAc2cM',
                 'day' => 5
             ]
         );
@@ -1100,20 +1103,10 @@ class CourseDetailSeeder extends Seeder
         CourseDetail::create(
             [
                 'course_id' => 4,
-                'CourseDetailTitle' => 'Panels & Workspaces in Adobe Illustrator II',
-                'CourseDetailDesc' => "In this video we are going to take a closer look at artboards in Adobe illustrator. Topics Covered The Artboard panel and Artboard tool, Enjoy!",
-                'CourseDetailVideo' => 'https://www.youtube.com/embed/2E9oGKd0Ayg',
-                'day' => 3
-            ]
-        );
-
-        CourseDetail::create(
-            [
-                'course_id' => 4,
                 'CourseDetailTitle' => 'Artboards in Adobe Illustrator',
                 'CourseDetailDesc' => "https://www.youtube.com/embed/9GbLm_WXWwk",
                 'CourseDetailVideo' => 'In this tutorial I am going to talk about how creative elements work and how we can begin to operate in illustrator. In this video you will get a good understanding of the basics so we can move on later and start building our own creative elements.',
-                'day' => 4
+                'day' => 3
             ]
         );
 
@@ -1123,6 +1116,17 @@ class CourseDetailSeeder extends Seeder
                 'CourseDetailTitle' => 'Vector basics | Selection & Direct selection tool & more',
                 'CourseDetailDesc' => "In this tutorial I am going to talk about Fill & Stroke effects in adobe Illustrator. We’ll be covering Stroke effects, Stroke align effects, Stroke corner effects, Stroke dash effects, and Arrowhead effects.",
                 'CourseDetailVideo' => 'https://www.youtube.com/embed/GFY0_EMVYDw',
+                'day' => 4
+            ]
+        );
+
+        CourseDetail::create(
+            [
+                'course_id' => 4,
+                'CourseDetailTitle' => 'Fill & Stroke effects in Adobe Illustrator',
+                'CourseDetailDesc' => "In this video tutorial I will be using Adobe Illustrator CC for mac. Almost all of the principles demonstrated and covered will apply to future and previous versions. Some differences may apply if you are using a previous or future version.
+                ",
+                'CourseDetailVideo' => 'https://www.youtube.com/embed/xhATZA88zC4',
                 'day' => 5
             ]
         );

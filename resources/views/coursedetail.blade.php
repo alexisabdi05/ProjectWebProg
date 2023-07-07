@@ -9,7 +9,7 @@
                 <img src="/img/course-cover.png" alt="" class="course-img">
                 <div class="txt">
                     <h1 class="CourseName">{{ $course->CourseName }}</h1>
-                    <h5 class="Category">{{ $category[0]->CategoryName }} Tutorial</h5>
+                    <h5 class="Category">Author: {{ $course->author }} </h5>
                     <h4 class="CourseDesc text-justify">{{ $course->CourseDesc }}</h4>
                     <div class="Enroll text-center">
                         @if ($enrolled)
@@ -27,13 +27,13 @@
                         @csrf
                         <input class="cek-box" type="checkbox" {{ $courseStatuses[$i]->status ?? '' ? 'checked' : '' }} value="try"
                             @if (!$enrolled) disabled @endif>
-        
+
                             <button @if (!$enrolled) disabled @endif class="day-button"
                             data-index="{{ $i }}" data-video-src="{{ $courseDetail[$i]->CourseDetailVideo }}">Day
                             {{ $courseDetail[$i]->day }}</button>
-                            
+
                         <h2 class="courseDTitle">{{ $courseDetail[$i]->CourseDetailTitle }}<h2>
-                     
+
 
                     </form>
                 @endfor
@@ -44,11 +44,20 @@
                 src="{{ $courseDetail[0]->CourseDetailVideo }}" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
-            <h1 id="video-title" class="CourseName">{{ $courseDetail[0]->CourseDetailTitle }}</h1>
-            <h4 id="video-desc" class="CourseDesc text-justify">{{ $courseDetail[0]->CourseDetailDesc }}</h4>
-            
+            <h1 id="video-title" class="CourseName VideoName">{{ $courseDetail[0]->CourseDetailTitle }}</h1>
+            <h4 id="video-desc" class="CourseDesc VideoDesc text-justify">{{ $courseDetail[0]->CourseDetailDesc }}</h4>
+
         </div>
     </div>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+          <h3 class="popup-title">Congratulations you've finish this Course!</h3>
+          <p class="popup-message">The ultimate inspiration is the deadline.</p>
+          <button class="popup-close-btn" id="popupCloseBtn">Close</button>
+        </div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -158,7 +167,19 @@
                         console.log(response.success);
                     }
                 });
+                
 
+            });
+
+            function showPopup() {
+            var popupOverlay = document.getElementById('popupOverlay');
+            popupOverlay.style.display = 'flex';
+            }
+
+            var popupCloseBtn = document.getElementById('popupCloseBtn');
+            popupCloseBtn.addEventListener('click', function () {
+            var popupOverlay = document.getElementById('popupOverlay');
+            popupOverlay.style.display = 'none';
             });
 
             function updateCourseStatus(recordId) {
@@ -174,6 +195,10 @@
                     },
                     success: function(response) {
                         console.log('Course status updated successfully');
+                        var allChecked = checkboxes.filter(':not(:checked)').length === 0;
+                        if (allChecked) {
+                            showPopup(); // Show the pop-up
+                        }
                     }
                 });
             }
@@ -190,7 +215,7 @@
             });
 
             function enrollCourse(courseId, userId) {
-                
+
                 $.ajax({
                     url: '/enroll-course',
                     type: 'POST',
