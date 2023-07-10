@@ -6,7 +6,7 @@
     <div class="hero">
         <div class="course-info">
             <div class="course-outline flex flex-row">
-                <img src="/img/course-cover.png" alt="" class="course-img">
+                <img src="/{{ $course->CourseIMG }}" alt="" class="course-img">
                 <div class="txt">
                     <h1 class="CourseName">{{ $course->CourseName }}</h1>
                     <h5 class="Category">Author: {{ $course->author }} </h5>
