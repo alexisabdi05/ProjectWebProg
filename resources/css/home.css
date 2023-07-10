@@ -582,10 +582,23 @@ body {
 }
 
 .c31 img,.c32 img,.c33 img{
-    .courses img{
     width: 18vw;
     height: 13vw;
     border-radius: 2vw;
     object-fit: cover;
 }
+
+.sec1c input {
+    border-radius: 5vw !important;
+    box-shadow: 0vw 0vw 2.5vw 1vw rgba(0 ,0,0,0.15) !important;
+}
+
+.sec1c input:focus {
+    outline: none !important;
+}
+
+.sec1c{
+    margin-top: 21vw;
+    margin-left: 20vw;
+    margin-right: 20vw
 }
