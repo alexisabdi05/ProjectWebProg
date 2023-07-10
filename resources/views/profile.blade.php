@@ -173,7 +173,7 @@
                 @foreach ($enrollment as $enroll)
                     @if ($enroll->statusFinish == 0)
                         <a href="/courses/{{ $enroll->Course->id }}"
-                            class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8">
+                            class="flex flex-col items-center  rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8 w-72 h-80">
                             @php
                                 $total = $enroll->Course->CourseDetail->count();
                                 $temp = $enroll->Course->CourseDetail;
@@ -189,17 +189,15 @@
                                         }
                                     }
                                 }
-                                // dd($completed);
-                                // $temp2 = CourseStatus::where('coursedetail_id', '=', $temp->id)->get();
-                                // $completed = $temp2->SortByDesc('');
                             @endphp
                             <div
-                                class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                                <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
+                                class="relative mx-4 -mt-8 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 w-56 ">
+                                <img src="/{{ $enroll->Course->CourseIMG }}" alt="img-blur-shadow"
+                                    class="object-center h-full" />
                             </div>
-                            <div class="p-5 text-center">
+                            <div class="mt-2 p-5 text-center">
                                 <h5
-                                    class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                                    class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased h-12">
                                     {{ $enroll->Course->CourseName }}
                                 </h5>
                                 <p class="block text-base font-light leading-relaxed text-inherit antialiased">
@@ -238,17 +236,18 @@
             @foreach ($enrollment as $enroll)
                 @if ($enroll->statusFinish == 1)
                     <a href="/courses/{{ $enroll->Course->id }}"
-                        class="flex flex-col items-center justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8">
+                        class="flex flex-col items-center  rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8 w-72 h-64">
                         <div
-                            class="relative mx-4 -mt-6 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-                            <img src="../Asset/courseBg.png" alt="img-blur-shadow" class="object-cover h-full" />
+                            class="relative mx-4 -mt-8 h-32 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 w-56 ">
+                            <img src="{{ $enroll->Course->CourseIMG }}" alt="img-blur-shadow"
+                                class="object-cover h-full" />
                         </div>
                         <div class="p-5 text-center">
                             <h5
-                                class="mb-2 block text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                                class="mb-2 text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased h-2">
                                 {{ $enroll->Course->CourseName }}
                             </h5>
-                            <p class="block text-base font-light leading-relaxed text-inherit antialiased">
+                            <p class="text-base font-light leading-relaxed text-inherit antialiased mt-14">
                                 by {{ $enroll->Course->author }}
                             </p>
                         </div>
