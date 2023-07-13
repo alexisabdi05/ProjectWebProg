@@ -37,6 +37,7 @@
     <div class="backgroundColor flex flex-col justify-center text-center">
         <div class="hasil mt-4 flex flex-col justify-center align-center" id="showOutput">
             <h1 class="font-bold mb-2">Your Image</h1>
+            <div class="loader"></div>
             <div class="output rounded-3xl flex justify-center items-center flex-col">
                 <div id="preview2" class="preview2">
                     <img id="previewImage2" class="imDrag" src="{{ asset('storage/' . $image) }}" alt="Preview">
@@ -91,6 +92,14 @@
             /* Provide feedback to the user */
             alert("Text has been copied: " + text);
         }
+
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader");
+            loader.classList.add("loader-hidden");
+            loader.addEventListener("transitionend", () => {
+                document.body.removeChild("loader");
+            })
+        });
     </script>
 
 

@@ -239,7 +239,7 @@ class CourseSeeder extends Seeder
         Course::create(
             [
                 'category_id' => 8,
-                'CourseName' => 'Understanding How Color Works & Use Them',
+                'CourseName' => 'Understand How Color Works & Use Them',
                 'CourseDesc' => "Color Lesson' is an illuminating YouTube playlist that serves as a comprehensive guide to understanding and harnessing the power of color in various creative fields. Whether you're an artist, designer, or simply someone who appreciates the aesthetics of color, this playlist offers a wealth of knowledge and inspiration.
                 ",
                 'CourseIMG' => 'img/course-cover/course-23.jpg',
