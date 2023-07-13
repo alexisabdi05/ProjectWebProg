@@ -11,7 +11,9 @@
 ## About ColorVerse
 Colorverse is a website designed specifically to help you learn about design and create appealing color palettes. It focuses on providing valuable resources for designers. At Colorverse, you can find various tutorials covering design topics, including color theory, design principles, graphic design tips and tricks, and guides on popular design tools like Adobe Photoshop and Illustrator.
 
-One of the main features of the website is the color palette generator tool. You can use this tool to create harmonious and eye-catching color combinations for your design projects or creative inspiration. All content on Colorverse is presented in an easily understandable format, with illustrations, examples, and clear explanations. We hope to assist you in learning the fundamentals of design and inspiring your creativity.
+One of the main features of this website is the color palette generator. You can use this tool to discover color combinations from the image of your choice. All the content in Colorverse is presented in an easily understandable format, with illustrations, examples, and clear explanations. We hope to assist you in learning the fundamentals of design and inspire your creativity.
+
+ColorVerse - Unlock Your Creativity🚀✨
 
 ## Login & Registration
 You will be directed right to this "Sign-in" page after accessing this page
