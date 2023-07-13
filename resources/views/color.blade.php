@@ -45,6 +45,7 @@
                 <p>
             </div>
         </div>
+        <div class="loader"></div>
         <form class="con-input flex flex-col" method="POST" action="/generate-color-palette"
             enctype="multipart/form-data">
             @csrf
@@ -151,6 +152,14 @@
 
             xhr.send(formData);
         }
+
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader");
+            loader.classList.add("loader-hidden");
+            loader.addEventListener("transitionend", () => {
+                document.body.removeChild("loader");
+            })
+        });
     </script>
 </body>
 
