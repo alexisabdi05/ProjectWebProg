@@ -8,6 +8,12 @@
 
 <h4 align="center">Here's where we showcase a little bit about this website.</h4> 
 
+## About ColorVerse
+Colorverse is a website designed specifically to help you learn about design and create appealing color palettes. It focuses on providing valuable resources for designers. At Colorverse, you can find various tutorials covering design topics, including color theory, design principles, graphic design tips and tricks, and guides on popular design tools like Adobe Photoshop and Illustrator.
+
+One of the main features of this website is the color palette generator. You can use this tool to discover color combinations from the image of your choice. All the content in Colorverse is presented in an easily understandable format, with illustrations, examples, and clear explanations. We hope to assist you in learning the fundamentals of design and inspire your creativity.
+
+ColorVerse - Unlock Your Creativity🚀✨
 
 ## Login & Registration
 You will be directed right to this "Sign-in" page after accessing this page
@@ -20,7 +26,10 @@ This is the "Sign-up" page if you don't have an account
 ## Home
 After sign-in in you will be directed to "Home" page
 <p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/c8953176-0c66-40b6-b7ef-f68ef3b2b211.gif" alt="home"> </img> </p>
-At home page you will see.. blablablabalbal (content in home)
+
+## Categories
+Next is the "Categories" page, where you can see the courses category and you can choose which design categories you wanna learn.
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/2f5e104f-5387-40ff-9bb8-502a761fd7ef.png" alt="course"> </img> </p>
 
 ## Course
 Next is the "Course" page, where you can see the courses category and you can choose which course that suits you and you can start learning!
@@ -36,8 +45,12 @@ in this page, you can generate a color pallete from any picture that you choose 
 
 ## Profile
 And the last one is "Profile" page. In this page you can see all the course you've enrolled and completed
-<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/4b67cf77-1375-402d-9adf-0340ab7a7424.gif" alt="course"> </img> </p>
-Also, you can click "See More" and it will direct you to the achievement page where you can see all the progress you make and it also has the sign out button to log you out and direct you back to sign-in page.
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/6a624252-7937-47be-83bf-106d913757d9.gif" alt="course"> </img> </p>
+There is also a sign out button to log you out and direct you back to sign-in page.
+
+## Achievement
+You can also click "See More" on the "Profile" page or "Achievement" menu on the navbar and it will direct you to the achievement page where you can see all the progress you make and all that you've completed.
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/31f6ebbc-9e50-437a-9586-c2ebb0cc8ad2.gif" alt="course"> </img> </p>
 <br>
 
 # Installation Guide for Colorverse
