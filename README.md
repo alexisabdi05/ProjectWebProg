@@ -1,11 +1,13 @@
 <h1 align="center">
   <br>
-  Web Programming Final Project - ColorVerse
+  Web Programming Final Project
   <br>
 </h1>
+
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/8b067c5a-8dbf-4ccc-b2b6-bb6d523e61ff.png" alt="preview"> </img> </p>
+
 <h4 align="center">Here's where we showcase a little bit about this website.</h4> 
 
-<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/ff115bf1-ce33-421d-97de-6ff2be32c9d4.gif" alt="preview"> </img> </p>
 
 ## Login & Registration
 You will be directed right to this "Sign-in" page after accessing this page
@@ -21,18 +23,24 @@ After sign-in in you will be directed to "Home" page
 At home page you will see.. blablablabalbal (content in home)
 
 ## Course
-Next is the "Course" Page
+Next is the "Course" page, where you can see the courses category and you can choose which course that suits you and you can start learning!
 <p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/8ccbb9db-7268-4b5f-8358-7c4115cf70e4.gif" alt="course"> </img> </p>
-In "Course" page you can see the courses category and you can choose which course that suits you and you can start learning!
 
+We also have the dynamic search bar to help you find your course easier ;)
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/83ba3dac-a6a6-406b-8da5-ce6e6ac5983a.gif" alt="course"> </img> </p>
 
+## Color Pallete
+Moving on to our main feature which is "Color Pallete" Page
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/3bb0d1a1-4a06-4e32-8958-013ce50029cd.gif" alt="color"> </img> </p>
+in this page, you can generate a color pallete from any picture that you choose :D
 
-
-
+## Profile
+And the last one is "Profile" page. In this page you can see all the course you've enrolled and completed
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/4b67cf77-1375-402d-9adf-0340ab7a7424.gif" alt="course"> </img> </p>
+Also, you can click "See More" and it will direct you to the achievement page where you can see all the progress you make and it also has the sign out button to log you out and direct you back to sign-in page.
 <br>
-<br>
 
-## Installation Guide for Colorverse
+# Installation Guide for Colorverse
 ### Prerequisites
 Before you begin, ensure that you have the following prerequisites installed on your machine:
 
