@@ -3,10 +3,34 @@
   Web Programming Final Project - ColorVerse
   <br>
 </h1>
+<h4 align="center">Here's where we showcase a little bit about this website.</h4> 
 
-<h4 align="center">"Here's where we showcase a little bit about this website."</h4>
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/ff115bf1-ce33-421d-97de-6ff2be32c9d4.gif" alt="preview"> </img> </p>
 
-<p align="center"> <img src=alt="preview"> </img> </p>
+## Login & Registration
+You will be directed right to this "Sign-in" page after accessing this page
+<p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/bbd677e6-5834-416f-8ea1-baf784630ba5.png" alt="signin"> </img> </p>
+This is the "Sign-up" page if you don't have an account
+<br>
+<br>
+<p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/8324728b-b4aa-4c0d-b29b-d48bf9663973.png" alt="signup"> </img> </p>
+
+## Home
+After sign-in in you will be directed to "Home" page
+<p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/c8953176-0c66-40b6-b7ef-f68ef3b2b211.gif" alt="home"> </img> </p>
+At home page you will see.. blablablabalbal (content in home)
+
+## Course
+Next is the "Course" Page
+<p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/8ccbb9db-7268-4b5f-8358-7c4115cf70e4.gif" alt="course"> </img> </p>
+In "Course" page you can see the courses category and you can choose which course that suits you and you can start learning!
+
+
+
+
+
+<br>
+<br>
 
 ## Installation Guide for Colorverse
 ### Prerequisites
