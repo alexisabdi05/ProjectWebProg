@@ -25,7 +25,7 @@
         use App\Models\Category;
         $user = auth()->user();
         // @dd($user->id);
-        
+
         $enrollmentTemp = Enrollment::where('user_id', '=', $user->id)->get();
         $enrollment = $enrollmentTemp->where('statusFinish', '=', true);
         $finished = $enrollment->count();
@@ -43,8 +43,8 @@
     <div class="backgroundach">
         <img src="{{ asset('img/achievement.png') }}" class="bg-cover bg-center z-0">
     </div>
-    <div class="flex-row text-center mb-10 z-10 -mt-150">
-        <h1 class="font-semibold text-3xl text-gray-700">Achievements</h1>
+    <div class="flex-row text-center mb-10 z-10 -mt-130">
+        <h1 class="font-semibold text-3xl text-gray-70">Achievements</h1>
         <p class="mt-2 leading-5 font-medium text-lg text-gray-400">Unlock your creative potential and showcase your
             <br>accomplishments with our Achievement
         </p>
@@ -61,7 +61,7 @@
                             $photoshop = 2;
                         }
                         break;
-                
+
                     case 'Adobe Ilustrator':
                         $Ilustrator = $Ilustrator + 1;
                         if ($Ilustrator >= 2) {
@@ -107,7 +107,7 @@
                     default:
                         break;
                 }
-                
+
             @endphp
         @endforeach
         @if ($photoshop < 2)
