@@ -1,66 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center">
+  <br>
+  Web Programming Final Project
+  <br>
+</h1>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/8b067c5a-8dbf-4ccc-b2b6-bb6d523e61ff.png" alt="preview"> </img> </p>
 
-## About Laravel
+<h4 align="center">Here's where we showcase a little bit about this website.</h4> 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Login & Registration
+You will be directed right to this "Sign-in" page after accessing this page
+<p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/bbd677e6-5834-416f-8ea1-baf784630ba5.png" alt="signin"> </img> </p>
+This is the "Sign-up" page if you don't have an account
+<br>
+<br>
+<p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/8324728b-b4aa-4c0d-b29b-d48bf9663973.png" alt="signup"> </img> </p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Home
+After sign-in in you will be directed to "Home" page
+<p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/c8953176-0c66-40b6-b7ef-f68ef3b2b211.gif" alt="home"> </img> </p>
+At home page you will see.. blablablabalbal (content in home)
 
-## Learning Laravel
+## Course
+Next is the "Course" page, where you can see the courses category and you can choose which course that suits you and you can start learning!
+<p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/8ccbb9db-7268-4b5f-8358-7c4115cf70e4.gif" alt="course"> </img> </p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+We also have the dynamic search bar to help you find your course easier ;)
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/83ba3dac-a6a6-406b-8da5-ce6e6ac5983a.gif" alt="course"> </img> </p>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Color Pallete
+Moving on to our main feature which is "Color Pallete" Page
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/3bb0d1a1-4a06-4e32-8958-013ce50029cd.gif" alt="color"> </img> </p>
+in this page, you can generate a color pallete from any picture that you choose :D
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Profile
+And the last one is "Profile" page. In this page you can see all the course you've enrolled and completed
+<p align="center"> <img src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/4b67cf77-1375-402d-9adf-0340ab7a7424.gif" alt="course"> </img> </p>
+Also, you can click "See More" and it will direct you to the achievement page where you can see all the progress you make and it also has the sign out button to log you out and direct you back to sign-in page.
+<br>
 
-## Laravel Sponsors
+# Installation Guide for Colorverse
+### Prerequisites
+Before you begin, ensure that you have the following prerequisites installed on your machine:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- PHP (minimum version 7.4) <br>
+- Composer (dependency management for PHP) <br>
+- Node.js (minimum version 14) <br>
+- NPM (Node Package Manager) <br>
 
-### Premium Partners
+### Step 1: Clone The Respository
+1. Open your terminal or command prompt.
+2. Navigate to the directory where you want to clone the project.
+3. Run the following command to clone the repository: <br>
+```<language>
+   git clone https://github.com/your-username/colorverse.git
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Step 2: Install PHP Dependencies
+1. Navigate to the project directory using the terminal or command prompt.
+2. Run the following command to install PHP dependencies: <br>
+```<language>
+   composer install
+   ```
+### Step 3: Configure the Environment
+1. Duplicate the .env.example file located in the project root directory and rename it to .env.
+2. Open the .env file and set the necessary environment variables like database connection details, application name, etc.
 
-## Contributing
+### Step 4: Generate Application Key
+In the terminal or command prompt, run the following command to generate an application key:
+```<language>
+   php artisan key:generate
+   ```
+### Step 5: Run Migrations
+To create the required database tables, run the following command:
+```<language>
+   php artisan migrate
+   ```
+### Step 6: Install JavaScript Dependencies
+Run the following command to install the JavaScript dependencies using NPM:
+```<language>
+   npm install
+   ```
+### Step 7: Build Assets
+Once the dependencies are installed, run the following command to build the assets:
+```<language>
+   npm run dev
+   ```
+If you're working in a production environment, you can use npm run production instead to minify the assets.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Step 8: Serve the Application
+Finally, run the following command to start the development server:
+```<language>
+   php artisan serve
+   ```
+This command will start the Laravel development server, and you can access your application by visiting http://localhost:8000 in your web browser.

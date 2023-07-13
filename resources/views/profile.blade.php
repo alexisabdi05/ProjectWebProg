@@ -49,7 +49,7 @@
     <div class="flex grid-flow-row">
         <div class="flex flex-col ml-5">
 
-            <div class="bg-white shadow-lg rounded-lg p-8  z-40"
+            <div class="bg-white shadow-lg rounded-lg p-10  z-40 "
                 style="background: linear-gradient(125deg, #F5C2C9, #B2B8EF);">
                 <div class="flex items-center">
                     <div class="w-32 h-32 rounded-full bg-white shadow-lg overflow-hidden">
@@ -82,7 +82,7 @@
 
                 <div class="mt-10">
                     <h2 class="text-2xl font-medium text-white mb-3 inline-block">Achievement</h2>
-                    <a href="/achievement" class="text-indigo-500 ml-41 text-xl underline">See more</a>
+                    <a href="/achievement" class="text-indigo-500 ml-29 text-xl underline">See more</a>
                 </div>
                 <div class="mt-2">
                     @foreach ($enrollment as $enroll)
@@ -94,7 +94,7 @@
                                         $photoshop = 2;
                                     }
                                     break;
-                            
+
                                 case 'Adobe Ilustrator':
                                     $Ilustrator = $Ilustrator + 1;
                                     if ($Ilustrator >= 2) {
@@ -107,11 +107,11 @@
                                         $Canva = 3;
                                     }
                                     break;
-                            
+
                                 default:
                                     break;
                             }
-                            
+
                         @endphp
                     @endforeach
 
@@ -165,7 +165,7 @@
 
         <div class="mt-3 ml-6 z-40 flex-initial mb-5">
             <h1 class="text-xl font-semibold text-gray-600">On-going course</h1>
-            <div class="grid grid-cols-4 gap-4 mt-10 mr-5 flex flex-wrap">
+            <div class="grid-cols-4 gap-4 mt-10 mr-5 flex flex-wrap">
                 {{-- @dd($enrollment) --}}
                 @php
                     $flag = 0;
@@ -182,7 +182,7 @@
                                 foreach ($temp as $t) {
                                     $temp2 = CourseStatus::where('coursedetail_id', '=', $t->id)->get();
                                     // @dd($temp2);
-                                
+
                                     foreach ($temp2 as $t2) {
                                         if ($t2->status == true) {
                                             $completed = $completed + 1;
@@ -227,9 +227,9 @@
         </div>
     </div>
 
-    <div class="mt-2 ml-128 z-40 flex-initial">
+    <div class="ml-125 z-40 flex-initial">
         <h1 class="text-xl font-semibold text-gray-700">Completed Course</h1>
-        <div class="grid grid-cols-4 gap-4 mt-10 mr-5 flex flex-wrap">
+        <div class="grid-cols-4 gap-4 mt-10 mr-5 flex flex-wrap">
             @php
                 $flag = 0;
             @endphp

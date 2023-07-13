@@ -8,6 +8,8 @@ module.exports = {
     theme: {
         extend: {
             margin: {
+                '29': '7.25rem',
+                '125': '31.40rem',
                 '128': '34.50rem',
                 '130': '46rem',
                 '150': '55rem',
