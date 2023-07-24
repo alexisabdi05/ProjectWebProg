@@ -15,6 +15,41 @@ One of the main features of this website is the color palette generator. You can
 
 ColorVerse - Unlock Your Creativity🚀✨
 
+## Our Team
+Introducing you to the team who have worked together to bring "ColorVerse" to life
+
+<p align="center" justify="center"> 
+<img width="230" height="180" src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/08178323-1dbc-454d-a21d-9dff3f65559b.png" alt="abdi"> </img> 
+<img width="230" height="180" src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/ab18b739-65ca-419a-a592-eb08bad10f9d.png" alt="amanda"> </img>
+<img width="230" height="180" src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/aaee93cd-2946-41c8-b679-2f80a8145d9c.png" alt="tata"> </img>
+<img width="230" height="180" src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/80b3151e-d4cf-43c3-9e5a-aa53ef3d35d6.png" alt="temi"> </img> </p>
+
+<div align="center">
+    
+| NIM       | Name                         |
+|-----------|------------------------------|
+| 2502040436| Abdi Nurhuda                 |
+| 2502041104| Amanda Ardianti              |
+| 2502040556| Natalia Margareth Karundeng  |
+| 2502040575| Tammy Visca Tjitra           |
+</div>
+
+## Technology Used
+<p align="center" justify="center"> 
+<img width="200" height="200" src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/4173f48d-c910-44d2-828c-fd5f067c8f8a.png" alt="laravel"> </img> 
+<img width="240" height="150" src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/6325d0d8-40df-49a4-8a54-c44174e423e8.png" alt="tailwind"> </img>
+<img width="240" height="200" src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/3d38916a-4cd9-4d00-86a0-68d47b021eaa.png" alt="mysql"> </img>
+<img width="250" height="200" src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/7a608dfc-894a-437d-bd4f-2182c16aecdc.png" alt="python"> </img> </p>
+<br>
+<h3 align="center"> LARAVEL  |  TAILWIND  |  MYSQL  |  PYTHON  |  FLASK  |  SOCIOLITE  </h3>
+<br>
+<p align="center" justify="center"> 
+<img width="400" height="200" src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/82784123-b1d5-4fbb-83cd-4e4ac515e3ab.png" alt="flask"> </img>
+<img width="400" height="200" src="https://github.com/alexisabdi05/ProjectWebProg/assets/67302201/3f6bff3d-1c7c-4f20-b91a-a493cd565c2c.png" alt="sociolite"> </img>
+</p>
+
+<h1 align="center"> DOCUMENTATION </h1>
+
 ## Login & Registration
 You will be directed right to this "Sign-in" page after accessing this page
 <p align="center"> <img src="https://github.com/Nataliakrndng/profile-sl/assets/67302201/bbd677e6-5834-416f-8ea1-baf784630ba5.png" alt="signin"> </img> </p>
